@@ -2,13 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login PageL</title>
+    <link rel="stylesheet" href="login-in.css">
+    <title>Login Page</title>
 </head>
 <body>
-    <form action="">
-        
-    </form>
+    <div class = "pictures">
+        <div id = "title">
+            <img src = "dlsu-food.png">
+        </div>
+        <div id = "mascot">
+            <img src = "mascot.png">
+        </div>
+    </div>
+    <div class="login-container">
+        <h2>ready for good food recs? log in here pare</h2>
+        <form action="login.php" method="post">
+            <input type="text" name="username" placeholder="username" required>
+            <input type="password" name="password" placeholder="password" required>
+            <button type="submit">log in</button>
+        </form>
+        <p>don't have an account? <a href="register.html">register</a></p>
+        <p>or visit as a <a href="guest.html">guest</a></p>
+    </div>
 </body>
 </html>
