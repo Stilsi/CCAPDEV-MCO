@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=IBM+Plex+Sans+KR:wght@700&display=swap');
+
+body{
+    font-family: Montserrat;
+    background-image: url("background.png");
+    font-size: 16px;
+}
+
+/*navigation*/
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  #title img {
+    width: 100px;
+
+  }
+  
+  .navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
+    width: 100%;
+  }
+  
+  .navbar .nav-item {
+    padding: 10px 15px;
+  }
+  
+  .navbar .nav-item a {
+    text-decoration: none;
+    color: #263a29;
+  }
+  
+  .navbar .nav-item:hover {
+    font-weight: 700;
+  }
+
+/*content box*/
+
+.good-food{
+    display: flex;
+    flex-direction: row;
+    padding-left: 15%;
+    padding-right: 15%;
+    align-items: center;
+}
+
+.good-food-text{
+  color:#263a29;
+  flex: 1;
+  padding-right: 10%;
+}
+
+.good-food-text p{
+  padding-bottom: 10px;
+}
+
+.good-food-text h1{
+    font-family: 'Caprasimo';
+    font-size: 30px;
+}
+
+.good-food img {
+  max-width: 300px;
+  height: auto;
+  display: block; 
+  margin: 0 auto; 
+}
+
+.content {
+  background-image: url("content-bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 100%;
+  margin: 30px auto;
+  
+  text-align: center;
+}
+
+.content h1{
+  font-family: 'Caprasimo';
+  padding-top: 100px;
+  color:#263a29
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+#search-input {
+    font-family: Montserrat;
+    padding: 10px;
+    font-size: 16px;
+    margin: 0;
+    width: 950px;
+    border: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#search-button {
+    font-family: Montserrat;
+    font-weight: 800;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #41644a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+#search-button:hover {
+    background-color: #263a29;
+}
+
+.icon-container {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .icon {
+    text-align: center;
+  }
+  
+  .icon img {
+    width: 300px;
+  }
+  
+  .icon-text {
+    margin-top: 5px;
+    text-align: center;
+    color: #41644a;
+  }
+
+  .icon {
+    position: relative;
+  }
+  
+  .icon-default {
+    display: block;
+  }
+  
+  .icon-hover {
+    display: none;
+  }
+  
+  .icon:hover .icon-default {
+    display: none;
+  }
+  
+  .icon:hover .icon-hover {
+    display: block;
+  }
+
+.icon-text:hover {
+    color: #263a29;
+    font-weight: bold;
+}
+
+/*reviews*/
+
+.recent-activity{
+  text-align: center;
+  padding: 20px;
+  font-family: Caprasimo;
+  color: #263a29;
+}
+
+.reviews {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blurb {
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+  
