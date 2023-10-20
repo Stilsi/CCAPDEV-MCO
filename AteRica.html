@@ -9,7 +9,7 @@
 	
 </head>
 <body>
-    
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container" alt="navbar">
             <a class="navbar-brand" href="#">DLSU Food</a>
@@ -23,6 +23,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gallery</a>
                     </li>
                 </ul>
             </div>
@@ -49,6 +52,7 @@
         </div>
     </div>
 
+    <!-- Reviews Section -->
     <div class="container my-4" alt="reviews">
         <h2>Customer Reviews</h2>
         <div class="row">
@@ -57,10 +61,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Good food!</h5>
                         <p class="card-text" >"Great food and excellent service!"</p>
-			<p class="recommendation">Recommendation: Recommended</p>
-			<button class="edit"  onclick="editReview(this)">Edit</button><br></br>
-			<button class="delete"  onclick="deleteReview(this)">Delete</button><br></br>
-			<button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
+						<p class="recommendation">Recommendation: Recommended</p>
+						<button class="edit"  onclick="editReview(this)">Edit</button><br></br>
+						<button class="delete"  onclick="deleteReview(this)">Delete</button><br></br>
+						<button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
                         <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
                         <p class="helpful-count">Helpful: 0</p><br></br>
                         <p class="unhelpful-count">Unhelpful: 0</p><br></br>
@@ -72,10 +76,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Highly recommended!</h5>
                         <p class="card-text">"I highly recommend this place!"</p>
-			<p class="recommendation">Recommendation: Recommended</p>
-			<button class="edit"  onclick="editReview(this)">Edit</button><br></br>
-			<button class="delete"  onclick="deleteReview(this)">Delete</button><br></br>
-			<button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
+						<p class="recommendation">Recommendation: Recommended</p>
+						<button class="edit"  onclick="editReview(this)">Edit</button><br></br>
+						<button class="delete"  onclick="deleteReview(this)">Delete</button><br></br>
+						<button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
                         <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
                         <p class="helpful-count">Helpful: 0</p><br></br>
                         <p class="unhelpful-count">Unhelpful: 0</p><br></br>
@@ -142,6 +146,8 @@
 	
 }
 
+
+
 		
 	
 	document.getElementById("review-form").addEventListener("submit", function (event) {
@@ -159,7 +165,11 @@
     let imageUrl = '';
 
     if (uploadedFile) {
-       
+        // Assuming you have a server to handle file uploads, you can send the file to the server here
+        // and get the URL of the uploaded file in response.
+        // For simplicity, we're assuming that the file URL is obtained directly.
+
+        // In this example, we're just using a placeholder image URL.
         imageUrl = 'placeholder_image.jpg';
     }
 
@@ -196,40 +206,64 @@
 			updateRecommendationCount(recommendation);
         });
 		
+		
+		
 
-
+function disableButton(button) {
+            button.disabled = true;
+        }
 
 
         function deleteReview(button) {
-    
+            // Change the button text to "Review deleted"
+					  if (!button.disabled) {
             const cardText = button.parentElement.querySelector(".card-text");
             cardText.textContent = "Review deleted";
+			disableButton(button);
+			}
         }
 		
 		function editReview(button) {
-      
+            // Change the button text to "Review deleted"
+	 if (!button.disabled) {
            const cardText = button.parentElement.querySelector(".card-text");
             cardText.textContent = "Review edited";
+			const editButton = button.parentElement.querySelector(".edit");
+                const helpfulButton = button.parentElement.querySelector(".helpful");
+                const unhelpfulButton = button.parentElement.querySelector(".unhelpful");
+			disableButton(button);
+			disableButton(editButton);
+			disableButton(helpfulButton);
+			disableButton(unhelpfulButton);
+			
         }
 		
 		 function markHelpful(button) {
-
-            const helpfulCount = button.parentElement.querySelector(".helpful-count");
-            let count = parseInt(helpfulCount.textContent.split(":")[1]);
-            count++;
-            helpfulCount.textContent = `Helpful: ${count}`;
+             if (!button.disabled) {
+                const helpfulCount = button.parentElement.querySelector(".helpful-count");
+                let count = parseInt(helpfulCount.textContent.split(":")[1]);
+                count++;
+                helpfulCount.textContent = `Helpful: ${count}`;
+                disableButton(button);
+				 const unhelpfulButton = button.parentElement.querySelector(".unhelpful");
+                disableButton(unhelpfulButton); 
+            }
         }
 
         function markUnhelpful(button) {
-
-            const unhelpfulCount = button.parentElement.querySelector(".unhelpful-count");
-            let count = parseInt(unhelpfulCount.textContent.split(":")[1]);
-            count++;
-            unhelpfulCount.textContent = `Unhelpful: ${count}`;
+           if (!button.disabled) {
+                const unhelpfulCount = button.parentElement.querySelector(".unhelpful-count");
+                let count = parseInt(unhelpfulCount.textContent.split(":")[1]);
+                count++;
+                unhelpfulCount.textContent = `Unhelpful: ${count}`;
+                disableButton(button);
+				 const helpfulButton = button.parentElement.querySelector(".helpful");
+                disableButton(helpfulButton); 
+            }
         }
 		
 		document.addEventListener("DOMContentLoaded", function () {
-
+    // Initialize recommendation counts based on existing reviews
     updateCountsBasedOnExistingReviews();
 });
 
@@ -251,10 +285,10 @@ function updateCountsBasedOnExistingReviews() {
     document.getElementById("recommended-count").textContent = recommendedCount;
     document.getElementById("not-recommended-count").textContent = notRecommendedCount;
 }
+
+
 		
 		
     </script>
 </body>
 </html>
-
-           
