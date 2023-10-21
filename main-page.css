@@ -7,6 +7,32 @@ body{
     font-size: 16px;
 }
 
+/*connected to JS*/
+
+#more
+{
+  display: none;
+}
+
+/*blurbs read more btn*/
+
+#myBtn {
+  background-color: #41644a;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 800;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color 0.3s; /* Add a transition effect */
+}
+
+#myBtn:hover {
+  background-color: #263a29;
+}
+
 /*navigation*/
 
 .navbar {
@@ -207,14 +233,59 @@ body{
 
 .blurb {
   text-align: center;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
 }
 
-h2 {
-  font-size: 1.5rem;
+.blurb .user-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
 }
 
-p {
-  font-size: 1rem;
+.blurb .user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.blurb .username {
+  font-weight: bold;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 250px;
+  margin: 30px;
+}
+
+
+
+.blurb p {
+  font-size: 14px;
+}
+
+.blurb h2 {
+  padding-top: 80px;
+  color: #e86a33;
+}
+
+.location-blurb{
+  margin-top: 80%;
+  font-size: 10px;
+  font-weight: 800;
+  color: #41644a;
 }
 
   

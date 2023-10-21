@@ -7,28 +7,7 @@
     
     <title>DLSU Food Recs</title>
     <link rel="stylesheet" href="main-page.css">
-
-    <script>
-      window.addEventListener("scroll", function () {
-        var navbar = document.querySelector(".navbar");
-        var scrollY = window.scrollY;
-        var navLinks = document.querySelectorAll(".navbar .nav-item a");
-    
-        if (scrollY > 100) {
-          navbar.style.backgroundColor = "#263a29";
-          navbar.style.transition = "background-color 0.3s"; // Add a transition for background color
-          navLinks.forEach(function (link) {
-            link.style.color = "#f2e3db";
-            link.style.transition = "color 0.3s"; // Add a transition for text color
-          });
-        } else {
-          navbar.style.backgroundColor = "transparent";
-          navLinks.forEach(function (link) {
-            link.style.color = "#263a29";
-          });
-        }
-      });
-    </script>
+    <script src="main-page.js"></script>
     
   </head>
   <body>
@@ -112,48 +91,82 @@
 </div>
 
   <div class="reviews">
-    <div class="column">
-      <div class="blurb">
-        <h2>Column 1</h2>
-        <p>Blurb text for column 1.</p>
-      </div>
-    </div>
-    <div class="column">
-      <div class="blurb">
-        <h2>Column 2</h2>
-        <p>Blurb text for column 2.</p>
-      </div>
-    </div>
-    <div class="column">
-      <div class="blurb">
-        <h2>Column 3</h2>
-        <p>Blurb text for column 3.</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="reviews">
-    <div class="column">
-      <div class="blurb">
-        <h2>Column 1</h2>
-        <p>Blurb text for column 1.</p>
-      </div>
-    </div>
-    <div class="column">
-      <div class="blurb">
-        <h2>Column 2</h2>
-        <p>Blurb text for column 2.</p>
-      </div>
-    </div>
-    <div class="column">
-      <div class="blurb">
-        <h2>Column 3</h2>
-        <p>Blurb text for column 3.</p>
-      </div>
-    </div>
-  </div>
+    <!--review 1-->
 
+    <div class="column">
+      <div class="blurb">
+        <div class="user-info">
+          <img src="user-icon.jpg">
+          <span class="username">@jennierubyjane</span>
+        </div>
+        <div class = "review">
+          <h2>24 Chicken</h2>
+          <div class = "review-container">
+          <p>I had the worst dining experience ever at this restaurant. The service was abysmal; it took forever to get a menu,
+            and our order was messed up multiple times.
+            The staff seemed disinterested and unprofessional. The ambiance was
+            equally disappointing the place was dimly lit and had an unpleasant odor. When our food finally arrived, it was cold, and 
+            the presentation was lackluster. To top it off, the prices were exorbitant for the quality we received.
+            I won't be coming back.
+          </p>
+          </div>
+        </div>
 
+        <p>
+          <span class = "location-blurb">Agno Street</span>
+        </p>
+      </div>
+    </div>
+
+    <!--review 2-->
+  
+    <div class="column">
+      <div class="blurb">
+        <div class="user-info">
+          <img src="user-icon2.jpg">
+          <span class="username">@roses_are_rosie</span>
+        </div>
+        <h2>Kanto Freestyle</h2>
+        
+        <div class = "review-container">
+        <p>This restaurant was a letdown. While the service was decent, the food left much to be 
+          desired. I ordered their signature dish, and it was bland and overcooked. The portion 
+          size was small for the price, making it a poor value. The ambiance was pleasant, but the
+          noise level was quite high, making it hard to have a conversation. The dessert we
+          ordered wasn't any better, and I expected more from a place with such a reputation. I
+          might give it another chance, but I'm not sure I'd recommend it to a friend.
+        </p>
+        </div>
+
+        <p>
+          <span class = "location-blurb">Leon Guinto Street</span>
+        </p>
+      </div>
+    </div>
+
+    <!--review 3-->
+  
+    <div class="column">
+      <div class="blurb">
+        <div class="user-info">
+          <img src="user-icon3.jpg">
+          <span class="username">@lalalalisa_m</span>
+        </div>
+        <h2>Gang Gang Chicken</h2>
+        <div class = "review">
+          
+            <div class = "review-container">
+              <p>This restaurant is a true culinary delight. The service was exceptional,
+                with a friendly and knowledgeable staff that made us feel like VIPs.
+              </p>
+            </div>
+        </div>
+        <p>
+          <span class = "location-blurb">Taft Avenue</span>
+        </p>
+      </div>
+    </div>
 
   </body>
 </html>
