@@ -93,6 +93,11 @@ body{
   font-weight: 700;
 }
 
+.scrolled-bg {
+  background-color: #263a29;
+}
+
+
 /*content box*/
 
 .good-food{
