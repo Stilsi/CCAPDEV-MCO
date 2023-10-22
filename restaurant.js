@@ -1,5 +1,3 @@
-import 'bootstrap/dist/js/bootstrap.min.js';
-
 window.addEventListener("scroll", function () {
     var navbar = document.querySelector(".navbar");
     var scrollY = window.scrollY;
