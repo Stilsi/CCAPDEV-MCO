@@ -101,6 +101,7 @@ body{
     padding-left: 15%;
     padding-right: 15%;
     align-items: center;
+    align-items: stretch;
     
 }
 
@@ -109,7 +110,8 @@ body{
   flex: 1;
   padding-right: 10%;
   padding-left: 3%;
-
+ width: 100%;
+ height: auto;
   margin: 10px;
     padding: 20px;
     background-color: #f0f0f0;
@@ -121,6 +123,15 @@ body{
 .profile_text h1{
     font-family: 'Caprasimo';
     font-size: 30px;
+}
+
+
+#profile_text_header {
+    width: auto;
+    font-family: 'Caprasimo';
+    color:#ffffff;
+    font-size: 30px;
+    text-align: center;
 }
 
 .profile_pic{
@@ -167,6 +178,32 @@ body{
   margin: 0 auto; 
 }
 
+.profile_pic form {
+    display: flex;
+            flex-direction: column;
+            align-items: center;
+}
+
+.profile_pic label, input {
+    margin-top: 10px;
+}
+
+#input_username {
+    font-family: 'Caprasimo';
+    color:#ffffff;
+    font-size: 30px;
+    text-align: center;
+}
+
+.profile_pic input {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .stats{
     display: flex;
     flex-direction: row;
