@@ -35,3 +35,27 @@ window.addEventListener("scroll", function () {
     profileDropdownContent.style.backgroundColor = "#f1f1f1"; // Reset the background color
   }
 });
+
+function navigateToLoginPage() {
+  window.location.href = 'search-page.html';
+}
+
+function validateInput() {
+  var searchInput = document.getElementById("search-input");
+  var searchButton = document.getElementById("search-button");
+
+  if (searchInput.value.trim() !== "") {
+    searchButton.disabled = false; // Enable the button if the input has a value
+  } else {
+    searchButton.disabled = true; // Disable the button if the input is empty
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("search-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const searchBox = document.getElementById("search-box").value;
+    window.location.href = `search-page.html?query=${searchBox}`;
+  });
+});
+
