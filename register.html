@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login-in.css">
     <title>Register Page</title>
+
+    <script>
+        function navigateToLoginPage() {
+            // Replace 'your-login-page.html' with the actual URL of your login page.
+            window.location.href = 'login-page.html';
+        }
+    </script>
+    
 </head>
 <body>
     <div class = "pictures">
@@ -21,7 +29,7 @@
             <input type="text" name="email" placeholder="email" required>
             <input type="text" name="username" placeholder="username" required>
             <input type="password" name="password" placeholder="password" required>
-            <button type="submit">register</button>
+            <button type="button" onclick="navigateToLoginPage()">log in</button>
         </form>
         <p>have an account? <a href="login-page.html">login</a></p>
         <p>or visit as a <a href="main-page.html">guest</a></p>
