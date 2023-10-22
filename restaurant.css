@@ -196,8 +196,25 @@ background-color: #263a29;
 }
 
 .review-buttons button{
-  margin-bottom: 10px;
   background-color: #eebea4;
+  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.review-buttons button:hover{
+  background-color: #e86a33;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .card{
@@ -289,10 +306,6 @@ background-color: #263a29;
   font-family: Caprasimo;
 }
 
-#submit{
-  background-color: #263a29;
-}
-
 .comment{
   border-top: 1px solid #41644a;
 }
@@ -336,3 +349,28 @@ background-color: #263a29;
   outline: none;
 }
 
+.btn{
+  background-color: #41644a;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background-color: #263a29;
+  color: white;
+  text-decoration: none;
+}

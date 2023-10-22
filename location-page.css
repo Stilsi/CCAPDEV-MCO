@@ -296,9 +296,8 @@ background-color: #263a29;
 }
 
 .view {
-  background-color: #e86a33;
-  border: 1px solid #e86a33;
-  color: white;
+  background-color: #eebea4;
+  color: black;
   padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
@@ -317,6 +316,8 @@ background-color: #263a29;
 
 .view:hover {
   transform: translateY(-2px);
+  background-color: #e86a33;
+  color: white;
   text-decoration: none;
 }
 
