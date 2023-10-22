@@ -97,7 +97,8 @@ font-weight: 700;
 background-color: #263a29;
 }
 
-/* Location Title */
+/*header page*/
+
 .location-title {
   background-image: url("content-bg.png");
   background-size: cover;
@@ -148,7 +149,6 @@ background-color: #263a29;
   font-size: 16px;
   font-weight: 600;
   margin: 10px;
-  margin-bottom: 30px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
   text-align: center;
@@ -169,7 +169,7 @@ background-color: #263a29;
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .loc{
@@ -200,6 +200,7 @@ background-color: #263a29;
 }
 
 /* Establishment Card */
+
 .container {
   display: flex;
   flex-wrap: wrap;
