@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
         <title>Search Page | Hungry Archers</title>
+        <script src="nav-bar-search.js"></script>
         <link rel="stylesheet" href="location-page.css">
         <script src="location-page.js"></script>
         <script src="https://kit.fontawesome.com/62a1ef5fed.js" crossorigin="anonymous"></script>
@@ -17,7 +18,17 @@
 
     <div class="navbar">
       <nav>
-        <div class="nav-item"><a href="#">search</a></div>
+        <div class="nav-item">
+          <div class="dropdown">
+            <button class="dropbtn">search</button>
+            <div class="dropdown-content">
+              <form id="search-form">
+                <input type="text" id="search-box" placeholder="Search...">
+                <button type="submit">go</button>
+              </form>
+            </div>                       
+          </div>
+        </div>
         <div class="nav-item">
           <div class="dropdown">
             <a class="dropbtn" href="location-page.html">locations</a>
@@ -29,7 +40,7 @@
           </div>
         </div>
         <div class="nav-item" id="title">
-          <a href="#"><img src="dlsu-food.png"></a>
+          <a href="main-page.html"><img src="dlsu-food.png"></a>
         </div>
         <div class="nav-item">
           <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
