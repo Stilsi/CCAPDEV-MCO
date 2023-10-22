@@ -408,9 +408,6 @@ form button:hover {
   align-items: center;
   width: 50%;
   height: auto;
-  margin-left: 50px;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 .column {
   flex: 1;
