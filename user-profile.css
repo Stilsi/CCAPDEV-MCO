@@ -7,6 +7,10 @@ body{
     font-size: 16px;
 }
 
+.blurb a{
+  color:#263a29;
+}
+
 /*navigation*/
 
 .navbar {
