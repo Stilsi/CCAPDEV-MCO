@@ -125,7 +125,7 @@ background-color: #263a29;
   margin-bottom: 2rem;
 }
 
-.sort:active {
+.sort.active {
   background-color: #263a29;
 }
 
@@ -150,18 +150,21 @@ background-color: #263a29;
 
 .sort:hover {
   transform: translateY(-2px);
+  background-color: #263a29;
 }
 
 /* Establishment Card */
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 2.5fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   margin: 2rem;
 }
 
 .card {
+  width: 250px; /* Set a fixed width for the cards */
+  margin: 10px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
@@ -171,7 +174,7 @@ background-color: #263a29;
 }
 
 .card-logo {
-  background-color: black;
+  background-color: #263a29;
   background-size: cover;
   height: 150px;
   width: 150px;
@@ -190,7 +193,8 @@ background-color: #263a29;
   color: #263a29;
 }
 
-.card-location, .card-description {
+.card-location,
+.card-description {
   font-size: 15px;
   font-weight: 400;
   margin-bottom: 10px;
@@ -214,7 +218,8 @@ background-color: #263a29;
   font-weight: 500;
 }
 
-.recommend, .notrecommend {
+.recommend,
+.notrecommend {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -245,15 +250,14 @@ background-color: #263a29;
 }
 
 .view {
-  background-color: #263a29;
-  border: 1px solid #263a29;
+  background-color: #e86a33;
+  border: 1px solid #e86a33;
   color: white;
   padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
   cursor: pointer;
-  text-align: center;
   font-size: 15px;
   font-weight: 700;
   transform: translateY(0);
@@ -261,17 +265,18 @@ background-color: #263a29;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .view:hover {
   transform: translateY(-2px);
+  text-decoration: none;
 }
 
 /* Media Queries */
 @media (min-width: 2rem) {
   .view {
-      padding: 10px 20px;
+    padding: 10px 20px;
   }
 }
-
-
