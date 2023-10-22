@@ -217,6 +217,28 @@ background-color: #263a29;
   transform: translateY(-2px);
 }
 
+.comment-box button{
+  background-color: #eebea4;
+  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.comment-box button:hover{
+  background-color: #e86a33;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 .card{
   display: flex;
   flex-direction: row;
@@ -307,6 +329,8 @@ background-color: #263a29;
 }
 
 .comment{
+  display: flex;
+  flex-direction: column;
   border-top: 1px solid #41644a;
 }
 .comment .user-info {
@@ -340,6 +364,13 @@ background-color: #263a29;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.text-input{
+  width: 100%;
+  border: none;
+  resize: none;
+  outline: none;
 }
 
 #text-input {

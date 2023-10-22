@@ -214,3 +214,62 @@ function editReview(button) {
 
   card.querySelector(".review-buttons").appendChild(saveButton);
 }
+
+// JavaScript to create and manage comments
+document.addEventListener("DOMContentLoaded", function () {
+  // Find all the comment boxes
+  const commentBoxes = document.querySelectorAll(".comment-box");
+
+  // Add event listeners to each comment box
+  commentBoxes.forEach(function (commentBox) {
+      const addCommentButton = commentBox.querySelector(".add-comment");
+      const textArea = commentBox.querySelector(".text-input");
+      const commentsContainer = commentBox.querySelector(".comments");
+
+      addCommentButton.addEventListener("click", function () {
+          addComment(textArea, commentsContainer);
+      });
+
+      textArea.addEventListener("keypress", function (e) {
+          if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              addComment(textArea, commentsContainer);
+          }
+      });
+  });
+});
+
+function addComment(textArea, commentsContainer) {
+  const commentText = textArea.value;
+  if (commentText.trim() !== "") {
+      const comment = document.createElement("div");
+      comment.className = "comment";
+
+      const userImageContainer = document.createElement("div");
+      userImageContainer.className = "user-info";
+
+      const userImage = document.createElement("img");
+      userImage.src = "user-icon.jpg";
+
+      const username = document.createElement("span");
+      username.className = "username";
+      username.textContent = "@jennierubyjane"; // Replace with the actual username
+
+      const commentTextElement = document.createElement("p");
+      commentTextElement.textContent = commentText;
+
+      userImageContainer.appendChild(userImage);
+      userImageContainer.appendChild(username);
+
+      comment.appendChild(userImageContainer);
+      comment.appendChild(commentTextElement);
+
+      // Append the comment to the comments container
+      commentsContainer.appendChild(comment);
+
+      // Clear the comment box
+      textArea.value = "";
+  }
+}
+
+
