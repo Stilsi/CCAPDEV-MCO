@@ -458,3 +458,10 @@ form button:hover {
   text-align: center;
 }
 
+.resto{
+  text-decoration: none;
+}
+
+.resto:hover{
+  color: #41644a;
+}
