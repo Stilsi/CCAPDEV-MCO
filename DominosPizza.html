@@ -10,19 +10,18 @@
     <script src = "restaurant.js"></script>
 </head>
 <body>
-       <!--navigation bar-->
+                  <!--navigation bar-->
 
-
-       <div class="navbar">
+    <div class="navbar">
         <nav>
           <div class="nav-item"><a href="#">search</a></div>
           <div class="nav-item">
             <div class="dropdown">
               <button class="dropbtn">locations</button>
               <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <a href="#">Agno Street</a>
+                <a href="#">Taft Avenue</a>
+                <a href="#">Leon Guinto</a>
               </div>
             </div>
           </div>
@@ -30,12 +29,12 @@
             <a href="#"><img src="dlsu-food.png"></a>
           </div>
           <div class="nav-item">
-            <div class="dropdown">
+            <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
               <button class="dropbtn">profile</button>
               <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <a href="user-profile.html">user profile</a>
+                <a href="login-page.html">logout</a>
+                <a href="register.html">register</a>
               </div>
             </div>
           </div>
@@ -83,9 +82,6 @@
 				The food was mediocre at best, and my order was incorrect. I expected a lot more considering the prices they charge. 
 				The atmosphere was uninspiring and felt dated. To make matters worse, the restrooms were in dire need of cleaning. 
 				I left with a sense of regret and won't be returning."</p>
-                            <div class = "review-pic">
-                                <img src = "reviewpic-ricas.jpg">
-                            </div>
                             <p><spans id = "recommendation">thoughts: Not Recommended</spans></p>
                             <div class="review-buttons">
                                 <button class="edit" onclick="editReview(this)">Edit</button>
@@ -94,6 +90,9 @@
                             <div class = "count">
                                 <p>Helpful: 0</p>
                                 <p>Unhelpful: 0</p>
+                            </div>
+                            <div class="comment-box">
+                                <textarea id="text-input" placeholder="comment..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -106,7 +105,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="user-info">
-                            <img src = "user-icon.jpg">
+                            <img src = "user-icon4.jpg">
                             <span class="username">@sooyaa_</span>
                           </div>
                         <div>
@@ -119,44 +118,36 @@
 				I can't praise this place enough; it's a hidden gem that I can't wait to revisit."</p>
                             <p><spans id = "recommendation">thoughts: Recommended</spans></p>
                             <div class="review-buttons">
-                                <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
-                        <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
+                                <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button>
+                                <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button>
                             </div>
                             <div class = "count">
                                 <p>Helpful: 0</p>
                                 <p>Unhelpful: 0</p>
                             </div>
+                            <div class="comment-box">
+                                    <textarea id="text-input" placeholder="comment..."></textarea>
+                            </div>
+                        </div>
+                        <div class = "comment">
+                            <div class="user-info">
+                                <img src = "user-icon3.jpg">
+                                <span class="username">@lalalalisa_m</span>
+                              </div>
+                            <!--comment-->
+                            <p>omg need ko na pumunta!</p>
+                        </div>
+                        <div class = "comment">
+                            <div class="user-info">
+                                <img src = "user-icon.jpg">
+                                <span class="username">@jennierubyjane</span>
+                              </div>
+                            <!--comment-->
+                            <p>Di naman daw masarap lol. Fake news</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end of review 2-->
-            
-            <!--review 3--
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="user-info">
-                            <img src = "user-icon.jpg">
-                            <span class="username">@jennierubyjane</span>
-                          </div>
-                        <div>
-                            <h5>Highly recommended!</h5>
-                            <p>"I highly recommend this place!"</p>
-                            <p><spans id = "recommendation">thoughts: Recommended</spans></p>
-                            <div class="review-buttons">
-                                <button class="edit" onclick="editReview(this)">Edit</button>
-                                <button class="delete" onclick="deleteReview(this)">Delete</button>
-                            </div>
-                            <div class = "count">
-                                <p>Helpful: 0</p>
-                                <p>Unhelpful: 0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end of review 3-->
 
         </div>
     </div>

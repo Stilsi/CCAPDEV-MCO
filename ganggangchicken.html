@@ -10,38 +10,37 @@
     <script src = "restaurant.js"></script>
 </head>
 <body>
-       <!--navigation bar-->
+        <!--navigation bar-->
 
-
-       <div class="navbar">
+        <div class="navbar">
         <nav>
-          <div class="nav-item"><a href="#">search</a></div>
-          <div class="nav-item">
+            <div class="nav-item"><a href="#">search</a></div>
+            <div class="nav-item">
             <div class="dropdown">
-              <button class="dropbtn">locations</button>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-              </div>
+                <button class="dropbtn">locations</button>
+                <div class="dropdown-content">
+                <a href="#">Agno Street</a>
+                <a href="#">Taft Avenue</a>
+                <a href="#">Leon Guinto</a>
+                </div>
             </div>
-          </div>
-          <div class="nav-item" id="title">
+            </div>
+            <div class="nav-item" id="title">
             <a href="#"><img src="dlsu-food.png"></a>
-          </div>
-          <div class="nav-item">
-            <div class="dropdown">
-              <button class="dropbtn">profile</button>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-              </div>
             </div>
-          </div>
-          <div class="nav-item"><a href="#">developers</a></div>
+            <div class="nav-item">
+            <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+                <button class="dropbtn">profile</button>
+                <div class="dropdown-content">
+                <a href="user-profile.html">user profile</a>
+                <a href="login-page.html">logout</a>
+                <a href="register.html">register</a>
+                </div>
+            </div>
+            </div>
+            <div class="nav-item"><a href="#">developers</a></div>
         </nav>
-      </div>
+        </div>
 
     <!-- Restaurant Details -->
     <div class="container my-4" alt="about">
@@ -73,24 +72,24 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="user-info">
-                            <img src = "user-icon.jpg">
+                            <img src = "user-icon3.jpg">
                             <span class="username">@lalalalisa_m</span>
                           </div>
                         <div>
                             <h5>Culinary delight!</h5>
                             <p>"This restaurant is a true culinary delight. 
 				The service was exceptional, with a friendly and knowledgeable staff that made us feel like VIPs."</p>
-                            <div class = "review-pic">
-                                <img src = "reviewpic-ricas.jpg">
-                            </div>
                             <p><spans id = "recommendation">thoughts: Recommended</spans></p>
                             <div class="review-buttons">
-                              <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
-                        <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
+                              <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button>
+                        <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button>
                             </div>
                             <div class = "count">
                                 <p>Helpful: 0</p>
                                 <p>Unhelpful: 0</p>
+                            </div>
+                            <div class="comment-box">
+                                <textarea id="text-input" placeholder="comment..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -124,13 +123,16 @@
                                 <p>Helpful: 0</p>
                                 <p>Unhelpful: 0</p>
                             </div>
+                            <div class="comment-box">
+                                <textarea id="text-input" placeholder="comment..."></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!--end of review 2-->
             
-            <!--review 3--
+            <!--review 3-->
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
@@ -149,6 +151,9 @@
                             <div class = "count">
                                 <p>Helpful: 0</p>
                                 <p>Unhelpful: 0</p>
+                            </div>
+                            <div class="comment-box">
+                                <textarea id="text-input" placeholder="comment..."></textarea>
                             </div>
                         </div>
                     </div>
