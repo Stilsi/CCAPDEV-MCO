@@ -6,7 +6,9 @@ body{
     background-image: url("background.png");
     font-size: 16px;
 }
-
+.blurb a{
+  color:#263a29;
+}
 /*navigation*/
 
 .navbar {
@@ -386,4 +388,11 @@ body{
   font-weight: 300px;
   text-decoration: none;
   display: inline-block;
+}
+.resto{
+  text-decoration: none;
+}
+
+.resto:hover{
+  color: #41644a;
 }
