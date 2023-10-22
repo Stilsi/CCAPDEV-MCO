@@ -38,19 +38,12 @@ window.addEventListener("scroll", function () {
   
 
 function sortCards(sortType) {
-    // Get all sorting buttons
     const buttons = document.querySelectorAll('.sort');
-  
-    // Loop through all buttons and remove the 'active' class
+
     buttons.forEach((button) => {
-      button.classList.remove('active');
+        button.classList.remove('active');
     });
-  
-    // Add the 'active' class to the clicked button
+
     document.getElementById(`sort-${sortType}`).classList.add('active');
-  
-    // Now you can implement your sorting logic here based on the 'sortType'
-    // For example, you can sort the cards based on the selected criteria.
-    // Implement your sorting logic here.
-  }
+}
   
