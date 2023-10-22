@@ -246,6 +246,10 @@ background-color: #263a29;
   margin-bottom: 20px;
 }
 
+.card-body .user-info a{
+  text-decoration: none;
+}
+
 .card-body .user-info img {
   width: 40px;
   height: 40px;
@@ -254,6 +258,8 @@ background-color: #263a29;
 }
 
 .card-body .username {
+  color:#263a29;
+  text-decoration: none;
   font-weight: bold;
 }
 

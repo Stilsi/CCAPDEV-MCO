@@ -10,37 +10,38 @@
     <script src = "restaurant.js"></script>
 </head>
 <body>
-        <!--navigation bar-->
+    <!--navigation bar-->
 
-        <div class="navbar">
+    <div class="navbar">
         <nav>
-            <div class="nav-item"><a href="#">search</a></div>
-            <div class="nav-item">
+          <div class="nav-item"><a href="#">search</a></div>
+          <div class="nav-item">
             <div class="dropdown">
-                <button class="dropbtn">locations</button>
-                <div class="dropdown-content">
-                <a href="#">Agno Street</a>
-                <a href="#">Taft Avenue</a>
-                <a href="#">Leon Guinto</a>
-                </div>
+              <button class="dropbtn">locations</button>
+              <div class="dropdown-content">
+                <a href="location-page.html">Establishments</a>
+                <a href="location-page-agno.html">Agno Street</a>
+                <a href="location-page-taft.html">Taft Avenue</a>
+                <a href="location-page-leonguinto.html">Leon Guinto</a>
+              </div>
             </div>
-            </div>
-            <div class="nav-item" id="title">
-            <a href="#"><img src="dlsu-food.png"></a>
-            </div>
-            <div class="nav-item">
-            <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
-                <button class="dropbtn">profile</button>
-                <div class="dropdown-content">
+          </div>
+          <div class="nav-item" id="title">
+            <a href="main-page.html"><img src="dlsu-food.png"></a>
+          </div>
+          <div class="nav-item">
+            <div class="dropdown" id="profile-dropdown">
+              <button class="dropbtn">profile</button>
+              <div class="dropdown-content">
                 <a href="user-profile.html">user profile</a>
                 <a href="login-page.html">logout</a>
                 <a href="register.html">register</a>
-                </div>
+              </div>
             </div>
-            </div>
-            <div class="nav-item"><a href="#">developers</a></div>
+          </div>
+          <div class="nav-item"><a href="#">developers</a></div>
         </nav>
-        </div>
+      </div>
 
     <!-- Restaurant Details -->
     <div class="container my-4" alt="about">
@@ -71,10 +72,11 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="user-info">
+                        <div class="user-info"><a href = "user-profile3.html">
                             <img src = "user-icon3.jpg">
                             <span class="username">@lalalalisa_m</span>
-                          </div>
+                            </a>
+                        </div>
                         <div>
                             <h5>Culinary delight!</h5>
                             <p>"This restaurant is a true culinary delight. 
@@ -116,10 +118,11 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="user-info">
+                        <div class="user-info"><a href = "user-profile.html">
                             <img src = "user-icon.jpg">
                             <span class="username">@jennierubyjane</span>
-                          </div>
+                            </a>
+                        </div>
                         <div>
                             <h5>Fantastic!</h5>
                             <p>"I had a fantastic time at this restaurant. 
@@ -146,35 +149,6 @@
                 </div>
             </div>
             <!--end of review 2-->
-            
-            <!--review 3-->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="user-info">
-                            <img src = "user-icon.jpg">
-                            <span class="username">@jennierubyjane</span>
-                          </div>
-                        <div>
-                            <h5>Highly recommended!</h5>
-                            <p>"I highly recommend this place!"</p>
-                            <p><spans id = "recommendation">thoughts: Recommended</spans></p>
-                            <div class="review-buttons">
-                                <button class="edit" onclick="editReview(this)">Edit</button>
-                                <button class="delete" onclick="deleteReview(this)">Delete</button>
-                            </div>
-                            <div class = "count">
-                                <p>Helpful: 0</p>
-                                <p>Unhelpful: 0</p>
-                            </div>
-                            <div class="comment-box">
-                                <textarea id="text-input" placeholder="comment..."></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end of review 3-->
 
         </div>
     </div>
