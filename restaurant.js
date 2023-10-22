@@ -1,5 +1,3 @@
-import 'bootstrap/dist/js/bootstrap.min.js';
-
 window.addEventListener("scroll", function () {
     var navbar = document.querySelector(".navbar");
     var scrollY = window.scrollY;
@@ -110,6 +108,9 @@ function disableButton(button) {
                     if (!button.disabled) {
           const cardText = button.parentElement.querySelector(".card-text");
           cardText.textContent = "Review deleted";
+                         const editButton = button.parentElement.querySelector(".edit");
+              const helpfulButton = button.parentElement.querySelector(".helpful");
+              const unhelpfulButton = button.parentElement.querySelector(".unhelpful");
           disableButton(button);
          disableButton(editButton);
           disableButton(helpfulButton);
@@ -122,9 +123,7 @@ function disableButton(button) {
    if (!button.disabled) {
          const cardText = button.parentElement.querySelector(".card-text");
           cardText.textContent = "Review edited";
-          const editButton = button.parentElement.querySelector(".edit");
-              const helpfulButton = button.parentElement.querySelector(".helpful");
-              const unhelpfulButton = button.parentElement.querySelector(".unhelpful");
+         
           disableButton(button);
          
           

@@ -6,10 +6,11 @@
     <title>Restaurant Review Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="restaurant.css">
-    <script src="main-page.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src = "restaurant.js"></script>
 </head>
 <body>
-       <!--navigation bar-->
+       <!--navigation bar-->    
 
 
        <div class="navbar">
@@ -73,18 +74,24 @@
                     <div class="card-body">
                         <div class="user-info">
                             <img src = "user-icon.jpg">
-                            <span class="username">@jennierubyjane</span>
+                            <span class="username">@jennaissante</span>
                           </div>
                         <div>
-                            <h5>Highly recommended!</h5>
-                            <p>"I highly recommend this place!"</p>
+                            <h5>Wonderful time!</h5>
+                            <p>"I had a wonderful time at this restaurant. 
+				The service was attentive, and the food was delicious. 
+				The chef's creations were a delight, and the portion sizes were generous. 
+				The menu offered a variety of options, ensuring there was something for everyone in our group. 
+				The ambiance was modern and chic, creating a pleasant dining atmosphere.
+				The only minor hiccup was a short wait for a table, but the overall experience more than made up for it.
+				I would recommend this place to anyone looking for a great dining experience."</p>
                             <div class = "review-pic">
                                 <img src = "reviewpic-ricas.jpg">
                             </div>
-                            <p><spans id = "recommendation">thoughts: Recommended</spans></p>
+                            <p><spans id = "recommendation">thoughts: Not recommended</spans></p>
                             <div class="review-buttons">
-                                <button class="edit" onclick="editReview(this)">Edit</button>
-                                <button class="delete" onclick="deleteReview(this)">Delete</button>
+                              <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
+                        <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
                             </div>
                             <div class = "count">
                                 <p>Helpful: 0</p>
@@ -102,15 +109,21 @@
                     <div class="card-body">
                         <div class="user-info">
                             <img src = "user-icon.jpg">
-                            <span class="username">@jennierubyjane</span>
+                            <span class="username">@rosesarerosie</span>
                           </div>
                         <div>
-                            <h5>Highly recommended!</h5>
-                            <p>"I highly recommend this place!"</p>
+                            <h5>What a letdown!</h5>
+                            <p>"This restaurant was a letdown. 
+				While the service was decent, the food left much to be  desired. 
+				I ordered their signature dish, and it was bland and overcooked.
+				The portion size was small for the price, making it a poor value. 
+				The ambiance was pleasant, but the noise level was quite high, making it hard to have a conversation. 
+				The dessert we ordered wasn't any better, and I expected more from a place with such a reputation. 
+				I might give it another chance, but I'm not sure I'd recommend it to a friend."</p>
                             <p><spans id = "recommendation">thoughts: Recommended</spans></p>
                             <div class="review-buttons">
-                                <button class="edit" onclick="editReview(this)">Edit</button>
-                                <button class="delete" onclick="deleteReview(this)">Delete</button>
+                               <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
+                      	       <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
                             </div>
                             <div class = "count">
                                 <p>Helpful: 0</p>
@@ -122,7 +135,7 @@
             </div>
             <!--end of review 2-->
             
-            <!--review 3-->
+            <!--review 3--
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">

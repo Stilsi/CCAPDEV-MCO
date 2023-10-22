@@ -6,7 +6,8 @@
     <title>Restaurant Review Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="restaurant.css">
-    <script src="main-page.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src = "restaurant.js"></script>
 </head>
 <body>
        <!--navigation bar-->
@@ -73,18 +74,19 @@
                     <div class="card-body">
                         <div class="user-info">
                             <img src = "user-icon.jpg">
-                            <span class="username">@jennierubyjane</span>
+                            <span class="username">@lalalalisa_m</span>
                           </div>
                         <div>
-                            <h5>Highly recommended!</h5>
-                            <p>"I highly recommend this place!"</p>
+                            <h5>Culinary delight!</h5>
+                            <p>"This restaurant is a true culinary delight. 
+				The service was exceptional, with a friendly and knowledgeable staff that made us feel like VIPs."</p>
                             <div class = "review-pic">
                                 <img src = "reviewpic-ricas.jpg">
                             </div>
                             <p><spans id = "recommendation">thoughts: Recommended</spans></p>
                             <div class="review-buttons">
-                                <button class="edit" onclick="editReview(this)">Edit</button>
-                                <button class="delete" onclick="deleteReview(this)">Delete</button>
+                              <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
+                        <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
                             </div>
                             <div class = "count">
                                 <p>Helpful: 0</p>
@@ -105,8 +107,14 @@
                             <span class="username">@jennierubyjane</span>
                           </div>
                         <div>
-                            <h5>Highly recommended!</h5>
-                            <p>"I highly recommend this place!"</p>
+                            <h5>Fantastic!</h5>
+                            <p>"I had a fantastic time at this restaurant. 
+				The service was friendly and efficient, and the food was delectable. 
+				The chef's creations were a delight to the taste buds, and the portion sizes were just right. 
+				The menu was diverse, offering something for everyone, and the prices were reasonable for the quality. 
+				The ambiance was cozy and well-lit, creating a warm and inviting atmosphere. 
+				The only reason I didn't give it a perfect score was that it was quite busy, and we had to wait a bit for our table. 
+				Nevertheless, I highly recommend this place."</p>
                             <p><spans id = "recommendation">thoughts: Recommended</spans></p>
                             <div class="review-buttons">
                                 <button class="edit" onclick="editReview(this)">Edit</button>
@@ -122,7 +130,7 @@
             </div>
             <!--end of review 2-->
             
-            <!--review 3-->
+            <!--review 3--
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
