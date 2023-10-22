@@ -36,77 +36,117 @@ window.addEventListener("scroll", function () {
   }
 });
 
-  
+function markHelpful(button) {
+  console.log("Mark Helpful button clicked.");
+  const helpfulCount = button.parentElement.parentElement.querySelector(".helpful-count");
+  if (helpfulCount) {
+      let count = parseInt(helpfulCount.textContent.split(":")[1].trim());
+      count++;
+      helpfulCount.textContent = `Helpful: ${count}`;
+      disableButton(button);
 
-  
-  function updateRecommendationCount(recommendation) {
-  const recommendedCount = document.getElementById("recommended-count");
-  const notRecommendedCount = document.getElementById("not-recommended-count");
-
-  if (recommendation === "recommended") {
-      recommendedCount.textContent = parseInt(recommendedCount.textContent) + 1;
-  } else if (recommendation === "not-recommended") {
-      notRecommendedCount.textContent = parseInt(notRecommendedCount.textContent) + 1;
+      const unhelpfulButton = button.parentElement.parentElement.querySelector(".unhelpful");
+      disableButton(unhelpfulButton);
   }
-  
-  
 }
 
-  
-  document.getElementById("review-form").addEventListener("submit", function (event) {
-          event.preventDefault();
+function markUnhelpful(button) {
+  console.log("Mark Unhelpful button clicked.");
+  const unhelpfulCount = button.parentElement.parentElement.querySelector(".unhelpful-count");
+  if (unhelpfulCount) {
+      let count = parseInt(unhelpfulCount.textContent.split(":")[1].trim());
+      count++;
+      unhelpfulCount.textContent = `Unhelpful: ${count}`;
+      disableButton(button);
 
-          // Get the values from the form
-          const title = document.getElementById("review-title").value;
-          const body = document.getElementById("review-body").value;
-           const recommendation = document.getElementById("recommendation").value;
-           
-          
-
-             const fileInput = document.getElementById("file-upload");
-  const uploadedFile = fileInput.files[0];
-  let imageUrl = '';
-
-  if (uploadedFile) {
-    
-      imageUrl = 'placeholder_image.jpg';
+      const helpfulButton = button.parentElement.parentElement.querySelector(".helpful");
+      disableButton(helpfulButton);
   }
+}
 
-          
-          const newReviewCard = document.createElement("div");
-          newReviewCard.className = "col-md-4";
-          newReviewCard.innerHTML = `
-              <div class="card">
-                  <div class="card-body">
-                      <h5 class="card-title">${title}</h5>
-                      
-                      <p class="card-text">${body}</p>
-                       
-                      <p class="recommendation">Recommendation: ${recommendation}</p>
-                       ${imageUrl ? `<img src="${imageUrl}" alt="Uploaded Image">` : ''}
-                      <button class="edit" onclick="editReview(this)">Edit</button><br></br>
-                      <button class="delete" onclick="deleteReview(this)">Delete</button><br></br>
-                      <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button><br></br>
-                      <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button><br></br>
-                      <p class="helpful-count">Helpful: 0</p><br></br>
-                      <p class="unhelpful-count">Unhelpful: 0</p><br></br>
+// Call the updateCountsBasedOnExistingReviews function to update the counts
+document.addEventListener("DOMContentLoaded", function () {
+  updateCountsBasedOnExistingReviews();
+});
+
+// Define the updateCountsBasedOnExistingReviews function (remove any duplicate definitions)
+function updateCountsBasedOnExistingReviews() {
+  const recommendationElements = document.querySelectorAll(".recommendation");
+
+  let recommendedCount = 0;
+  let notRecommendedCount = 0;
+
+  recommendationElements.forEach(function (element) {
+      const recommendationText = element.textContent;
+      if (recommendationText.includes("Recommended")) {
+          recommendedCount++;
+      } else if (recommendationText.includes("Not Recommended")) {
+          notRecommendedCount++;
+      }
+  });
+
+  document.getElementById("recommended-count").textContent = recommendedCount;
+  document.getElementById("not-recommended-count").textContent = notRecommendedCount;
+}
+
+// JavaScript to create a new review post
+document.addEventListener("DOMContentLoaded", function () {
+  const reviewForm = document.getElementById("review-form");
+  const username = "@jennierubyjane";
+
+  reviewForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Get form input values
+      const reviewTitle = document.getElementById("review-title").value;
+      const reviewBody = document.getElementById("review-body").value;
+      const recommendation = document.getElementById("recommendationSelect").value;
+      const fileUpload = document.getElementById("file-upload").value;
+
+      // Create a new review post HTML structure
+      const newReviewPost = document.createElement("div");
+      newReviewPost.className = "col-md-4";
+      newReviewPost.innerHTML = `
+          <div class="card">
+              <div class="card-body">
+                  <div class="user-info">
+                      <img src="user-icon.jpg">
+                      <span class="username">${username}</span>
+                  </div>
+                  <div>
+                      <h5>${reviewTitle}</h5>
+                      <p>${reviewBody}</p>
+                      <div class = "review-pic">
+                        <img src = "${fileUpload}">
+                      </div>
+                      <p><span id="recommendation">thoughts: ${recommendation}</span></p>
+                      <div class="review-buttons">
+                          <button class="edit">Edit</button>
+                          <button class="delete">Delete</button>
+                      </div>
+                      <div class="count">
+                          <p>Helpful: 0</p>
+                          <p>Unhelpful: 0</p>
+                      </div>
+                      <div class="comment-box">
+                          <textarea id="text-input" placeholder="comment..."></textarea>
+                      </div>
                   </div>
               </div>
-          `;
+          </div>
+      `;
 
-          // Add the new review card to the reviews section
-          const reviewsSection = document.querySelector(".container[alt='reviews'] .row");
-          reviewsSection.appendChild(newReviewCard);
+      // Append the new review post to the container (assuming you have a container element)
+      const container = document.getElementById("reviews");
+      container.appendChild(newReviewPost);
 
-      
-          document.getElementById("review-title").value = "";
-          document.getElementById("review-body").value = "";
-          
-          updateRecommendationCount(recommendation);
-      });
-      
-      
-      
+      // Reset the form
+      reviewForm.reset();
+  });
+});
+
+
+
 
 function disableButton(button) {
           button.disabled = true;
@@ -140,51 +180,5 @@ function disableButton(button) {
       }
     }
       
-       function markHelpful(button) {
-           if (!button.disabled) {
-              const helpfulCount = button.parentElement.querySelector(".helpful-count");
-              let count = parseInt(helpfulCount.textContent.split(":")[1]);
-              count++;
-              helpfulCount.textContent = `Helpful: ${count}`;
-              disableButton(button);
-               const unhelpfulButton = button.parentElement.querySelector(".unhelpful");
-              disableButton(unhelpfulButton); 
-          }
-      }
 
-      function markUnhelpful(button) {
-         if (!button.disabled) {
-              const unhelpfulCount = button.parentElement.querySelector(".unhelpful-count");
-              let count = parseInt(unhelpfulCount.textContent.split(":")[1]);
-              count++;
-              unhelpfulCount.textContent = `Unhelpful: ${count}`;
-              disableButton(button);
-               const helpfulButton = button.parentElement.querySelector(".helpful");
-              disableButton(helpfulButton); 
-          }
-      }
-      
-      document.addEventListener("DOMContentLoaded", function () {
-
-  updateCountsBasedOnExistingReviews();
-});
-
-function updateCountsBasedOnExistingReviews() {
-  const recommendationElements = document.querySelectorAll(".recommendation");
-
-  let recommendedCount = 0;
-  let notRecommendedCount = 0;
-
-  recommendationElements.forEach(function (element) {
-      const recommendation = element.textContent.includes("Recommended") ? "recommended" : "not-recommended";
-      if (recommendation === "recommended") {
-          recommendedCount++;
-      } else {
-          notRecommendedCount++;
-      }
-  });
-
-  document.getElementById("recommended-count").textContent = recommendedCount;
-  document.getElementById("not-recommended-count").textContent = notRecommendedCount;
-}		
   
