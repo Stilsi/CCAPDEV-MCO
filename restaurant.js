@@ -160,3 +160,56 @@ function deleteReview(button) {
     card.remove(); // Remove the card element
   }
 }
+
+function editReview(button) {
+  console.log("Edit Review button clicked.");
+
+  const card = button.closest(".card");
+
+  const reviewTitle = card.querySelector("h5");
+  const reviewBody = card.querySelector("p");
+  const recommendation = card.querySelector("#recommendation");
+
+  const editTitleInput = document.createElement("input");
+  editTitleInput.setAttribute("type", "text");
+  editTitleInput.value = reviewTitle.textContent;
+
+  const editBodyInput = document.createElement("textarea");
+  editBodyInput.value = reviewBody.textContent;
+
+  const editRecommendationSelect = document.createElement("select");
+  editRecommendationSelect.innerHTML = `
+    <option value="recommended">Recommended</option>
+    <option value="not-recommended">Not Recommended</option>
+  `;
+  editRecommendationSelect.value = recommendation.textContent.includes("Recommended") ? "recommended" : "not-recommended";
+
+  reviewTitle.replaceWith(editTitleInput);
+  reviewBody.replaceWith(editBodyInput);
+  recommendation.replaceWith(editRecommendationSelect);
+
+  const editButton = card.querySelector(".edit");
+  const deleteButton = card.querySelector(".delete");
+  editButton.style.display = "none";
+  deleteButton.style.display = "none";
+
+  const saveButton = document.createElement("button");
+  saveButton.textContent = "Save";
+  saveButton.className = "save";
+  saveButton.onclick = function () {
+
+    editTitleInput.replaceWith(reviewTitle);
+    editBodyInput.replaceWith(reviewBody);
+    editRecommendationSelect.replaceWith(recommendation);
+
+    reviewTitle.textContent = editTitleInput.value;
+    reviewBody.textContent = editBodyInput.value;
+    recommendation.textContent = `thoughts: ${editRecommendationSelect.value}`;
+
+    editButton.style.display = "inline-block";
+    deleteButton.style.display = "inline-block";
+    saveButton.remove();
+  };
+
+  card.querySelector(".review-buttons").appendChild(saveButton);
+}

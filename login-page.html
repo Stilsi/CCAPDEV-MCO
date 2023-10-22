@@ -7,20 +7,25 @@
     <title>Login Page</title>
 
     <script>
-        function navigateToLoginPage() {
-    // Replace 'your-login-page.html' with the actual URL of your login page.
-    window.location.href = 'main-page.html';
-    }
+        function loginAndRedirect() {
+            var username = document.querySelector('input[name="username"]').value;
+            var password = document.querySelector('input[name="password"]').value;
+            
+            if (username && password) {
+                window.location.href = 'main-page.html';
+            } else {
+                alert("Please fill in both username and password.");
+            }
+        }
     </script>
-    
 </head>
 <body>
-    <div class = "pictures">
-        <div id = "title">
-            <img src = "dlsu-food.png">
+    <div class="pictures">
+        <div id="title">
+            <img src="dlsu-food.png">
         </div>
-        <div id = "mascot">
-            <img src = "mascot.png">
+        <div id="mascot">
+            <img src="mascot.png">
         </div>
     </div>
     <div class="login-container">
@@ -28,7 +33,7 @@
         <form action="login.php" method="post">
             <input type="text" name="username" placeholder="username" required>
             <input type="password" name="password" placeholder="password" required>
-            <button type="button" onclick="navigateToLoginPage()">log in</button>
+            <button type="button" onclick="loginAndRedirect()">log in</button>
         </form>
         <p>don't have an account? <a href="register.html">register</a></p>
         <p>or visit as a <a href="main-page.html">guest</a></p>
