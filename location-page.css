@@ -97,7 +97,8 @@ font-weight: 700;
 background-color: #263a29;
 }
 
-/* Location Title */
+/*header page*/
+
 .location-title {
   background-image: url("content-bg.png");
   background-size: cover;
@@ -199,6 +200,7 @@ background-color: #263a29;
 }
 
 /* Establishment Card */
+
 .container {
   display: flex;
   flex-wrap: wrap;
