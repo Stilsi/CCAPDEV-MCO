@@ -202,7 +202,12 @@ body{
   .icon img {
     width: 300px;
   }
-  
+
+  .icon a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .icon-text {
     margin-top: 5px;
     text-align: center;
