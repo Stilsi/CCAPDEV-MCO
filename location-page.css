@@ -163,7 +163,7 @@ background-color: #263a29;
 }
 
 .card {
-  flex: 1;
+  width: 250px; /* Set a fixed width for the cards */
   margin: 10px;
   background: white;
   border-radius: 10px;
@@ -171,7 +171,6 @@ background-color: #263a29;
   padding: 25px;
   text-align: center;
   margin-top: 1rem;
-  max-width: 400px;
 }
 
 .card-logo {
@@ -194,7 +193,8 @@ background-color: #263a29;
   color: #263a29;
 }
 
-.card-location, .card-description {
+.card-location,
+.card-description {
   font-size: 15px;
   font-weight: 400;
   margin-bottom: 10px;
@@ -218,7 +218,8 @@ background-color: #263a29;
   font-weight: 500;
 }
 
-.recommend, .notrecommend {
+.recommend,
+.notrecommend {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -257,7 +258,6 @@ background-color: #263a29;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
   cursor: pointer;
-  text-align: center;
   font-size: 15px;
   font-weight: 700;
   transform: translateY(0);
@@ -277,6 +277,6 @@ background-color: #263a29;
 /* Media Queries */
 @media (min-width: 2rem) {
   .view {
-      padding: 10px 20px;
+    padding: 10px 20px;
   }
 }
