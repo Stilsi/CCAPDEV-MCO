@@ -37,7 +37,7 @@ window.addEventListener("scroll", function () {
   });
   
 
-function sortCards(sortType) {
+  function sortCards(sortType) {
     const buttons = document.querySelectorAll('.sort');
 
     buttons.forEach((button) => {
@@ -45,5 +45,38 @@ function sortCards(sortType) {
     });
 
     document.getElementById(`sort-${sortType}`).classList.add('active');
+
+    // Define your card elements.
+    const cards = Array.from(document.querySelectorAll('.card'));
+
+    // Sort the cards based on the selected criteria.
+    if (sortType === 'alphabetically') {
+        cards.sort((a, b) => {
+            const titleA = a.querySelector('.card-title').textContent.toUpperCase();
+            const titleB = b.querySelector('.card-title').textContent.toUpperCase();
+            return titleA.localeCompare(titleB);
+        });
+    } else if (sortType === 'by-rating') {
+        cards.sort((a, b) => {
+            const ratingA = parseInt(a.querySelector('.recommend').textContent);
+            const ratingB = parseInt(b.querySelector('.recommend').textContent);
+            return ratingB - ratingA;
+        });
+    } else if (sortType === 'most-recent') {
+        cards.sort((a, b) => {
+            const keyA = parseInt(a.getAttribute('data-sort-key'));
+            const keyB = parseInt(b.getAttribute('data-sort-key'));
+            return keyB - keyA;
+        });
+    }
+
+    // Clear the container and append the sorted cards.
+    const container = document.querySelector('.container');
+    container.innerHTML = '';
+    cards.forEach((card) => container.appendChild(card));
 }
+
+// Initialize the sorting by rating as the default.
+sortCards('by-rating');
+
   
