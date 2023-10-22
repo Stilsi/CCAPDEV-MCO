@@ -7,77 +7,128 @@
         
         <title>Agno Street | Hungry Archers</title>
         <link rel="stylesheet" href="location-page.css">
-        <script src="main-page.js"></script>
-        <script src="https://kit.fontawesome.com/62a1ef5fed.js" crossorigin="anonymous"></script><body>
+        <script src="location-page.js"></script>
+        <script src="https://kit.fontawesome.com/62a1ef5fed.js" crossorigin="anonymous"></script>
+    </head>
+  </head>
+  <body>
+
+    <!--navigation bar-->
+
     <div class="navbar">
-        <nav>
-          <div class="nav-item"><a href="#">search</a></div>
-          <div class="nav-item">
-            <div class="dropdown">
-              <button class="dropbtn">locations</button>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-              </div>
+      <nav>
+        <div class="nav-item"><a href="#">search</a></div>
+        <div class="nav-item">
+          <div class="dropdown">
+            <button class="dropbtn">locations</button>
+            <div class="dropdown-content">
+              <a href="#">Agno Street</a>
+              <a href="#">Taft Avenue</a>
+              <a href="#">Leon Guinto</a>
             </div>
           </div>
-          <div class="nav-item" id="title">
-            <a href="#"><img src="dlsu-food.png"></a>
-          </div>
-          <div class="nav-item">
-            <div class="dropdown">
-              <button class="dropbtn">profile</button>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-              </div>
+        </div>
+        <div class="nav-item" id="title">
+          <a href="#"><img src="dlsu-food.png"></a>
+        </div>
+        <div class="nav-item">
+          <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+            <button class="dropbtn">profile</button>
+            <div class="dropdown-content">
+              <a href="user-profile.html">user profile</a>
+              <a href="login-page.html">logout</a>
+              <a href="register.html">register</a>
             </div>
           </div>
-          <div class="nav-item"><a href="#">developers</a></div>
-        </nav>
+        </div>
+        <div class="nav-item"><a href="#">developers</a></div>
+      </nav>
     </div>
     <section class="location-title">
+      <div>
         <h1>AGNO STREET</h1>
+      </div>
+      <div class="sorting-buttons">
+        <button id="sort-alphabetically" class="sort" onclick="sortCards('alphabetically')">Alphabetically</button>
+        <button id="sort-by-rating" class="sort" onclick="sortCards('rating')">By Rating</button>
+        <button id="sort-most-recent" class="sort" onclick="sortCards('recent')">Most Recent</button>
+      </div>
     </section>
-    <section class="container">
-        <div class="card">
-            <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
-            <div class="card-title">Ate Rica’s Bacsilog</div>
-            <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
-            <div class="reviews">
-                <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
-                <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
-            </div>
-            <div class="reviews-sum">(25 Reviews)</div>
-            <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
-            <button class="view" role="button">VIEW ESTABLISHMENT</button>
+    
+   <section class="container">
+    <div class="card">
+        <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
+        <div class="card-title">Ate Rica’s Bacsilog</div>
+        <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
+        <div class="reviews">
+            <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
+            <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
         </div>
-        <div class="card">
-            <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
-            <div class="card-title">Ate Rica’s Bacsilog</div>
-            <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
-            <div class="reviews">
-                <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
-                <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
-            </div>
-            <div class="reviews-sum">(25 Reviews)</div>
-            <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
-            <button class="view" role="button">VIEW ESTABLISHMENT</button>
+        <div class="reviews-sum">(25 Reviews)</div>
+        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
+        <button class="view" role="button">VIEW ESTABLISHMENT</button>
+    </div>
+    <div class="card">
+        <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
+        <div class="card-title">Ate Rica’s Bacsilog</div>
+        <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
+        <div class="reviews">
+            <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
+            <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
         </div>
-        <div class="card">
-            <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
-            <div class="card-title">Ate Rica’s Bacsilog</div>
-            <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
-            <div class="reviews">
-                <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
-                <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
-            </div>
-            <div class="reviews-sum">(25 Reviews)</div>
-            <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
-            <button class="view" role="button">VIEW ESTABLISHMENT</button>
+        <div class="reviews-sum">(25 Reviews)</div>
+        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
+        <button class="view" role="button">VIEW ESTABLISHMENT</button>
+    </div>
+    <div class="card">
+        <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
+        <div class="card-title">Ate Rica’s Bacsilog</div>
+        <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
+        <div class="reviews">
+            <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
+            <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
         </div>
-    </section>
+        <div class="reviews-sum">(25 Reviews)</div>
+        <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
+        <button class="view" role="button">VIEW ESTABLISHMENT</button>
+    </div>
+    <div class="card">
+      <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
+      <div class="card-title">Ate Rica’s Bacsilog</div>
+      <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
+      <div class="reviews">
+          <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
+          <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
+      </div>
+      <div class="reviews-sum">(25 Reviews)</div>
+      <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
+      <button class="view" role="button">VIEW ESTABLISHMENT</button>
+  </div>
+  <div class="card">
+      <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
+      <div class="card-title">Ate Rica’s Bacsilog</div>
+      <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
+      <div class="reviews">
+          <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
+          <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
+      </div>
+      <div class="reviews-sum">(25 Reviews)</div>
+      <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
+      <button class="view" role="button">VIEW ESTABLISHMENT</button>
+  </div>
+  <div class="card">
+      <img class="card-logo" src="image location/ate rica's logo.jpg"></img>
+      <div class="card-title">Ate Rica’s Bacsilog</div>
+      <div class="card-location">2305 Fidel Reyes St. Malate Manila City (DLSU Agno)</div>
+      <div class="reviews">
+          <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 18</div>
+          <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 7</div>
+      </div>
+      <div class="reviews-sum">(25 Reviews)</div>
+      <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus mi, commodo eu gravida ac, euismod vitae velit. Nullam sed magna id neque vulputate tincidunt. Curabitur nulla tortor, dapibus eget bibendum at, dictum vitae massa. Vivamus ac tellus non sapien facilisis iaculis nec in nisl.</p>
+      <button class="view" role="button">VIEW ESTABLISHMENT</button>
+  </div>
+</section>
+
 </body>
 </html>
