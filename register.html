@@ -26,10 +26,12 @@
     <div class="login-container">
         <h2>register here</h2>
         <form action="login.php" method="post">
+            <input type="file" name="profile_picture" accept="image/*">
+            <p>add profile picture *optional</p>
             <input type="text" name="email" placeholder="email" required>
             <input type="text" name="username" placeholder="username" required>
             <input type="password" name="password" placeholder="password" required>
-            <button type="button" onclick="navigateToLoginPage()">log in</button>
+            <button type="button" onclick="navigateToLoginPage()">register</button>
         </form>
         <p>have an account? <a href="login-page.html">login</a></p>
         <p>or visit as a <a href="main-page.html">guest</a></p>
