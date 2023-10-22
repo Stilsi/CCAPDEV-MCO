@@ -12,11 +12,19 @@
 <body>
     <!--navigation bar-->
 
-    <!--navigation bar-->
-
     <div class="navbar">
         <nav>
-          <div class="nav-item"><a href="#">search</a></div>
+          <div class="nav-item">
+            <div class="dropdown">
+              <button class="dropbtn">search</button>
+              <div class="dropdown-content">
+                <form id="search-form">
+                  <input type="text" id="search-box" placeholder="Search...">
+                  <button class="submit-search" type="submit">go</button>
+                </form>
+              </div>                       
+            </div>
+          </div>
           <div class="nav-item">
             <div class="dropdown">
               <button class="dropbtn">locations</button>
@@ -29,10 +37,10 @@
             </div>
           </div>
           <div class="nav-item" id="title">
-            <a href="main-page.html"><img src="dlsu-food.png"></a>
+            <a href="#"><img src="dlsu-food.png"></a>
           </div>
           <div class="nav-item">
-            <div class="dropdown" id="profile-dropdown">
+            <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
               <button class="dropbtn">profile</button>
               <div class="dropdown-content">
                 <a href="user-profile.html">user profile</a>
