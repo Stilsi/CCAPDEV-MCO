@@ -80,9 +80,24 @@
                             <p>"This restaurant is a true culinary delight. 
 				The service was exceptional, with a friendly and knowledgeable staff that made us feel like VIPs."</p>
                             <p><spans id = "recommendation">thoughts: Recommended</spans></p>
+                            <!-- Helpful count -->
+                            <div class="count">
+                                <p class="helpful-count">Helpful: 0</p>
+                            </div>
                             <div class="review-buttons">
-                              <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button>
-                        <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button>
+                                <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button>
+                            </div>
+
+                            <!-- Unhelpful count -->
+                            <div class="count">
+                                <p class="unhelpful-count">Unhelpful: 0</p>
+                            </div>
+                            <div class="review-buttons">
+                                <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button>
+                            </div>
+                                                                           
+                            <div class="comment-box">
+                                    <textarea id="text-input" placeholder="comment..."></textarea>
                             </div>
                             <div class = "count">
                                 <p>Helpful: 0</p>
@@ -164,7 +179,7 @@
         </div>
     </div>
 	
-	 <div class="container my-4" id = "create">
+    <div class="container my-4" id = "create">
         <h2>submit a review</h2>
         <form id="review-form" action="#">
             <div class="form-group">
@@ -176,11 +191,11 @@
                 <textarea class="form-control" id="review-body" name="review-body" rows="5" required></textarea>
             </div>
 			   <div class="form-group">
-            <label for="recommendation">Recommendation:</label>
-            <select class="form-control" id="recommendation" name="recommendation">
-                <option value="recommended">Recommended</option>
-                <option value="not-recommended">Not Recommended</option>
-            </select>		
+                <label for="recommendation">Recommendation:</label>
+                <select class="form-control" id="recommendationSelect" name="recommendation">
+                    <option value="recommended">Recommended</option>
+                    <option value="not-recommended">Not Recommended</option>
+                </select>                            
 			<div class="form-group">
             <label for="file-upload">Upload Image/Media (optional):</label>
             <input type="file" class="form-control-file" id="file-upload" name="file-upload">

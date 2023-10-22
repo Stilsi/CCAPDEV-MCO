@@ -85,8 +85,8 @@
 				To top it off, the prices were exorbitant for the quality we received. I won't be coming back!"</p>
                             <p><spans id = "recommendation">thoughts: Recommended</spans></p>
                             <div class="review-buttons">
-                                <button class="edit" onclick="editReview(this)">Edit</button>
-                                <button class="delete" onclick="deleteReview(this)">Delete</button>
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
                             </div>
                             <div class = "count">
                                 <p>Helpful: 0</p>
@@ -103,7 +103,7 @@
         </div>
     </div>
 	
-	 <div class="container my-4" id = "create">
+    <div class="container my-4" id = "create">
         <h2>submit a review</h2>
         <form id="review-form" action="#">
             <div class="form-group">
@@ -115,11 +115,11 @@
                 <textarea class="form-control" id="review-body" name="review-body" rows="5" required></textarea>
             </div>
 			   <div class="form-group">
-            <label for="recommendation">Recommendation:</label>
-            <select class="form-control" id="recommendation" name="recommendation">
-                <option value="recommended">Recommended</option>
-                <option value="not-recommended">Not Recommended</option>
-            </select>		
+                <label for="recommendation">Recommendation:</label>
+                <select class="form-control" id="recommendationSelect" name="recommendation">
+                    <option value="recommended">Recommended</option>
+                    <option value="not-recommended">Not Recommended</option>
+                </select>                            
 			<div class="form-group">
             <label for="file-upload">Upload Image/Media (optional):</label>
             <input type="file" class="form-control-file" id="file-upload" name="file-upload">

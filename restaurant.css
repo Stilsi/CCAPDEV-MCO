@@ -201,13 +201,16 @@ background-color: #263a29;
 }
 
 .card{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
   padding: 10px;
+  width: 350px;
 }
 
 .card-body h5{
   color:#263a29;
   font-weight: 700;
-
 }
 
 .review-pic{
