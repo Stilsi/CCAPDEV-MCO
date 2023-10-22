@@ -116,6 +116,14 @@ background-color: #263a29;
   padding: 10;
 }
 
+.location-title h2 {
+  padding: 10;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: -20px;
+  color: #263a29;
+}
+
 .sorting-buttons{
   display: flex;
   justify-content: center;
@@ -136,6 +144,9 @@ background-color: #263a29;
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
   margin: 10px;
   margin-bottom: 30px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
@@ -153,6 +164,41 @@ background-color: #263a29;
   background-color: #263a29;
 }
 
+.locations-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 2rem;
+}
+
+.loc{
+  background-color: #e86a33;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.loc:hover {
+  transform: translateY(-2px);
+  background-color: #263a29;
+  text-decoration: none;
+}
+
 /* Establishment Card */
 .container {
   display: flex;
@@ -163,7 +209,7 @@ background-color: #263a29;
 }
 
 .card {
-  width: 250px; /* Set a fixed width for the cards */
+  width: 250px;
   margin: 10px;
   background: white;
   border-radius: 10px;
@@ -193,8 +239,7 @@ background-color: #263a29;
   color: #263a29;
 }
 
-.card-location,
-.card-description {
+.card-location, .card-description {
   font-size: 15px;
   font-weight: 400;
   margin-bottom: 10px;
@@ -218,8 +263,7 @@ background-color: #263a29;
   font-weight: 500;
 }
 
-.recommend,
-.notrecommend {
+.recommend, .notrecommend {
   display: flex;
   justify-content: space-between;
   align-items: center;
