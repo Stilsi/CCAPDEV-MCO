@@ -35,3 +35,24 @@ window.addEventListener("scroll", function () {
     });
   }
 });
+
+    function navigateToLoginPage() {
+        const searchInput = document.getElementById("search-input").value;
+        
+        // You can replace this URL with the one you want to navigate to
+        const searchURL = `search-results.html?query=${searchInput}`;
+        
+        // Check if the search input is not empty
+        if (searchInput.trim() !== "") {
+            // Redirect to the search results page
+            window.location.href = "search-page.html";
+        }
+    }
+
+    function validateInput() {
+        const searchInput = document.getElementById("search-input").value;
+        const searchButton = document.getElementById("search-button");
+
+        // Enable the search button only if the input is not empty
+        searchButton.disabled = searchInput.trim() === "";
+    }
