@@ -3,10 +3,8 @@ window.addEventListener("scroll", function () {
   var scrollY = window.scrollY;
   var navLinks = document.querySelectorAll(".navbar .nav-item a");
   var profileButtons = document.querySelectorAll(".dropbtn");
-  var profileDropdown = document.getElementById("profile-dropdown"); // Select the profile dropdown by its ID
-  var profileDropdownContent = profileDropdown.querySelector(".dropdown-content"); // Select the dropdown content within the profile dropdown
-  var dropdownContent = document.querySelector(".dropdown-content");
-  
+  var dropdownContent = document.querySelectorAll(".dropdown-content");
+
   if (scrollY > 100) {
     navbar.style.backgroundColor = "#263a29";
     navbar.style.transition = "background-color 0.3s";
@@ -19,8 +17,9 @@ window.addEventListener("scroll", function () {
       button.style.color = "#f2e3db";
     });
 
-    dropdownContent.style.backgroundColor = "#263a29";
-    profileDropdownContent.style.backgroundColor = "#263a29"; // Change the background color of the specific dropdown content
+    dropdownContent.forEach(function (content) {
+      content.style.backgroundColor = "#263a29"; // Set the same background color for both dropdown contents
+    });
   } else {
     navbar.style.backgroundColor = "transparent";
     navLinks.forEach(function (link) {
@@ -31,7 +30,8 @@ window.addEventListener("scroll", function () {
       button.style.color = "#263a29";
     });
 
-    dropdownContent.style.backgroundColor = "#f1f1f1";
-    profileDropdownContent.style.backgroundColor = "#f1f1f1"; // Reset the background color
+    dropdownContent.forEach(function (content) {
+      content.style.backgroundColor = "#f1f1f1";
+    });
   }
 });

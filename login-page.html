@@ -14,10 +14,11 @@
             if (username && password) {
                 window.location.href = 'main-page.html';
             } else {
-                alert("Please fill in both username and password.");
+                alert("Fill in username and password.");
             }
         }
     </script>
+
 </head>
 <body>
     <div class="pictures">
@@ -35,6 +36,10 @@
             <input type="password" name="password" placeholder="password" required>
             <button type="button" onclick="loginAndRedirect()">log in</button>
         </form>
+        <div class="remember">
+            <input type="checkbox" name="remember">
+            <p>Remember my account?</p>
+        </div>   
         <p>don't have an account? <a href="register.html">register</a></p>
         <p>or visit as a <a href="main-page.html">guest</a></p>
     </div>
