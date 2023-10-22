@@ -97,3 +97,17 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.remember {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+
+
+.remember input {
+    margin-right: 5px; /* Add some spacing between the checkbox and the text */
+}
