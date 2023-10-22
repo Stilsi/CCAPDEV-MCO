@@ -213,6 +213,7 @@ background-color: #263a29;
   width: 250px;
   margin: 10px;
   background: white;
+  border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   padding: 25px;
