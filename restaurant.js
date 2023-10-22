@@ -60,15 +60,11 @@ window.addEventListener("scroll", function () {
   let imageUrl = '';
 
   if (uploadedFile) {
-      // Assuming you have a server to handle file uploads, you can send the file to the server here
-      // and get the URL of the uploaded file in response.
-      // For simplicity, we're assuming that the file URL is obtained directly.
-
-      // In this example, we're just using a placeholder image URL.
+    
       imageUrl = 'placeholder_image.jpg';
   }
 
-          // Create a new review card
+          
           const newReviewCard = document.createElement("div");
           newReviewCard.className = "col-md-4";
           newReviewCard.innerHTML = `
@@ -94,7 +90,7 @@ window.addEventListener("scroll", function () {
           const reviewsSection = document.querySelector(".container[alt='reviews'] .row");
           reviewsSection.appendChild(newReviewCard);
 
-          // Clear the form
+      
           document.getElementById("review-title").value = "";
           document.getElementById("review-body").value = "";
           
@@ -110,16 +106,19 @@ function disableButton(button) {
 
 
       function deleteReview(button) {
-          // Change the button text to "Review deleted"
+         
                     if (!button.disabled) {
           const cardText = button.parentElement.querySelector(".card-text");
           cardText.textContent = "Review deleted";
           disableButton(button);
+         disableButton(editButton);
+          disableButton(helpfulButton);
+          disableButton(unhelpfulButton);
           }
       }
       
       function editReview(button) {
-          // Change the button text to "Review deleted"
+          
    if (!button.disabled) {
          const cardText = button.parentElement.querySelector(".card-text");
           cardText.textContent = "Review edited";
@@ -127,9 +126,7 @@ function disableButton(button) {
               const helpfulButton = button.parentElement.querySelector(".helpful");
               const unhelpfulButton = button.parentElement.querySelector(".unhelpful");
           disableButton(button);
-          disableButton(editButton);
-          disableButton(helpfulButton);
-          disableButton(unhelpfulButton);
+         
           
       }
     }
@@ -159,7 +156,7 @@ function disableButton(button) {
       }
       
       document.addEventListener("DOMContentLoaded", function () {
-  // Initialize recommendation counts based on existing reviews
+
   updateCountsBasedOnExistingReviews();
 });
 
