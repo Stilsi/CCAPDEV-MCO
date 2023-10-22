@@ -125,9 +125,8 @@ background-color: #263a29;
   margin-bottom: 2rem;
 }
 
-.sort.active {
+.sort:active {
   background-color: #263a29;
-  color: #fff;
 }
 
 .sort {
@@ -151,7 +150,6 @@ background-color: #263a29;
 
 .sort:hover {
   transform: translateY(-2px);
-  background-color: #263a29;
 }
 
 /* Establishment Card */
