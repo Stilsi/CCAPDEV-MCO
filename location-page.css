@@ -125,7 +125,7 @@ background-color: #263a29;
   margin-bottom: 2rem;
 }
 
-.sort:active {
+.sort.active {
   background-color: #263a29;
 }
 
@@ -150,28 +150,32 @@ background-color: #263a29;
 
 .sort:hover {
   transform: translateY(-2px);
+  background-color: #263a29;
 }
 
 /* Establishment Card */
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 2.5fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   margin: 2rem;
 }
 
 .card {
+  flex: 1;
+  margin: 10px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   padding: 25px;
   text-align: center;
   margin-top: 1rem;
+  max-width: 400px;
 }
 
 .card-logo {
-  background-color: black;
+  background-color: #263a29;
   background-size: cover;
   height: 150px;
   width: 150px;
@@ -245,8 +249,8 @@ background-color: #263a29;
 }
 
 .view {
-  background-color: #263a29;
-  border: 1px solid #263a29;
+  background-color: #e86a33;
+  border: 1px solid #e86a33;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -273,5 +277,3 @@ background-color: #263a29;
       padding: 10px 20px;
   }
 }
-
-
