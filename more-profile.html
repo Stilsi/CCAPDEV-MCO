@@ -8,7 +8,7 @@
     <title>DLSU Food Recs</title>
     <link rel="stylesheet" href="user-profile.css">
     <script src="user-profile.js"></script>
-    
+    <script src="nav-bar-search.js"></script>
   </head>
   <body>
 
@@ -16,7 +16,17 @@
 
    <div class="navbar">
     <nav>
-      <div class="nav-item"><a href="#">search</a></div>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">search</button>
+          <div class="dropdown-content">
+            <form id="search-form">
+              <input type="text" id="search-box" placeholder="search...">
+              <button class="submit-search" type="submit">go</button>
+            </form>
+          </div>                       
+        </div>
+      </div>
       <div class="nav-item">
         <div class="dropdown">
           <button class="dropbtn">locations</button>
@@ -241,6 +251,9 @@
         <div class = "review">
           
             <div class = "review-container">
+              <div class = "review-pic">
+                <img src = "reviewpic-ricas.jpg">
+            </div>
               <p>This restaurant didn't live up to the hype for me. 
                 While the service was decent, the food left much to be desired. 
                 The menu was limited, and the options felt uninspired. 
