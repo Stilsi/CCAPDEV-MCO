@@ -265,10 +265,13 @@ background-color: #263a29;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .view:hover {
   transform: translateY(-2px);
+  text-decoration: none;
 }
 
 /* Media Queries */
