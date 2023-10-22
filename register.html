@@ -7,9 +7,15 @@
     <title>Register Page</title>
 
     <script>
-        function navigateToLoginPage() {
-            // Replace 'your-login-page.html' with the actual URL of your login page.
-            window.location.href = 'login-page.html';
+        function loginAndRedirect() {
+            var username = document.querySelector('input[name="username"]').value;
+            var password = document.querySelector('input[name="password"]').value;
+            
+            if (username && password) {
+                window.location.href = 'login-page.html';
+            } else {
+                alert("Please fill in both username and password.");
+            }
         }
     </script>
     
@@ -28,11 +34,11 @@
         <form action="login.php" method="post">
             <input type="file" name="profile_picture" accept="image/*">
             <p>add profile picture *optional</p>
-            <input type="text" name="email" placeholder="email" required>
             <input type="text" name="username" placeholder="username" required>
             <input type="password" name="password" placeholder="password" required>
             <input type="text" name="desc" placeholder="short description">
-            <button type="button" onclick="navigateToLoginPage()">register</button>
+            <button type="button" onclick="loginAndRedirect()">register</button>
+        </form>
         </form>
         <p>have an account? <a href="login-page.html">login</a></p>
         <p>or visit as a <a href="main-page.html">guest</a></p>
