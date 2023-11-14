@@ -3,20 +3,15 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+
     username: String,
 
+    profilepic: {
+        type: String,
+        default: './images/assets/default_user.png'   
+    },
+
     bio: String,
-
-    password: {
-        type: String, 
-        required:true
-    },
-    email: {
-        type: String, 
-        required: true, 
-        unique: true
-    },
-
 });
 
 const User = mongoose.model('user', userSchema);
