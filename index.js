@@ -57,13 +57,7 @@ routes.route("/user").post(function (req, res) {
 app.use("/", routes);
 
 // Connect to MongoDB and start the server
-mongoose
-  .connect(process.env.MONGODB_URI, { dbName: process.env.DB_NAME, useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`App started on port ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+app.listen(3000, () => {
+    console.log("App started");
+    mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.DB_NAME });
+});
