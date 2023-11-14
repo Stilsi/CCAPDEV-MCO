@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24 Chicken</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/public/css/restaurant.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src = "/public/css/restaurant.css"></script>
+    <script src="/public/js/nav-bar-search.js"></script>
+</head>
+<body>
+    
+   <!--navigation bar-->
+
+   <div class="navbar">
+    <nav>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">search</button>
+          <div class="dropdown-content">
+            <form id="search-form">
+              <input type="text" id="search-box" placeholder="search...">
+              <button class="submit-search" type="submit">go</button>
+            </form>
+          </div>                       
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">locations</button>
+          <div class="dropdown-content">
+            <a href="location-page.html">Establishments</a>
+            <a href="location-page-agno.html">Agno Street</a>
+            <a href="location-page-taft.html">Taft Avenue</a>
+            <a href="location-page-leonguinto.html">Leon Guinto</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="title">
+        <a href="main-page.html"><img src="dlsu-food.png"></a>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+          <button class="dropbtn">profile</button>
+          <div class="dropdown-content">
+            <a href="user-profile.html">user profile</a>
+            <a href="login-page.html">logout</a>
+            <a href="register.html">register</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#">developers</a></div>
+    </nav>
+  </div>
+  
+
+    <!-- Restaurant Details -->
+    <div class="container my-4" alt="about">
+        <h1 class="text-center" id = "title-restaurant">24 Chicken</h1>
+        <div class="row">
+            <div class="col-md-6" id = "logo">
+                <img src = "restaurant-icons/24chicken.png">
+            </div>
+            <div class="col-md-6" id = "resto-info">
+                <h2>About Us</h2>
+                <p>Location:  EGI TAFT TOWER, 2339 Taft Ave, Malate, Manila, 1004 Metro Manila</p>
+				<p> Service Options: Dine-in, Take-out & Delivery</p> 
+                <h2>Contact Information</h2>
+                <p><strong>Phone:</strong> 0995 075 2068</p>
+				<p><strong>Facebook/Instagram:</strong> @24chickenph</p>
+				 <p><strong>Recommended Count:</strong> <span id="recommended-count">0</span></p>
+				<p><strong>Not Recommended Count:</strong> <span id="not-recommended-count">1</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="container my-4" id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="row">
+
+            <!--review 1-->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="user-info"><a href = "user-profile.html">
+                            <img src = "user-icon.jpg">
+                            <span class="username">@jennierubyjane</span>
+                            </a>
+                          </div>
+                        <div>
+                            <h5>Worst dining experience ever!</h5>
+                            <p>"I had the worst dining experience ever at this restaurant. 
+				The service was abysmal; it took forever to get a menu, and our order was messed up multiple times. 
+				The staff seemed disinterested and unprofessional. 
+				The ambiance was equally disappointing – the place was dimly lit and had an unpleasant odor. 
+				When our food finally arrived, it was cold, and the presentation was lackluster. 
+				To top it off, the prices were exorbitant for the quality we received. I won't be coming back!"</p>
+                            <p><spans id = "recommendation">thoughts: Not Recommended</spans></p>
+                            <div class="review-buttons">
+                                <button class="edit" onclick="editReview(this)">Edit</button>
+                                <button class="delete" onclick="deleteReview(this)">Delete</button>
+                            </div>
+                            <div class = "count">
+                                <p>Helpful: 0</p>
+                                <p>Unhelpful: 0</p>
+                            </div>
+                            <div class="comment-box">
+                                <textarea id="text-input" placeholder="comment..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+	
+    <div class="container my-4" id = "create">
+        <h2>submit a review</h2>
+        <form id="review-form" action="#">
+            <div class="form-group">
+                <label for="review-title">Title:</label>
+                <input type="text" class="form-control" id="review-title" name="review-title" required>
+            </div>
+            <div class="form-group">
+                <label for="review-body">Body:</label>
+                <textarea class="form-control" id="review-body" name="review-body" rows="5" required></textarea>
+            </div>
+			   <div class="form-group">
+                <label for="recommendation">Recommendation:</label>
+                <select class="form-control" id="recommendationSelect" name="recommendation">
+                    <option value="recommended">Recommended</option>
+                    <option value="not-recommended">Not Recommended</option>
+                </select>                            
+			<div class="form-group">
+            <label for="file-upload">Upload Image/Media (optional):</label>
+            <input type="file" class="form-control-file" id="file-upload" name="file-upload">
+        </div>
+        </div>
+            <button type="submit" class="btn" id = "submit">Submit Review</button>
+        </form>
+    </div>
+</body>
+</html>

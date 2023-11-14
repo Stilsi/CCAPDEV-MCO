@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>DLSU Food Recs</title>
+    <link rel="stylesheet" href="/public/css/user-profile.css">
+    <script src="/public/js/user-profile.js"></script>
+    <script src="/public/js/nav-bar-search.js"></script>
+  </head>
+  <body>
+
+    <!--navigation bar-->
+
+    <div class="navbar">
+      <nav>
+        <div class="nav-item">
+          <div class="dropdown">
+            <button class="dropbtn">search</button>
+            <div class="dropdown-content">
+              <form id="search-form">
+                <input type="text" id="search-box" placeholder="search...">
+                <button class="submit-search" type="submit">go</button>
+              </form>
+            </div>                       
+          </div>
+        </div>
+        <div class="nav-item">
+          <div class="dropdown">
+            <button class="dropbtn">locations</button>
+            <div class="dropdown-content">
+              <a href="location-page.html">Estalishments</a>
+              <a href="location-page-agno.html">Agno Street</a>
+              <a href="location-page-taft.html">Taft Avenue</a>
+              <a href="location-page-leonguinto.html">Leon Guinto</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item" id="title">
+          <a href="main-page.html"><img src="dlsu-food.png"></a>
+        </div>
+        <div class="nav-item">
+          <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+            <button class="dropbtn">profile</button>
+            <div class="dropdown-content">
+              <a href="user-profile.html">user profile</a>
+              <a href="login-page.html">logout</a>
+              <a href="register.html">register</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="#">developers</a></div>
+      </nav>
+    </div>
+
+<div class = "profile_text">
+    <div class="profile_pic">
+        <img src = "user-icon.jpg">
+        <p>Do you want to replace your icon?</p>
+        <form action="#" method="post">
+          <label for="image">Select an image to upload:</label>
+          <input type="file" name="image" id="image" accept="image/*">
+       </form>
+
+       <p class="experience"></p>
+       <p>Do you want to replace your username?</p>
+       <form action="#" method="post">
+        <input id="input_username" type="text" placeholder="@jennierubyjane">
+      </form>
+
+       
+
+       <p class="experience"></p>
+        <h4>Manila City, PH</h4>
+        <p>Member since:</p>
+        <p>February 2020</p>
+        <p class="experience"></p>
+        <div class="stats">
+            <div id="stats_text">
+                <h1>27</h1>
+                <h4>Photos</h4>
+            </div>
+            <div id="stats_text">
+                <h1>19</h1>
+                <h4>Reviews</h4>
+            </div>
+        </div>
+        <form action="user-profile.html" method="post">
+            <button type="submit">Save</button>
+        </form>
+    </div>
+  <div class = "profile_text_text">
+    <form action="#" method="post">
+      <input id="profile_text_header" type="text" placeholder="🍽️ Passionate Food Lover and Critic 📸">
+    </form>
+    <textarea name="message" rows="20" cols="100" placeholder="🍽️ Jennie Ruby Jane (@jennierubyjane) 
+
+Welcome to my culinary journey! I'm Jennie Ruby Jane, 
+a dedicated food enthusiast and critic. I explore the world of flavors, 
+capturing them through my lens and sharing honest reviews. Join me as 
+I uncover hidden culinary gems and share my own kitchen adventures. 
+Let's savor the world, one bite at a time! 🌍🍴🖋️  
+
+Every dish is a work of art, and I've made it my mission to capture 
+these masterpieces through my lens. My camera is my constant companion, 
+ensuring that I document each culinary adventure with precision. Be prepared to
+embark on a visual journey alongside me as I bring the essence of food to life 
+through captivating photographs."></textarea>
+
+  </div>
+  
+</div>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Agno Street | Hungry Archers</title>
+    <link rel="stylesheet" href="/public/css/location-page.css">
+    <script src="/public/js/location-page.js"></script>
+    <script src="/public/js/nav-bar-search.js"></script>
+    <script src="https://kit.fontawesome.com/62a1ef5fed.js" crossorigin="anonymous"></script>
+</head>
+  </head>
+  <body>
+
+    <!--navigation bar-->
+
+    <div class="navbar">
+      <nav>
+        <div class="nav-item">
+          <div class="dropdown">
+            <button class="dropbtn">search</button>
+            <div class="dropdown-content">
+              <form id="search-form">
+                <input type="text" id="search-box" placeholder="Search...">
+                <button class="submit-search" type="submit">go</button>
+              </form>
+            </div>                       
+          </div>
+        </div>
+        <div class="nav-item">
+          <div class="dropdown">
+            <button class="dropbtn">locations</button>
+            <div class="dropdown-content">
+              <a href="location-page.html">Establishments</a>
+              <a href="location-page-agno.html">Agno Street</a>
+              <a href="location-page-taft.html">Taft Avenue</a>
+              <a href="location-page-leonguinto.html">Leon Guinto</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item" id="title">
+          <a href="main-page.html"><img src="dlsu-food.png"></a>
+        </div>
+        <div class="nav-item">
+          <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+            <button class="dropbtn">profile</button>
+            <div class="dropdown-content">
+              <a href="user-profile.html">user profile</a>
+              <a href="login-page.html">logout</a>
+              <a href="register.html">register</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item"><a href="#">developers</a></div>
+      </nav>
+    </div>
+
+    <!--header part-->
+
+    <section class="location-title">
+      <div>
+        <h1>taft avenue</h1>
+      </div>
+      <div class="sorting-buttons">
+        <button id="sort-alphabetically" class="sort" onclick="sortCards('alphabetically')">Alphabetically</button>
+        <button id="sort-by-rating" class="sort" onclick="sortCards('by-rating')">By Rating</button>
+        <button id="sort-most-recent" class="sort" onclick="sortCards('most-recent')">Most Recent</button>
+      </div>
+    </section>
+    
+    <!--establishments cards-->
+
+  <section class="container">
+    <div class="card">
+      <img class="card-logo" src="restaurant-icons/dominos.png"></img>
+      <div class="card-title">Domino's Pizza</div>
+      <div class="card-location">E.A. Fernandez Bldg, G/F, 2510 Taft Ave, Manila, 1004 Metro Manila</div>
+      <div class="reviews">
+          <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 25</div>
+          <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 8</div>
+      </div>
+      <div class="reviews-sum">(33 Reviews)</div>
+      <p class="card-description">Domino's Pizza provides pizza delivery and carryout services as well as dine-in services through its restaurants. Domino's offers its customers a wide range of pizzas products with varying crusts and sizes, pasta-based dishes, chicken wings, boneless chicken, oven-baked sandwiches, bread side items, soft drinks, and desserts.</p>
+      <a class="view" role="button" href="DominosPizza.html">VIEW ESTABLISHMENT</a>
+  </div>
+  <div class="card">
+      <img class="card-logo" src="restaurant-icons/ganggangchicken.jpg"></img>
+      <div class="card-title">Gang Gang Chicken</div>
+      <div class="card-location">One Archers Place, 2311 Taft Ave, Malate, Manila, 1004 Metro Manila</div>
+      <div class="reviews">
+          <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> 50</div>
+          <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> 15</div>
+      </div>
+      <div class="reviews-sum">(66 Reviews)</div>
+      <p class="card-description">Their boneless chickens are made of thigh meat which are much tender and flavorful, then battered and deep fried, giving total crispiness in every bite. But that doesn’t end there, Gang Gang concocted 7 types of sauces to make their boneless chicken even more irresistible. </p>
+      <a class="view" role="button" href="ganggangchicken.html">VIEW ESTABLISHMENT</a>
+  </div>
+</section>
+
+</body>
+</html>

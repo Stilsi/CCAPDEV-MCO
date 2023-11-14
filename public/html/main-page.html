@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>DLSU Food Recs</title>
+    <link rel="stylesheet" href="/public/css/main-page.css">
+    <script src="/public/js/main-page.js"></script>
+    <script src="/public/js/nav-bar-search.js"></script>
+    
+  </head>
+  <body>
+
+   <!--navigation bar-->
+
+   <div class="navbar">
+    <nav>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">search</button>
+          <div class="dropdown-content">
+            <form id="search-form">
+              <input type="text" id="search-box" placeholder="search...">
+              <button class="submit-search" type="submit">go</button>
+            </form>
+          </div>                       
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">locations</button>
+          <div class="dropdown-content">
+            <a href="location-page.html">Establishments</a>
+            <a href="location-page-agno.html">Agno Street</a>
+            <a href="location-page-taft.html">Taft Avenue</a>
+            <a href="location-page-leonguinto.html">Leon Guinto</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="title">
+        <a href="#"><img src="dlsu-food.png"></a>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+          <button class="dropbtn">profile</button>
+          <div class="dropdown-content">
+            <a href="user-profile.html">user profile</a>
+            <a href="login-page.html">logout</a>
+            <a href="register.html">register</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#">developers</a></div>
+    </nav>
+  </div>
+
+
+
+<div class = "good-food">
+  <div class = "good-food-text">
+    <h1>where's all the good food at pare?</h1>
+    <h4>welcome to hungry archer</h4>
+    <p>Your Ultimate Food Guide Around DLSU!
+      Discover the culinary wonders that DLSU and its 
+      surrounding areas have to offer. Whether you're a 
+      student looking for a quick bite between classes or a 
+      food enthusiast searching for the best dining spots, 
+      we've got you covered.</p>
+    <p>
+      Explore a variety of restaurants, cafes, and eateries, 
+      right at your fingertips. Our community-driven platform 
+      offers real-time reviews, mouthwatering photos, and insider 
+      tips to help you find the perfect meal. Share your own
+       experiences, rate your favorite spots, and connect with 
+       fellow foodies.</p>
+    <p>
+      Dive into a world of flavors, from affordable street
+       food to upscale dining. Hungry Archer is your go-to resource
+        for all things food-related around campus. Start your 
+        culinary journey today and make every meal a memorable one.
+         Bon appétit!</p>
+  </div>
+  <img src = "mascot.png">
+</div>
+
+<!--search bar + location portion-->
+
+<div class="content">
+  <h1> ready for good food?</h1>
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="What are we looking for?" oninput="validateInput()">
+    <button type="button" onclick="navigateToLoginPage()" id="search-button" disabled>search</button>
+  </div>
+  <div class="icon-container">
+
+    <div class="icon">
+      <a href="location-page-taft.html">
+        <img src="location-icons/loc-2.png" class="icon-default">
+        <img src="location-icons/loc-2-hover.png" class="icon-hover">
+        <div class="icon-text">taft avenue</div>
+      </a>
+    </div>
+    
+    <div class="icon">
+      <a href="location-page-agno.html">
+        <img src="location-icons/loc-1.png" class="icon-default">
+        <img src="location-icons/loc-1-hover.png" class="icon-hover">
+        <div class="icon-text">agno street</div>
+      </a>
+    </div>
+    
+    <div class="icon">
+      <a href="location-page-leonguinto.html">
+        <img src="location-icons/loc-3.png" class="icon-default">
+        <img src="location-icons/loc-3-hover.png" class="icon-hover">
+        <div class="icon-text">leon guinto street</div>
+      </a>
+    </div>
+
+  </div>  
+
+</div>
+
+<!--reviews-->
+
+<div class = "recent-activity">
+  <h1>recent activity</h1>
+</div>
+
+  <div class="reviews">
+
+    <!--review 1-->
+
+    <div class="column">
+      <div class="blurb">
+        <div class="user-info">
+          <img src="user-icon.jpg">
+          <span class="username">@jennierubyjane</span>
+        </div>
+        <div class = "review">
+          <h2><a class="resto" href= "24Chicken.html">24 Chicken</h2></a>
+          <div class = "review-container">
+          <p>I had the worst dining experience ever at this restaurant. The service was abysmal; it took forever to get a menu,
+            and our order was messed up multiple times.
+            The staff seemed disinterested and unprofessional. The ambiance was
+            equally disappointing the place was dimly lit and had an unpleasant odor. When our food finally arrived, it was cold, and 
+            the presentation was lackluster. To top it off, the prices were exorbitant for the quality we received.
+            I won't be coming back.
+          </p>
+          </div>
+        </div>
+
+        <p>
+          <span class = "location-blurb">Agno Street</span>
+        </p>
+      </div>
+    </div>
+
+    <!--review 2-->
+  
+    <div class="column">
+      <div class="blurb">
+        <div class="user-info">
+          <img src="user-icon2.jpg">
+          <span class="username">@roses_are_rosie</span>
+        </div>
+        <h2><a class="resto" href= "kantofreestyle.html">Kanto Freestyle</h2></a>
+        
+        <div class = "review-container">
+        <p>This restaurant was a letdown. While the service was decent, the food left much to be 
+          desired. I ordered their signature dish, and it was bland and overcooked. The portion 
+          size was small for the price, making it a poor value. The ambiance was pleasant, but the
+          noise level was quite high, making it hard to have a conversation. The dessert we
+          ordered wasn't any better, and I expected more from a place with such a reputation. I
+          might give it another chance, but I'm not sure I'd recommend it to a friend.
+        </p>
+        </div>
+
+        <p>
+          <span class = "location-blurb">Leon Guinto Street</span>
+        </p>
+      </div>
+    </div>
+
+    <!--review 3-->
+  
+    <div class="column">
+      <div class="blurb">
+        <div class="user-info">
+          <img src="user-icon3.jpg">
+          <span class="username">@lalalalisa_m</span>
+        </div>
+        <h2><a class="resto" href= "ganggangchicken.html">Gang Gang Chicken</h2></a>
+        <div class = "review">
+          
+            <div class = "review-container">
+              <p>This restaurant is a true culinary delight. The service was exceptional,
+                with a friendly and knowledgeable staff that made us feel like VIPs.
+              </p>
+            </div>
+        </div>
+        <p>
+          <span class = "location-blurb">Taft Avenue</span>
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>
