@@ -12,15 +12,11 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.engine("hbs", exphbs.engine({extname: 'hbs', defaultLayout: 'main'}));
+// Handlebars setup
+app.use(express.static(`public`));
 app.set("view engine", "hbs");
-app.set("views", "./views");
-
-app.use ( express.static(`public`) );
-app.use ( express.urlencoded({ extended: true }));
-app.use ( bodyParser.urlencoded({ extended: true }));
-app.use ( bodyParser.json() );
-app.use ( express.json() );
+app.engine("hbs", exphbs.engine({ extname: "hbs" }));
+app.set("views", path.join("views"));
 
 app.use(cors());
 app.use(bodyParser.json());
