@@ -6,6 +6,8 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import exphbs from "express-handlebars"; // Import express-handlebars
 import User from "./model/userschema.js";
+import Restaurant from "./model/restaurant.js";
+import Review from "./model/review.js";
 import path from "path";
 
 
@@ -53,6 +55,20 @@ routes.route("/user").post(function (req, res) {
   });
 });
 
+routes.route("/restaurant/:id").get((req, res) => {
+  const restaurantId = req.params.id;    
+  Restaurant.findById(restaurantId)
+    .populate('reviews')
+    .exec((err, restaurant) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: "Internal Server Error" });
+      } else {
+        res.render("restaurant", { restaurant });
+      }
+    });
+});
+                                
 // Mount the routes on the main app
 app.use("/", routes);
 
