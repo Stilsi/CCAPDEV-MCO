@@ -55,65 +55,7 @@ routes.route("/user").post(function (req, res) {
   });
 });
 
-routes.route("/restaurant/:id").get((req, res) => {
-  const restaurantId = req.params.id;    
-   Restaurant.findById(restaurantId)
-    .populate('reviews') // 
-    .exec((err, restaurant) => {
-      if (err) {
-        console.error(err);
-        res.status(500).json({ error: "Internal Server Error" });
-        return;
-      }
-      res.render("restaurant", { restaurant });
-    });
-});
 
-// find reviews assigned to each restaurant
-routes.route("/restaurant/:id/reviews").post((req, res) => {
-  const restaurantId = req.params.id;
-
-    Review.find({ restaurant: restaurantId }, (err, reviews) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: "Internal Server Error" });
-      return;
-    }
-    res.render("reviews", { reviews });
-  });
-});
-
-// create a new review
-routes.route("/restaurant/:id/reviews").post((req, res) => {
-  const restaurantId = req.params.id;
-
-  const newReview = new Review({
-    comment: req.body.comment,
-    username: req.body.username, 
-  });
-
-  newReview.save((err, savedReview) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: "Internal Server Error" });
-      return;
-    }
-    
-  // add the new review to the appropriate restaurant
-    Restaurant.findByIdAndUpdate(
-      restaurantId,
-      { $push: { reviews: savedReview._id } },
-      (updateErr) => {
-        if (updateErr) {
-          console.error(updateErr);
-          res.status(500).json({ error: "Internal Server Error" });
-          return;
-        }
-        res.json({ message: "Review saved." });
-      }
-    );
-  });
-});
                                 
 // Mount the routes on the main app
 app.use("/", routes);
