@@ -2,13 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=IBM+Plex+Sans+KR:wght@700&display=swap');
 
 body{ 
-background-color: #263a29;
-  background-image: url("/assets/background.png") !important;
+  background-image: url("/assets/background.png");
   font-family: Montserrat;
   font-size: 16px;
  }
-
-
 
 .logo {
 	max-width: 100%;

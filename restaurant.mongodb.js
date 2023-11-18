@@ -3,16 +3,15 @@ use('restaurantDB');
 
 // Insert a few documents into the sales collection.
 db.getCollection('restaurants').insertMany([
-    {  _id: "24_chicken",
-        name: "24 Chicken",
+    {  _id: "ashdiasd",
+        name: "asdasd",
         logo: {
             type: String,
-            default: '/public/assets/restaurant-icons/24-chicken.png'   
+            default: '/public/assets/restaurant-icons/atericas.png'   
             },
-        location: "blabla",
-        socialMedia: "blabla",
-        address: "blabla",
-        phoneNumber: "blabla",
+        location: "asds",
+        socialMedia: "asds",
+        phoneNumber: "asds",
         recommendedCount: 0,
         notRecommendedCount: 0, 
     },

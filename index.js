@@ -8,6 +8,8 @@ import exphbs from 'express-handlebars';
 import path from "path";
 
 import restaurantRoutes from './controller/restaurant.js';
+import homepageRoutes from './controller/homepage.js';
+import searchRoutes from './controller/search.js';
 
 // const setups
 const app = express();
@@ -48,7 +50,13 @@ app.use(
   })
 );
 
+//restaurant
 app.use("/restaurant", restaurantRoutes);
+
+//homepage
+app.use("/homepage", homepageRoutes);
+
+app.use("/search", searchRoutes)
                                 
 // Mount the routes on the main app
 app.use("/", routes);

@@ -5,13 +5,9 @@ const Schema = mongoose.Schema;
 const restaurantSchema = new Schema({
   _id: { type: String, required: true },
   name: String,
-  logo: {
-    type: String,
-    default: './images/assets/default_user.png'   
-},
+  logo: String,
   location: String,
   socialMedia: String,
-  address: String,
   phoneNumber: String,
   recommendedCount: { type: Number, default: 0 },
   notRecommendedCount: { type: Number, default: 0 },

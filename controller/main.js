@@ -1,16 +1,6 @@
-var express = require('express');
-var router = express.Router();
+import express from "express";
+import Restaurant from "../model/restaurantschema.js";
 
-/* GET home page. */
+const router = express.Router();
 
-/*
-router.get('/', function(req, res, next) {
-  res.render('index', { title:'Netflix Clone', email:'' });
-});
-
-router.post('/signup', (req, res) => {
-  var em = req.body.emailInput;
-  res.render('index', { title:'Netflix Clone', email:em });
-});*/
-
-module.exports = router;
+export default router;
