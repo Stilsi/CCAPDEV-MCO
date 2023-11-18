@@ -10,6 +10,7 @@ import path from "path";
 import restaurantRoutes from './controller/restaurant.js';
 import homepageRoutes from './controller/homepage.js';
 import searchRoutes from './controller/search.js';
+import locationRoutes from './controller/location.js';
 
 // const setups
 const app = express();
@@ -26,6 +27,7 @@ app.set("view engine", "hbs");
 app.engine(
   'hbs',
   exphbs.engine({
+    partialsDir: 'views/partials/',
     extname: 'hbs',
     runtimeOptions: {
       allowProtoPropertiesByDefault: true,
@@ -56,7 +58,9 @@ app.use("/restaurant", restaurantRoutes);
 //homepage
 app.use("/homepage", homepageRoutes);
 
-app.use("/search", searchRoutes)
+app.use("/search", searchRoutes);
+
+app.use("/location", locationRoutes);
                                 
 // Mount the routes on the main app
 app.use("/", routes);

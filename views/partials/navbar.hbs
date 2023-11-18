@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/public/css/main-page.css">
-    <script src="/public/js/main-page.js"></script>
-    <script src="/public/js/nav-bar-search.js"></script>
+    <link rel="stylesheet" href="/css/main-page.css">
+    <script src="/js/main-page.js"></script>
+    <script src="/js/nav-bar-search.js"></script>
   </head>
   <body>
 
@@ -26,15 +26,14 @@
         <div class="dropdown">
           <button class="dropbtn">locations</button>
           <div class="dropdown-content">
-            <a href="location-page.html">Establishments</a>
-            <a href="location-page-agno.html">Agno Street</a>
-            <a href="location-page-taft.html">Taft Avenue</a>
-            <a href="location-page-leonguinto.html">Leon Guinto</a>
+            {{#each locations}}
+            <a href="{{this.link}}">{{this.name}}</a>
+            {{/each}}
           </div>
         </div>
       </div>
       <div class="nav-item" id="title">
-        <a href="#"><img src="dlsu-food.png"></a>
+        <a href="/homepage"><img src="/assets/dlsu-food.png"></a>
       </div>
       <div class="nav-item">
         <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->

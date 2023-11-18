@@ -3,7 +3,7 @@
 
 body {
     font-family: Montserrat;
-    background-image: url("background.png");
+    background-image: url("/assets/background.png");
     font-size: 16px;
 }
 
@@ -95,7 +95,7 @@ font-weight: 700;
 /*header page*/
 
 .location-title {
-  background-image: url("content-bg.png");
+  background-image: url("/assets/content-bg.png");
   background-size: cover;
   display: flex;
   flex-direction: column;
