@@ -1,0 +1,28 @@
+<div class="col-md-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="user-info">
+                <a href="user-profile.html">
+                    <img src="{{user.profilePicture}}">
+                    <span class="username">@{{user.username}}</span>
+                </a>
+            </div>
+            <div>
+                <h5>{{review.title}}</h5>
+                <p>{{review.body}}</p>
+                <p><span id="recommendation">Thoughts: {{review.recommendation}}</span></p>
+                <div class="review-buttons">
+                    <button class="edit" onclick="editReview(this)">Edit</button>
+                    <button class="delete" onclick="deleteReview(this)">Delete</button>
+                </div>
+                <div class="count">
+                    <p>Helpful: {{review.helpfulCount}}</p>
+                    <p>Unhelpful: {{review.unhelpfulCount}}</p>
+                </div>
+                <div class="comment-box">
+                    <textarea id="text-input" placeholder="comment..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

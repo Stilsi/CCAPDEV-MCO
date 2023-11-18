@@ -6,16 +6,24 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import exphbs from "express-handlebars"; // Import express-handlebars
 import User from "./model/userschema.js";
-import Restaurant from "./model/restaurant.js";
-import Review from "./model/review.js";
+import Restaurant from "./model/restaurantschema.js";
 import path from "path";
-
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const readJsonFile = (filePath) => {
+  try {
+    const data = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error(`Error reading JSON file: ${error.message}`);
+    return null;
+  }
+};
+
 // Handlebars setup
-app.use(express.static(`public`));
+app.use(express.static('public'));
 app.set("view engine", "hbs");
 app.engine("hbs", exphbs.engine({ extname: "hbs" }));
 app.set("views", path.join("views"));
@@ -28,7 +36,7 @@ app.use(
   })
 );
 
-// Routes
+//users
 const routes = express.Router();
 
 routes.route("/user/:id").get(function (req, res) {
@@ -43,6 +51,7 @@ routes.route("/user/:id").get(function (req, res) {
     });
   });
 
+  //create a new user
 routes.route("/user").post(function (req, res) {
   const user = new User({
     username: req.body.username,
@@ -55,78 +64,43 @@ routes.route("/user").post(function (req, res) {
   });
 });
 
-// restaurants
-routes.route("/restaurant/:id").get((req, res) => {
-  const restaurantId = req.params.id;    
-  Restaurant.findById(restaurantId)
-    .populate('reviews')
-    .exec((err, restaurant) => {
-      if (err) {
-        console.error(err);
-        res.status(500).json({ error: "Internal Server Error" });
-        return;
-      }
-      res.json({ restaurant });
-    });
-});
-
-
-// find review in a specific restaurant
-routes.route("/restaurant/:id/reviews").get((req, res) => {
+app.get('/restaurant/:id', async (req, res) => {
   const restaurantId = req.params.id;
 
-  Review.find({ restaurant: restaurantId }, (err, reviews) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: "Internal Server Error" });
+  try {
+    // Find the restaurant in MongoDB by ID
+    const restaurant = await Restaurant.findById(restaurantId);
+
+    if (!restaurant) {
+      // Handle case where restaurant is not found
+      res.status(404).send('Restaurant not found');
       return;
     }
-    res.json({ reviews });
-  });
-});
 
-// adding of a new review to a specifc restaurant
-routes.route("/restaurant/:id/reviews").post((req, res) => {
-  const restaurantId = req.params.id;
-
-  const { comment } = req.body;
-
-  if (!comment) {
-    res.status(400).json({ error: "Comment is required." });
-    return;
+    // Render the restaurant template with the selected data
+    res.render('restaurant', { restaurant });
+  } catch (error) {
+    // Handle any errors that occur during the MongoDB query
+    console.error(`Error finding restaurant: ${error.message}`);
+    res.status(500).send('Internal Server Error');
   }
-
-  const newReview = new Review({
-    comment,
-  });
-
-  newReview.save((err, savedReview) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: "Internal Server Error" });
-      return;
-    }
-
-    Restaurant.findByIdAndUpdate(
-      restaurantId,
-      { $push: { reviews: savedReview._id } },
-      (updateErr) => {
-        if (updateErr) {
-          console.error(updateErr);
-          res.status(500).json({ error: "Internal Server Error" });
-          return;
-        }
-        res.json({ message: "Review saved." });
-      }
-    );
-  });
 });
                                 
 // Mount the routes on the main app
 app.use("/", routes);
 
-// Connect to MongoDB and start the server
-app.listen(3000, () => {
-    console.log("App started");
-    mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.DB_NAME });
+app.listen(PORT, async () => {
+  console.log("App started");
+
+  try {
+    // Connect to MongoDB
+    await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: process.env.restaurantDB.restaurants,
+    });
+
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    // Handle any errors that occur during the MongoDB connection
+    console.error(`Error connecting to MongoDB: ${error.message}`);
+  }
 });

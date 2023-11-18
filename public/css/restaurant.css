@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=IBM+Plex+Sans+KR:wght@700&display=swap');
 
-body{
-    font-family: Montserrat;
-    background-image: url("background.png");
-    font-size: 16px;
-}
+body{ 
+  background-image: url("/assets/background.png") !important;
+  font-family: Montserrat;
+  font-size: 16px;
+ }
 
 /*navigation*/
 

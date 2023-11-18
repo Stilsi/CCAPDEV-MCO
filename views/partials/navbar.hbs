@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/public/css/main-page.css">
+    <script src="/public/js/main-page.js"></script>
+    <script src="/public/js/nav-bar-search.js"></script>
+  </head>
+  <body>
+
+   <!--navigation bar-->
+
+   <div class="navbar">
+    <nav>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">search</button>
+          <div class="dropdown-content">
+            <form id="search-form">
+              <input type="text" id="search-box" placeholder="search...">
+              <button class="submit-search" type="submit">go</button>
+            </form>
+          </div>                       
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">locations</button>
+          <div class="dropdown-content">
+            <a href="location-page.html">Establishments</a>
+            <a href="location-page-agno.html">Agno Street</a>
+            <a href="location-page-taft.html">Taft Avenue</a>
+            <a href="location-page-leonguinto.html">Leon Guinto</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="title">
+        <a href="#"><img src="dlsu-food.png"></a>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+          <button class="dropbtn">profile</button>
+          <div class="dropdown-content">
+            <a href="user-profile.html">user profile</a>
+            <a href="login-page.html">logout</a>
+            <a href="register.html">register</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#">developers</a></div>
+    </nav>
+  </div>
+  </body>
+</html>
