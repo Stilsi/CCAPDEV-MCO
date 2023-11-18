@@ -11,6 +11,7 @@ import restaurantRoutes from './controller/restaurant.js';
 import homepageRoutes from './controller/homepage.js';
 import searchRoutes from './controller/search.js';
 import locationRoutes from './controller/location.js';
+import registerRoutes from './controller/register.js';
 
 // const setups
 const app = express();
@@ -61,6 +62,8 @@ app.use("/homepage", homepageRoutes);
 app.use("/search", searchRoutes);
 
 app.use("/location", locationRoutes);
+
+app.use("/register", registerRoutes);
                                 
 // Mount the routes on the main app
 app.use("/", routes);
