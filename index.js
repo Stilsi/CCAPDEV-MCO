@@ -6,12 +6,15 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import exphbs from 'express-handlebars';
 import path from "path";
+import session from 'express-session';
 
 import restaurantRoutes from './controller/restaurant.js';
 import homepageRoutes from './controller/homepage.js';
 import searchRoutes from './controller/search.js';
 import locationRoutes from './controller/location.js';
 import registerRoutes from './controller/register.js';
+import loginRoutes from './controller/login.js';
+import logoutRoutes from './controller/logout.js';
 
 // const setups
 const app = express();
@@ -53,6 +56,13 @@ app.use(
   })
 );
 
+ //creates session for users logging in
+app.use(session({
+  secret: 'your secret key',
+  resave: false,
+  saveUninitialized: true,
+ }));
+
 //restaurant
 app.use("/restaurant", restaurantRoutes);
 
@@ -64,6 +74,10 @@ app.use("/search", searchRoutes);
 app.use("/location", locationRoutes);
 
 app.use("/register", registerRoutes);
+
+app.use("/login", loginRoutes);
+
+app.use("/logout", logoutRoutes);
                                 
 // Mount the routes on the main app
 app.use("/", routes);
