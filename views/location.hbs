@@ -6,15 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>{{location.name}}</title>
-    <link rel = "stylesheet" href = "/css/location-page.css">
+    <link rel="stylesheet" href="/css/location-page.css">
     <script src="/model/locationschema.js"></script>
-</head>
+    <script src="/model/restaurantschema.js"></script>
 </head>
 
 <body>
-    
+
     {{> navbar}}
     <!--header part-->
 
@@ -24,9 +24,12 @@
         </div>
     </section>
 
-    <!--establishments cards-->
     <section class="container">
+        {{#each restaurants as |restaurant|}}
+        {{> establishmentsCard restaurant}}
+        {{/each}}
     </section>
+
 
 </body>
 

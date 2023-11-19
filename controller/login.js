@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
     // If the password is correct, redirect the user to the homepage
     req.session.user = user;
     console.log('Session ID:', req.sessionID); 
+    console.log('Session User:', req.session.user.username); 
     res.redirect('/homepage');
  }); 
 

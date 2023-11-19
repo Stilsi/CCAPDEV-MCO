@@ -15,6 +15,7 @@ import locationRoutes from './controller/location.js';
 import registerRoutes from './controller/register.js';
 import loginRoutes from './controller/login.js';
 import logoutRoutes from './controller/logout.js';
+import reviewRoutes from './controller/review.js';
 
 // const setups
 const app = express();
@@ -78,6 +79,8 @@ app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
 
 app.use("/logout", logoutRoutes);
+
+app.use("/review", reviewRoutes);
                                 
 // Mount the routes on the main app
 app.use("/", routes);

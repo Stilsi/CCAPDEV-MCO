@@ -7,7 +7,8 @@ const locationSchema = new Schema({
   name: String,
   link: String,
   defaultIcon: String,
-  hoverIcon: String
+  hoverIcon: String,
+  restaurants: [String]
 });
 
 const Location = mongoose.model('Location', locationSchema);
