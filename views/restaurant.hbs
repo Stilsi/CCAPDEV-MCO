@@ -44,7 +44,9 @@
 
     <!-- Reviews Section -->
     <div class="container my-4" id="reviews">
-        <!--insert review card here-->
+        {{#each reviews}}
+            {{> reviewcard}}
+        {{/each}}
     </div>
 
     <!-- Submit a Review Section -->
