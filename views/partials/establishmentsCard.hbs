@@ -1,0 +1,14 @@
+<!-- establishmentsCard.hbs -->
+
+<div class="card">
+    <img class="card-logo" src="{{restaurant.logo}}" alt="{{restaurant.name}} Logo">
+    <div class="card-title">{{restaurant.name}}</div>
+    <div class="card-location">{{restaurant.location}}</div>
+    <div class="reviews">
+        <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i> {{restaurant.recommendedCount}}</div>
+        <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i> {{restaurant.notRecommendedCount}}</div>
+    </div>
+    <!-- Placeholder for the calculated sum of reviews -->
+    <div class="reviews-sum" data-reviews-sum="{{restaurant.sumOfReviews}}">( Reviews)</div>
+    <a class="view" role="button" href="/restaurants/{{restaurant._id}}">VIEW ESTABLISHMENT</a>
+</div>

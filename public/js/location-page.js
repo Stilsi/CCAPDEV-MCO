@@ -36,7 +36,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-  
 
 // Sorting function
 function sortCards(sortType) {
@@ -92,3 +91,23 @@ function sortCards(sortType) {
 
 // Initialize the sorting by rating as the default.
 sortCards('by-rating');
+
+function calculateSumOfReviews() {
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach((card) => {
+      const recommendCount = parseInt(card.querySelector('.recommend').textContent.trim());
+      const notRecommendCount = parseInt(card.querySelector('.notrecommend').textContent.trim());
+      const sumOfReviews = recommendCount + notRecommendCount;
+
+      // Update the data-reviews-sum attribute with the calculated sum of reviews
+      const reviewsSumElement = card.querySelector('.reviews-sum');
+      if (reviewsSumElement) {
+          reviewsSumElement.setAttribute('data-reviews-sum', sumOfReviews);
+      }
+  });
+}
+
+calculateSumOfReviews();
+
+
