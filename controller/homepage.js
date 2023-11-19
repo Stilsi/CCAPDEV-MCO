@@ -11,12 +11,4 @@ router.get('/', async function(req, res) {
     res.render('homepage', { locations: locations, results: results });
  });
 
-router.get('/search', async function(req, res) {
-    const query = req.query.query;
-    const restaurants = await Restaurant.find({});
-    const results = restaurants.filter(restaurant => restaurant.name.includes(query));
-    res.render('search', {results: results});
-});
-
-
 export default router;
