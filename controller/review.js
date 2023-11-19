@@ -13,16 +13,17 @@ router.post('/', async function(req, res) {
         recommendation: req.body.recommendation,
         image: req.body.image
     });
-  
+ 
+    console.log('current user', req.session.user.username);
+ 
     try {
         await review.save();
-        res.redirect('/success');
+        res.redirect('/restaurant/' + req.session.restaurant._id);
     } catch (err) {
         console.log(err);
         res.redirect('/error');
     }
-  });
-  
+ }); 
 
  export default router;
 
