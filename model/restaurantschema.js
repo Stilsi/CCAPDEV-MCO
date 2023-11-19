@@ -7,6 +7,7 @@ const restaurantSchema = new Schema({
   name: String,
   logo: String,
   location: String,
+  description: String,
   socialMedia: String,
   phoneNumber: String,
   recommendedCount: { type: Number, default: 0 },
