@@ -9,13 +9,61 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-    {{!-- <link rel="stylesheet" href="/css/restaurant.css"> --}}
+    <link rel="stylesheet" href="/css/user-profile.css">
     <script src="/model/userschema.js"></script>
-
+    <script src="/model/reviewschema.js"></script>
 </head>
 
 <body>
-<p>Description {{user.description}}</p>
+    <!-- Navigation bar -->
+    {{> navbar}}
+
+    <!-- Body -->
+    <div class = "profile_text">
+    <div class="profile_pic">
+        <img src = {{user.profilePicture}}>
+        <h1>@{{user.username}}</h1>
+        <h4>{{user.location}}</h4>
+        <p>Member since:</p>
+        <p>{{user.membershipDate}}</p>
+        <p class="experience"></p>
+        <div class="stats">
+            <div id="stats_text">
+                <h1>27</h1>
+                <h4>Photos</h4>
+            </div>
+            <div id="stats_text">
+                <h1>19</h1>
+                <h4>Reviews</h4>
+            </div>
+        </div>
+        <form action="/edit-profile" method="get">
+            <button type="submit">Edit Profile</button>
+        </form>
+    </div>
+  <div class = "profile_text_text">
+    <h1>{{user.descriptionTitle}}</h1> 
+    <h4>{{user.fullName}} (@{{user.username}})</h4> 
+    <p>{{user.description}}</p>
+  </div>
+
+
+</div>
+
+  <!-- Reviews -->
+  
+<div class = "recent-activity">
+  <h1>recent activity</h1>
+</div>
+<div class="container my-4" id="reviews">
+ {{#each reviews}}
+     {{> reviewcard loggedInUser=../loggedInUser review=this}}
+ {{/each}}
+
+</div>
+
+
+
 
 </body>
 

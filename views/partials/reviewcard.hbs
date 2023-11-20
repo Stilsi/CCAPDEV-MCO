@@ -5,11 +5,64 @@
     <link rel="stylesheet" href="/css/main-page.css">
     <script src="/js/main-page.js"></script>
     <script src="/js/nav-bar-search.js"></script>
-    <script src = "restaurant.js"></script>
+
+    <script>
+        function editReview(button) {
+            var form = document.getElementById('edit-review-form');
+            form.style.display = 'block';
+        }
+
+       document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('edit-review-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var formData = new FormData(event.target);
+        var title = formData.get('title');
+        var comment = formData.get('comment');
+        var recommendation = formData.get('recommendation');
+
+        // Find the closest parent element with the data-review-id attribute
+        var reviewId = this.closest('.col-md-4').dataset.reviewId;
+
+        // Check if reviewId is a valid ObjectId
+        if (!isValidObjectId(reviewId)) {
+            console.error('Invalid reviewId:', reviewId);
+            return;
+        }
+
+        fetch('/update-review/' + reviewId, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: title,
+                comment: comment,
+                recommendation: recommendation
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response as needed
+            console.log('Update successful:', data);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error updating review:', error);
+        });
+    });
+});
+
+
+// Function to check if a string is a valid ObjectId
+function isValidObjectId(id) {
+    return /^[a-f\d]{24}$/i.test(id);
+}
+    </script>
 </head>
 
 <body>
-    <div class="col-md-4" id="{{review._id}}">
+    <div class="col-md-4" id="{{review._id}}" data-review-id="{{review._id}}">
         <div class="card">
             <div class="card-body">
                 <div class="user-info">
@@ -35,6 +88,25 @@
                         <p>Helpful: {{review.helpfulCount}}</p>
                         <p>Unhelpful: {{review.unhelpfulCount}}</p>
                     </div>
+
+                    <form id="edit-review-form" style="display: none;" action="/update-review/{{review._id}}" method="PUT">
+                        <!-- Add the hidden field for method override -->
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="restaurantId" value="{{review.restaurantId}}">
+
+                        <label for="title">Title:</label><br>
+                        <input type="text" id="title" name="title" value="{{review.title}}"><br>
+                        <label for="comment">Comment:</label><br>
+                        <textarea id="comment" name="comment">{{review.comment}}</textarea><br>
+                        <label for="recommendation">Recommendation:</label><br>
+                        <select id="recommendation" name="recommendation">
+                            <option value="Recommended" {{#if_eq review.recommendation "Recommended"}}selected{{/if_eq}}>Recommended</option>
+                            <option value="Not Recommended" {{#if_eq review.recommendation "Not Recommended"}}selected{{/if_eq}}>Not Recommended</option>
+                        </select><br>
+                       <input type="submit" value="Submit">
+                    </form>
+
+
                     <div class="comment-box">
                         <textarea id="text-input" placeholder="comment..."></textarea>
                     </div>
