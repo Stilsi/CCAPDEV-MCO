@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const reviewSchema = new mongoose.Schema({
  usericon: String,
  username: String,
- restaurant: { type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant' },
+ restaurant: String,
  title: { type: String, required: true },
  comment: { type: String, required: true },
  recommendation: { type: String, required: true },
