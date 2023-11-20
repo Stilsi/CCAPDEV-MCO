@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="/css/user-profile.css">
     <script src="/model/userschema.js"></script>
+    <script src="/model/restaurantschema.js"></script>
     <script src="/model/reviewschema.js"></script>
 </head>
 
@@ -56,9 +57,9 @@
   <h1>recent activity</h1>
 </div>
 <div class="container my-4" id="reviews">
- {{#each reviews}}
-     {{> reviewcard loggedInUser=../loggedInUser review=this}}
- {{/each}}
+{{#each reviews}}
+    {{> reviewcard this}}
+{{/each}}
 
 </div>
 

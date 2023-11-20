@@ -131,6 +131,74 @@ app.put('/update-review/:id', async (req, res) => {
   }
 });
 
+app.delete('/delete-review/:id', async (req, res) => {
+  const reviewId = req.params.id;
+
+  try {
+      const deletedReview = await Review.findByIdAndDelete(reviewId);
+
+      if (!deletedReview) {
+          return res.status(404).send('Review not found');
+      }
+
+      // Optionally, you can handle additional logic or send a success message
+      res.status(200).send({ message: 'Review deleted successfully' });
+  } catch (error) {
+      console.error('Error deleting review:', error);
+      res.status(500).send(error.message);
+  }
+});
+
+// Add this route to your server code
+app.post('/mark-helpful/:id', async (req, res) => {
+  const reviewId = req.params.id;
+
+  try {
+      const review = await Review.findById(reviewId);
+
+      if (!review) {
+          return res.status(404).send('Review not found');
+      }
+
+      // Increment the helpfulCount
+      review.helpfulCount += 1;
+
+      // Save the updated review to the database
+      const updatedReview = await review.save();
+
+      // Send the updated review as the response
+      res.status(200).send(updatedReview);
+  } catch (error) {
+      console.error('Error marking review as helpful:', error);
+      res.status(500).send(error.message);
+  }
+});
+
+// Add this route to your server code
+app.post('/mark-unhelpful/:id', async (req, res) => {
+  const reviewId = req.params.id;
+
+  try {
+      const review = await Review.findById(reviewId);
+
+      if (!review) {
+          return res.status(404).send('Review not found');
+      }
+
+      // Increment the unhelpfulCount
+      review.unhelpfulCount += 1;
+
+      // Save the updated review to the database
+      const updatedReview = await review.save();
+
+      // Send the updated review as the response
+      res.status(200).send(updatedReview);
+  } catch (error) {
+      console.error('Error marking review as unhelpful:', error);
+      res.status(500).send(error.message);
+  }
+});
+
                            
 app.use("/edit-profile", editProfileRoutes);
                                 
