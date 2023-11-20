@@ -1,6 +1,4 @@
-  import Review from "../model/reviewschema";
-  
-  function markHelpful(button) {
+function markHelpful(button) {
     console.log("Mark Helpful button clicked.");
     const helpfulCount = button.parentElement.parentElement.querySelector(".helpful-count");
     if (helpfulCount) {
