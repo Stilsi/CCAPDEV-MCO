@@ -12,6 +12,7 @@ const restaurantSchema = new Schema({
   phoneNumber: String,
   recommendedCount: { type: Number, default: 0 },
   notRecommendedCount: { type: Number, default: 0 },
+  reviewCount: { type: Number, default: 0 }, 
 });
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
