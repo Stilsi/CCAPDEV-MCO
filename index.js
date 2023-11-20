@@ -18,6 +18,12 @@ import logoutRoutes from './controller/logout.js';
 import reviewRoutes from './controller/review.js';
 import userProfileRoutes from './controller/user-profile.js';
 
+import Review from './model/reviewschema.js'
+import Restaurant from "./model/restaurantschema.js";
+
+import methodOverride from "method-override";
+
+
 // const setups
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -49,6 +55,7 @@ app.engine(
   })
  ); 
 app.set("views", path.join("views"));
+app.use(methodOverride('_method'));
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -84,7 +91,46 @@ app.use("/logout", logoutRoutes);
 app.use("/review", reviewRoutes);
 
 app.use("/user-profile", userProfileRoutes);
-                                
+
+app.get('/update-review/:id', async (req, res) => {
+  const reviewId = req.params.id;
+
+  try {
+    // Use the await keyword to wait for the findById method to resolve
+    const review = await Review.findById(reviewId);
+
+    if (!review) {
+      return res.status(404).send('Review not found');
+    }
+
+    // Adjust the response based on your needs
+    res.status(200).send(review);
+  } catch (error) {
+    console.error('Error retrieving review:', error);
+    res.status(500).send(error.message);
+  }
+});
+
+app.put('/update-review/:id', async (req, res) => {
+  const reviewId = req.params.id;
+  const updatedReview = req.body;
+
+  try {
+    const review = await Review.findByIdAndUpdate(reviewId, updatedReview, { new: true });
+
+    if (!review) {
+      return res.status(404).send('Review not found');
+    }
+
+    // Adjust the response based on your needs
+    res.status(200).send(review);
+  } catch (error) {
+    console.error('Error updating review:', error);
+    res.status(500).send(error.message);
+  }
+});
+
+                           
 // Mount the routes on the main app
 app.use("/", routes);
 
