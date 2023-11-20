@@ -25,6 +25,19 @@ router.post('/', async function(req, res) {
     }
  }); 
 
+ router.put('/:id', async function(req, res) {
+    const reviewId = req.params.id;
+    const updatedReview = req.body;
+ 
+    try {
+        const review = await Review.findByIdAndUpdate(reviewId, updatedReview, { new: true });
+        res.json(review);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+ });
+ 
  export default router;
 
  

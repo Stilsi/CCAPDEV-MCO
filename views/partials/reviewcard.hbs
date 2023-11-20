@@ -5,34 +5,41 @@
     <link rel="stylesheet" href="/css/main-page.css">
     <script src="/js/main-page.js"></script>
     <script src="/js/nav-bar-search.js"></script>
+    <script src = "/routes/restaurant.js"></script>
 </head>
 
 <body>
-    <div class="col-md-4">
+    <div class="col-md-4" id="{{review._id}}">
         <div class="card">
             <div class="card-body">
                 <div class="user-info">
                     <a href="user-profile.html">
-                        <img src="{{usericon}}">
-                        <span class="username">@{{username}}</span>
+                        <img src="{{review.usericon}}">
+                        <span class="username">@{{review.username}}</span>
                     </a>
                 </div>
                 <div>
-                    <h5>{{title}}</h5>
-                    <p>{{comment}}</p>
-                    <p><span id="recommendation">Thoughts: {{recommendation}}</span></p>
+                    <h5>{{review.title}}</h5>
+                    <p>{{review.comment}}</p>
+                    <p><span id="recommendation">Thoughts: {{review.recommendation}}</span></p>
                     <div class="review-buttons">
+                        {{#if_eq loggedInUser.username review.username}}
                         <button class="edit" onclick="editReview(this)">Edit</button>
                         <button class="delete" onclick="deleteReview(this)">Delete</button>
+                        {{else}}
+                        <button class="mark-helpful" onclick="markHelpful(this)">Mark Helpful</button>
+                        <button class="mark-unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button>
+                        {{/if_eq}}
                     </div>
                     <div class="count">
-                        <p>Helpful: {{helpfulCount}}</p>
-                        <p>Unhelpful: {{unhelpfulCount}}</p>
+                        <p>Helpful: {{review.helpfulCount}}</p>
+                        <p>Unhelpful: {{review.unhelpfulCount}}</p>
                     </div>
                     <div class="comment-box">
                         <textarea id="text-input" placeholder="comment..."></textarea>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
