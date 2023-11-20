@@ -16,6 +16,7 @@ import registerRoutes from './controller/register.js';
 import loginRoutes from './controller/login.js';
 import logoutRoutes from './controller/logout.js';
 import reviewRoutes from './controller/review.js';
+import userProfileRoutes from './controller/user-profile.js';
 
 // const setups
 const app = express();
@@ -81,6 +82,8 @@ app.use("/login", loginRoutes);
 app.use("/logout", logoutRoutes);
 
 app.use("/review", reviewRoutes);
+
+app.use("/user-profile", userProfileRoutes);
                                 
 // Mount the routes on the main app
 app.use("/", routes);
