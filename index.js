@@ -93,7 +93,6 @@ app.use("/review", reviewRoutes);
 
 app.use("/user-profile", userProfileRoutes);
 
-<<<<<<< Updated upstream
 app.get('/update-review/:id', async (req, res) => {
   const reviewId = req.params.id;
 
@@ -133,10 +132,8 @@ app.put('/update-review/:id', async (req, res) => {
 });
 
                            
-=======
 app.use("/edit-profile", editProfileRoutes);
                                 
->>>>>>> Stashed changes
 // Mount the routes on the main app
 app.use("/", routes);
 

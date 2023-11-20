@@ -99,8 +99,10 @@ function isValidObjectId(id) {
                         <label for="comment">Comment:</label><br>
                         <textarea id="comment" name="comment">{{review.comment}}</textarea><br>
                         <label for="recommendation">Recommendation:</label><br>
-                        <input type="text" id="recommendation" name="recommendation"
-                            value="{{review.recommendation}}"><br>
+                        <select id="recommendation" name="recommendation">
+                            <option value="Recommended" {{#if_eq review.recommendation "Recommended"}}selected{{/if_eq}}>Recommended</option>
+                            <option value="Not Recommended" {{#if_eq review.recommendation "Not Recommended"}}selected{{/if_eq}}>Not Recommended</option>
+                        </select><br>
                        <input type="submit" value="Submit">
                     </form>
 
