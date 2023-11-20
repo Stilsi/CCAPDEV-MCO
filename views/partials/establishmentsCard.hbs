@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/location-page.css">
+    <script src="/model/locationschema.js"></script>
+    <script src="/model/restaurantschema.js"></script>
+</head>
+
+<body>
+
+    <div class="card">
+        <img class="card-logo" src="{{logo}}" alt="{{name}} Logo">
+        <div class="card-title">{{name}}</div>
+        <div class="card-location">{{location}}</div>
+        <div class="reviews">
+            <div class="recommend"><i class="fa-solid fa-thumbs-up" style="color: #ffffff;"></i>
+                {{recommendedCount}}</div>
+            <div class="notrecommend"><i class="fa-solid fa-thumbs-down" style="color: #ffffff;"></i>
+                {{notRecommendedCount}}</div>
+        </div>
+        <!-- Placeholder for the calculated sum of reviews -->
+        <div class="reviews-sum">({{reviewCount}} Reviews)</div>
+        <p class="card-description">{{description}}</p>
+        <a class="view" role="button" href="/restaurant/{{_id}}">VIEW ESTABLISHMENT</a>
+    </div>
+
+
+</body>
+
+</html>

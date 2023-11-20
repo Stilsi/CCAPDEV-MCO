@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{{location.name}}</title>
+    <link rel="stylesheet" href="/css/location-page.css">
+    <script src="https://kit.fontawesome.com/62a1ef5fed.js" crossorigin="anonymous"></script>
+    <script src="/model/locationschema.js"></script>
+    <script src="/model/restaurantschema.js"></script>
+    
+</head>
+
+<body>
+
+    {{> navbar}}
+    <!--header part-->
+
+    <section class="location-title">
+        <div>
+            <h1>{{location.name}}</h1>
+        </div>
+        {{> sortingButtons}}
+    </section>
+
+    <section class="container">
+        {{#each restaurants as |restaurant|}}
+        {{> establishmentsCard restaurant}}
+        {{/each}}
+    </section>
+
+
+</body>
+
+</html>

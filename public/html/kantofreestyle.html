@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanto Freestyle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/public/css/restaurant.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src = "/public/css/restaurant.css"></script>
+    <script src="/public/js/nav-bar-search.js"></script>
+</head>
+<body>
+   <!--navigation bar-->
+
+   <div class="navbar">
+    <nav>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">search</button>
+          <div class="dropdown-content">
+            <form id="search-form">
+              <input type="text" id="search-box" placeholder="search...">
+              <button class="submit-search" type="submit">go</button>
+            </form>
+          </div>                       
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn">locations</button>
+          <div class="dropdown-content">
+            <a href="location-page.html">Establishments</a>
+            <a href="location-page-agno.html">Agno Street</a>
+            <a href="location-page-taft.html">Taft Avenue</a>
+            <a href="location-page-leonguinto.html">Leon Guinto</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="title">
+        <a href="main-page.html"><img src="dlsu-food.png"></a>
+      </div>
+      <div class="nav-item">
+        <div class="dropdown" id="profile-dropdown"> <!-- Add an ID to the profile dropdown -->
+          <button class="dropbtn">profile</button>
+          <div class="dropdown-content">
+            <a href="user-profile.html">user profile</a>
+            <a href="login-page.html">logout</a>
+            <a href="register.html">register</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#">developers</a></div>
+    </nav>
+  </div>
+
+    <!-- Restaurant Details -->
+    <div class="container my-4" alt="about">
+        <h1 class="text-center" id = "title-restaurant">Kanto Freestyle Breakfast</h1>
+        <div class="row">
+            <div class="col-md-6" id = "logo">
+                <img src = "restaurant-icons/kantofreestyle.png">
+            </div>
+            <div class="col-md-6" id = "resto-info">
+                <h2>About Us</h2>
+                <p>Location:  2466 Leon Guinto St, Malate, Manila, 1004 Metro Manila</p>
+				<p> Service Options: Dine-in & Take-out</p> 
+                <h2>Contact Information</h2>
+                <p><strong>Phone:</strong>  0919 478 8055</p>
+				<p><strong>Instagram:</strong> @kantofreestylebreakfast</p>
+				 <p><strong>Recommended Count:</strong> <span id="recommended-count">0</span></p>
+				<p><strong>Not Recommended Count:</strong> <span id="not-recommended-count">2</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="container my-4" id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="row">
+
+            <!--review 1-->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="user-info"><a href = "user-profile5.html">
+                            <img src = "user-icon5.jpg">
+                            <span class="username">@jennaissante</span>
+                            </a>
+                        </div>
+                        <div>
+                            <h5>eww</h5>
+                            <p>super bilis food review: di masarap</p>
+                            <p><spans id = "recommendation">thoughts: Not Recommended</spans></p>
+                             <!-- Helpful count -->
+                             <div class="count">
+                                <p class="helpful-count">Helpful: 0</p>
+                            </div>
+                            <div class="review-buttons">
+                                <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button>
+                            </div>
+
+                            <!-- Unhelpful count -->
+                            <div class="count">
+                                <p class="unhelpful-count">Unhelpful: 0</p>
+                            </div>
+                            <div class="review-buttons">
+                                <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button>
+                            </div>
+                            <div class="comment-box">
+                                <textarea class="text-input" placeholder="comment..."></textarea>
+                                <button class="add-comment">Add Comment</button>
+                                <div class="comments"></div>
+                                <div class = "comment">
+                                    <div class="user-info"><a href = "user-profile2.html">
+                                        <img src = "user-icon2.jpg">
+                                        <span class="username">@roses_are_rosie</span>
+                                        </a>
+                                    </div>
+                                    <!--comment-->
+                                    <p>hahahaha
+                                      </p>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end of review 1-->
+
+            <!--review 2-->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="user-info"><a href = "user-profile2.html">
+                            <img src = "user-icon2.jpg">
+                            <span class="username">@roses_are_rosie</span>
+                            </a>
+                        </div>
+                        <div>
+                            <h5>What a letdown!</h5>
+                            <p>"This restaurant was a letdown. 
+				While the service was decent, the food left much to be  desired. 
+				I ordered their signature dish, and it was bland and overcooked.
+				The portion size was small for the price, making it a poor value. 
+				The ambiance was pleasant, but the noise level was quite high, making it hard to have a conversation. 
+				The dessert we ordered wasn't any better, and I expected more from a place with such a reputation. 
+				I might give it another chance, but I'm not sure I'd recommend it to a friend."</p>
+                            <p><spans id = "recommendation">thoughts: Not Recommended</spans></p>
+                            <!-- Helpful count -->
+                            <div class="count">
+                                <p class="helpful-count">Helpful: 0</p>
+                            </div>
+                            <div class="review-buttons">
+                                <button class="helpful" onclick="markHelpful(this)">Mark Helpful</button>
+                            </div>
+
+                            <!-- Unhelpful count -->
+                            <div class="count">
+                                <p class="unhelpful-count">Unhelpful: 0</p>
+                            </div>
+                            <div class="review-buttons">
+                                <button class="unhelpful" onclick="markUnhelpful(this)">Mark Unhelpful</button>
+                            </div>
+                                                                           
+                            <div class="comment-box">
+                                <textarea class="text-input" placeholder="comment..."></textarea>
+                                <button class="add-comment">Add Comment</button>
+                                <div class="comments"></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end of review 2-->
+
+        </div>
+    </div>
+	
+    <div class="container my-4" id = "create">
+        <h2>submit a review</h2>
+        <form id="review-form" action="#">
+            <div class="form-group">
+                <label for="review-title">Title:</label>
+                <input type="text" class="form-control" id="review-title" name="review-title" required>
+            </div>
+            <div class="form-group">
+                <label for="review-body">Body:</label>
+                <textarea class="form-control" id="review-body" name="review-body" rows="5" required></textarea>
+            </div>
+			   <div class="form-group">
+                <label for="recommendation">Recommendation:</label>
+                <select class="form-control" id="recommendationSelect" name="recommendation">
+                    <option value="recommended">Recommended</option>
+                    <option value="not-recommended">Not Recommended</option>
+                </select>                            
+			<div class="form-group">
+            <label for="file-upload">Upload Image/Media (optional):</label>
+            <input type="file" class="form-control-file" id="file-upload" name="file-upload">
+        </div>
+        </div>
+        <button type="submit" class="btn" id = "submit">Submit Review</button>
+    </form>
+    </div>
+</body>
+</html>
