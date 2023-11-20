@@ -13,6 +13,18 @@ const userSchema = new mongoose.Schema({
     profilePicture: {
     type: String
     },
+    fullName: {
+    type: String
+    },
+    membershipDate: {
+    type: String
+    },
+    location: {
+    type: String
+    },
+    descriptionTitle: {
+    type: String
+    },
     description: String
 });
 
