@@ -9,7 +9,14 @@ router.get('/:id', async (req, res) => {
  try {
    const restaurantId = req.params.id;
    const restaurant = await Restaurant.findById(restaurantId);
-   const reviews = await Review.find({ restaurant: restaurantId });
+   const reviews = await Review.find({ restaurant: restaurantId }).populate({
+    path: 'replies',
+    populate: {
+      path: 'user',
+      select: 'profilePicture username'
+    }
+   });
+   
 
    if (!restaurant) {
      console.error(`No restaurant found with ID: ${restaurantId}`);

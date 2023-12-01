@@ -197,9 +197,24 @@ function markReview(reviewId, action) {
                     </form>
 
 
-                    <div class="comment-box">
-                        <textarea id="text-input" placeholder="comment..."></textarea>
+                    <form id="reply-form" action="/submit-reply/{{review._id}}" method="POST">
+                        <textarea id="reply-content" name="content" placeholder="Submit a reply..."></textarea>
+                        <input type="submit" value="Submit Reply" id = "btnsubmit">
+                    </form>
+
+                    <div id="comments-section">
+                    <!-- Display existing comments here -->
+                    {{#each review.replies}}
+                        <div class="reply">
+                            <a href="/user-profile/{{this.userId}}">
+                                <img class = "reply" src="{{this.user.profilePicture}}">
+                                <span id="replyusername">@{{this.user.username}}</span>
+                            </a>
+                            <p>{{this.content}}</p>
+                        </div>
+                    {{/each}}
                     </div>
+
                 </div>
 
             </div>

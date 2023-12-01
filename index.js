@@ -22,6 +22,8 @@ import editProfileRoutes from './controller/edit-profile.js';
 import Review from './model/reviewschema.js'
 import Restaurant from "./model/restaurantschema.js";
 
+import Reply from './model/replyschema.js';
+
 import methodOverride from "method-override";
 
 
@@ -195,6 +197,36 @@ app.post('/mark-unhelpful/:id', async (req, res) => {
       res.status(200).send(updatedReview);
   } catch (error) {
       console.error('Error marking review as unhelpful:', error);
+      res.status(500).send(error.message);
+  }
+});
+
+app.post('/submit-reply/:id', async (req, res) => {
+  const reviewId = req.params.id;
+  const replyContent = req.body.content;
+
+  try {
+      // Find the review
+      const review = await Review.findById(reviewId);
+
+      // Create a new reply
+      const reply = new Reply({
+          user: req.session.user._id,
+          content: replyContent
+      });
+
+      // Save the reply
+      await reply.save();
+
+      // Add the reply to the review
+      review.replies.push(reply);
+
+      // Save the updated review
+      await review.save();
+
+      res.status(200).send(reply);
+  } catch (error) {
+      console.error('Error submitting reply:', error);
       res.status(500).send(error.message);
   }
 });

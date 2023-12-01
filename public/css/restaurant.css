@@ -206,10 +206,37 @@ body{
   margin-right: 10px;
 }
 
+.reply img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 .card-body .username {
   color:#263a29;
   text-decoration: none;
   font-weight: bold;
+}
+
+.reply{
+  align-items: center;
+  margin-top: 20px;
+}
+
+.reply p{
+  margin-top: 10px;
+  background-color: #eebea4;
+}
+
+.reply a{
+  text-decoration: none;
+}
+
+.reply #replyusername{
+  color:#263a29;
+  font-weight: bold;
+  
 }
 
 .count {
@@ -283,14 +310,14 @@ body{
   outline: none;
 }
 
-#text-input {
+#reply-content {
   width: 100%;
-  border: none;
+  border: 1px solid #ccc;
   resize: none; /* Disables text area resizing */
   outline: none;
 }
 
-.btn{
+#btnsubmit{
   background-color: #41644a;
   color: white;
   padding: 10px;

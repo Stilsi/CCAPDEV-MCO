@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import Restaurant from './restaurantschema.js';
+import Reply from './replyschema.js';
 
 const Schema = mongoose.Schema;
 
@@ -12,6 +13,10 @@ const reviewSchema = new mongoose.Schema({
  recommendation: { type: String, required: true },
  helpfulCount: { type: Number, default: 0 },
  unhelpfulCount: { type: Number, default: 0 },
+ replies: [{
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'Reply'
+  }]
 });
 
 reviewSchema.pre('save', async function (next) {
