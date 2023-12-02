@@ -95,6 +95,15 @@ app.use("/review", reviewRoutes);
 
 app.use("/user-profile", userProfileRoutes);
 
+const authenticateUser = (req, res, next) => {
+  if (!req.session || !req.session.user) {
+    // If no user session exists, redirect to the login page or send an error response
+    return res.redirect(req.originalUrl);
+  }
+  // If the user is authenticated, proceed to the next middleware or route handler
+  next();
+};
+
 app.get('/update-review/:id', async (req, res) => {
   const reviewId = req.params.id;
 
@@ -152,7 +161,7 @@ app.delete('/delete-review/:id', async (req, res) => {
 });
 
 // Add this route to your server code
-app.post('/mark-helpful/:id', async (req, res) => {
+app.post('/mark-helpful/:id',  authenticateUser, async (req, res) => {
   const reviewId = req.params.id;
 
   try {
@@ -177,7 +186,7 @@ app.post('/mark-helpful/:id', async (req, res) => {
 });
 
 // Add this route to your server code
-app.post('/mark-unhelpful/:id', async (req, res) => {
+app.post('/mark-unhelpful/:id',  authenticateUser, async (req, res) => {
   const reviewId = req.params.id;
 
   try {
@@ -201,36 +210,36 @@ app.post('/mark-unhelpful/:id', async (req, res) => {
   }
 });
 
-app.post('/submit-reply/:id', async (req, res) => {
+app.post('/submit-reply/:id',  authenticateUser, async (req, res) => {
   const reviewId = req.params.id;
   const replyContent = req.body.content;
 
   try {
-      // Find the review
-      const review = await Review.findById(reviewId);
+    // Find the review
+    const review = await Review.findById(reviewId);
 
-      // Create a new reply
-      const reply = new Reply({
-          user: req.session.user._id,
-          content: replyContent
-      });
+    // Create a new reply
+    const reply = new Reply({
+      user: req.session.user._id,
+      content: replyContent,
+    });
 
-      // Save the reply
-      await reply.save();
+    // Save the reply
+    await reply.save();
 
-      // Add the reply to the review
-      review.replies.push(reply);
+    // Add the reply to the review
+    review.replies.push(reply);
 
-      // Save the updated review
-      await review.save();
+    // Save the updated review
+    await review.save();
 
-      res.status(200).send(reply);
+    // Redirect to the restaurant page
+    res.redirect('/restaurant/' + req.session.restaurant._id);
   } catch (error) {
-      console.error('Error submitting reply:', error);
-      res.status(500).send(error.message);
+    console.error('Error submitting reply:', error);
+    res.status(500).send(error.message);
   }
 });
-
                            
 app.use("/edit-profile", editProfileRoutes);
                                 

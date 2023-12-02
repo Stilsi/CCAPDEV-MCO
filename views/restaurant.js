@@ -1,34 +1,77 @@
 function markHelpful(button) {
-    console.log("Mark Helpful button clicked.");
-    const helpfulCount = button.parentElement.parentElement.querySelector(".helpful-count");
-    if (helpfulCount) {
-        let count = parseInt(helpfulCount.textContent.split(":")[1].trim());
-        count++;
-        helpfulCount.textContent = `Helpful: ${count}`;
-        disableButton(button);
-
-        const unhelpfulButton = button.parentElement.parentElement.querySelector(".unhelpful");
-        disableButton(unhelpfulButton);
-    }
+  console.log("Mark Helpful button clicked.");
+  
+  // Check if the user is logged in (if there is a user in the session)
+  if (!checkUserLoggedIn()) {
+      // Optionally, you can display a message or redirect the user to the login page
+      alert('Please log in to mark a review as helpful.');
+      // Alternatively, you can redirect to the login page:
+      // window.location.href = '/login';
+      return;
   }
 
-  function markUnhelpful(button) {
-    console.log("Mark Unhelpful button clicked.");
-    const unhelpfulCount = button.parentElement.parentElement.querySelector(".unhelpful-count");
-    if (unhelpfulCount) {
-        let count = parseInt(unhelpfulCount.textContent.split(":")[1].trim());
-        count++;
-        unhelpfulCount.textContent = `Unhelpful: ${count}`;
-        disableButton(button);
+  const helpfulCount = button.parentElement.parentElement.querySelector(".helpful-count");
+  if (helpfulCount) {
+      let count = parseInt(helpfulCount.textContent.split(":")[1].trim());
+      count++;
+      helpfulCount.textContent = `Helpful: ${count}`;
+      disableButton(button);
 
-        const helpfulButton = button.parentElement.parentElement.querySelector(".helpful");
-        disableButton(helpfulButton);
-    }
+      const unhelpfulButton = button.parentElement.parentElement.querySelector(".unhelpful");
+      disableButton(unhelpfulButton);
   }
+}
+
+function markUnhelpful(button) {
+  console.log("Mark Unhelpful button clicked.");
+  
+  // Check if the user is logged in (if there is a user in the session)
+  if (!checkUserLoggedIn()) {
+      // Optionally, you can display a message or redirect the user to the login page
+      alert('Please log in to mark a review as unhelpful.');
+      // Alternatively, you can redirect to the login page:
+      // window.location.href = '/login';
+      return;
+  }
+
+  const unhelpfulCount = button.parentElement.parentElement.querySelector(".unhelpful-count");
+  if (unhelpfulCount) {
+      let count = parseInt(unhelpfulCount.textContent.split(":")[1].trim());
+      count++;
+      unhelpfulCount.textContent = `Unhelpful: ${count}`;
+      disableButton(button);
+
+      const helpfulButton = button.parentElement.parentElement.querySelector(".helpful");
+      disableButton(helpfulButton);
+  }
+}
 
   // Call the updateCountsBasedOnExistingReviews function to update the counts
   document.addEventListener("DOMContentLoaded", function () {
     updateCountsBasedOnExistingReviews();
+
+    const submitReplyButton = document.getElementById('btnsubmit');
+
+    // Check if the submitReplyButton exists (if the user is on a page with the form)
+    if (submitReplyButton) {
+        document.getElementById('reply-form').addEventListener('submit', function (event) {
+            // Check if the user is logged in (if there is a user in the session)
+            if (!checkUserLoggedIn()) {
+                // Prevent the form submission
+                event.preventDefault();
+
+                // Optionally, you can display a message or redirect the user to the login page
+                alert('Please log in to submit a reply.');
+                // Alternatively, you can redirect to the login page:
+                // window.location.href = '/login';
+            }
+        });
+    }
+
+    function checkUserLoggedIn() {
+        // You may need to adjust this condition based on how your user session is stored
+        return (typeof loggedInUser !== 'undefined' && loggedInUser !== null);
+    }
   });
 
   // Define the updateCountsBasedOnExistingReviews function (remove any duplicate definitions)
@@ -53,7 +96,7 @@ function markHelpful(button) {
 
 function disableButton(button) {
         button.disabled = true;
-    }
+}
 
 
 async function deleteReview(button) {
@@ -68,6 +111,8 @@ async function deleteReview(button) {
       card.remove();
   }
   }
+
+  
   
 
 function editReview(button) {
@@ -136,62 +181,5 @@ function editReview(button) {
  }
  
  
-
-// JavaScript to create and manage comments
-document.addEventListener("DOMContentLoaded", function () {
-  // Find all the comment boxes
-  const commentBoxes = document.querySelectorAll(".comment-box");
-
-  // Add event listeners to each comment box
-  commentBoxes.forEach(function (commentBox) {
-      const addCommentButton = commentBox.querySelector(".add-comment");
-      const textArea = commentBox.querySelector(".text-input");
-      const commentsContainer = commentBox.querySelector(".comments");
-
-      addCommentButton.addEventListener("click", function () {
-          addComment(textArea, commentsContainer);
-      });
-
-      textArea.addEventListener("keypress", function (e) {
-          if (e.key === "Enter" && !e.shiftKey) {
-              e.preventDefault();
-              addComment(textArea, commentsContainer);
-          }
-      });
-  });
-});
-
-function addComment(textArea, commentsContainer) {
-  const commentText = textArea.value;
-  if (commentText.trim() !== "") {
-      const comment = document.createElement("div");
-      comment.className = "comment";
-
-      const userImageContainer = document.createElement("div");
-      userImageContainer.className = "user-info";
-
-      const userImage = document.createElement("img");
-      userImage.src = "user-icon.jpg";
-
-      const username = document.createElement("span");
-      username.className = "username";
-      username.textContent = "@jennierubyjane"; // Replace with the actual username
-
-      const commentTextElement = document.createElement("p");
-      commentTextElement.textContent = commentText;
-
-      userImageContainer.appendChild(userImage);
-      userImageContainer.appendChild(username);
-
-      comment.appendChild(userImageContainer);
-      comment.appendChild(commentTextElement);
-
-      // Append the comment to the comments container
-      commentsContainer.appendChild(comment);
-
-      // Clear the comment box
-      textArea.value = "";
-  }
-}
 
 

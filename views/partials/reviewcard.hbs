@@ -162,14 +162,15 @@ function markReview(reviewId, action) {
                     <p>{{review.comment}}</p>
                     <p><span id="recommendation">Thoughts: {{review.recommendation}}</span></p>
                     <div class="review-buttons">
-                        {{#if_eq loggedInUser.username review.username}}
-                        <button class="edit" onclick="editReview(this)">Edit</button>
-                        <button class="delete" onclick="deleteReview(this)">Delete</button>
-                        {{else}}
-                        <button class="mark-helpful" onclick="markHelpful('{{review._id}}')">Mark Helpful</button>
-                        <button class="mark-unhelpful" onclick="markUnhelpful('{{review._id}}')">Mark Unhelpful</button>
-
-                        {{/if_eq}}
+                        {{#if loggedInUser}}
+                            {{#if_eq loggedInUser.username review.username}}
+                                <button class="edit" onclick="editReview(this)">Edit</button>
+                                <button class="delete" onclick="deleteReview(this)">Delete</button>
+                            {{else}}
+                                <button class="mark-helpful" onclick="markHelpful('{{review._id}}')">Mark Helpful</button>
+                                <button class="mark-unhelpful" onclick="markUnhelpful('{{review._id}}')">Mark Unhelpful</button>
+                            {{/if_eq}}
+                        {{/if}}
                     </div>
                     <div class="count">
                         <p>Helpful: {{review.helpfulCount}}</p>
@@ -196,11 +197,12 @@ function markReview(reviewId, action) {
                         <input type="submit" value="Submit">
                     </form>
 
-
-                    <form id="reply-form" action="/submit-reply/{{review._id}}" method="POST">
-                        <textarea id="reply-content" name="content" placeholder="Submit a reply..."></textarea>
-                        <input type="submit" value="Submit Reply" id = "btnsubmit">
-                    </form>
+                    {{#if loggedInUser}}
+                        <form id="reply-form" action="/submit-reply/{{review._id}}" method="POST">
+                            <textarea id="reply-content" name="content" placeholder="Submit a reply..."></textarea>
+                            <input type="submit" value="Submit Reply" id="btnsubmit">
+                        </form>
+                    {{/if}}
 
                     <div id="comments-section">
                     <!-- Display existing comments here -->

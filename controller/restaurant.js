@@ -1,6 +1,7 @@
 import express from "express";
 import Restaurant from "../model/restaurantschema.js";
 import Review from '../model/reviewschema.js';
+import Reply from '../model/replyschema.js';
 import Handlebars from 'handlebars';
 
 const router = express.Router();

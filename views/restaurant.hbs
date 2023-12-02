@@ -22,7 +22,7 @@
 
     <!-- Restaurant Details -->
     <div class="container my-4" alt="about">
-        <h1 class="text-center" id="title-restaurant" name = "restaurantname">{{restaurant.name}}</h1>
+        <h1 class="text-center" id="title-restaurant" name="restaurantname">{{restaurant.name}}</h1>
         <div class="row">
             <div class="col-md-6" id="logo">
                 <img src="{{restaurant.logo}}" alt="{{restaurant.name}} Logo">
@@ -44,16 +44,17 @@
 
 
 
-<!-- Reviews Section -->
-<div class="container my-4" id="reviews">
- {{#each reviews}}
-     {{> reviewcard loggedInUser=../loggedInUser review=this}}
- {{/each}}
-</div>
+    <!-- Reviews Section -->
+    <div class="container my-4" id="reviews">
+        {{#each reviews}}
+        {{> reviewcard loggedInUser=../loggedInUser review=this}}
+        {{/each}}
+    </div>
     <!-- Submit a Review Section -->
+    {{#if loggedInUser}}
     <div class="container my-4" id="create">
         <h2>{{title}}</h2>
-        <form id="review-form" action="/review" method = "post">
+        <form id="review-form" action="/review" method="post">
             <label for="review-title">Title:</label>
             <input type="text" class="form-control" id="review-title" name="title" required>
 
@@ -72,6 +73,8 @@
             <button type="submit" class="btn" id="submit">Submit</button>
         </form>
     </div>
+    {{/if}}
+
 
 </body>
 
