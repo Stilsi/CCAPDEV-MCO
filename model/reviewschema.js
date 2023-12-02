@@ -16,7 +16,21 @@ const reviewSchema = new mongoose.Schema({
  replies: [{
   type: mongoose.Schema.Types.ObjectId,
   ref: 'Reply'
-  }]
+  }],
+  votes: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+      action: {
+        type: String,
+        enum: ['helpful', 'unhelpful'],
+        required: true,
+      },
+    },
+  ]
 });
 
 reviewSchema.pre('save', async function (next) {

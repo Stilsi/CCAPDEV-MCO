@@ -60,6 +60,12 @@
                         console.error('Error updating review:', error);
                     });
             });
+
+            // Call disableButtons for each review on page load
+            document.querySelectorAll('.col-md-4').forEach(reviewContainer => {
+                const reviewId = reviewContainer.dataset.reviewId;
+                disableButtons(reviewId);
+            });
         });
 
 
@@ -97,51 +103,106 @@
                 });
         }
 
-        // Function to mark a review as helpful
-function markHelpful(reviewId) {
-    markReview(reviewId, 'helpful');
-}
+        function markHelpful(reviewId, button) {
+            markReview(reviewId, 'helpful');
+            disableButtons(reviewId);
+        }
 
-// Function to mark a review as unhelpful
-function markUnhelpful(reviewId) {
-    markReview(reviewId, 'unhelpful');
-}
+        function markUnhelpful(reviewId, button) {
+            markReview(reviewId, 'unhelpful');
+            disableButtons(reviewId);
+        }
 
-// Function to handle marking a review
-function markReview(reviewId, action) {
-    // Check if reviewId is a valid ObjectId
-    if (!isValidObjectId(reviewId)) {
-        console.error('Invalid reviewId:', reviewId);
-        return;
-    }
+        function disableButtons(reviewId) {
+            const helpfulButtons = document.querySelectorAll(`[data-review-id="${reviewId}"] .mark-helpful`);
+            const unhelpfulButtons = document.querySelectorAll(`[data-review-id="${reviewId}"] .mark-unhelpful`);
 
-    // Fetch URL for marking helpful or unhelpful based on the 'action' parameter
-    const url = action === 'helpful' ? '/mark-helpful/' : '/mark-unhelpful/';
+            // Check if the user has already voted on this review
+            fetch(`/check-user-vote/${reviewId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.userHasVoted) {
+                        // If the user has already voted, disable both buttons
+                        helpfulButtons.forEach(button => {
+                            button.disabled = true;
+                        });
 
-    fetch(url + reviewId, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response as needed
-            console.log(action + ' mark successful:', data);
-
-            // Update the helpful or unhelpful count in the DOM
-            const reviewContainer = document.getElementById(reviewId);
-            if (action === 'helpful') {
-                reviewContainer.querySelector('.count p:nth-child(1)').innerText = 'Helpful: ' + data.helpfulCount;
-            } else {
-                reviewContainer.querySelector('.count p:nth-child(2)').innerText = 'Unhelpful: ' + data.unhelpfulCount;
+                        unhelpfulButtons.forEach(button => {
+                            button.disabled = true;
+                        });
+                    }
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Error checking user vote:', error);
+                });
+        }
+        // Function to handle marking a review
+        function markReview(reviewId, action) {
+            // Check if reviewId is a valid ObjectId
+            if (!isValidObjectId(reviewId)) {
+                console.error('Invalid reviewId:', reviewId);
+                return;
             }
-        })
-        .catch(error => {
-            // Handle errors
-            console.error('Error marking review as ' + action + ':', error);
-        });
-}
+
+            // Fetch URL for marking helpful or unhelpful based on the 'action' parameter
+            const url = action === 'helpful' ? '/mark-helpful/' : '/mark-unhelpful/';
+
+            // Check if the user has already voted on this review
+            fetch(`/check-user-vote/${reviewId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.userHasVoted) {
+                        // If the user hasn't voted, proceed with marking the review
+                        performMarkReview(url, reviewId, action);
+                    } else {
+                        console.log('User has already voted on this review.');
+                        // Optionally, you can provide feedback to the user or handle this case as needed
+                    }
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Error checking user vote:', error);
+                });
+        }
+
+        function performMarkReview(url, reviewId, action) {
+            fetch(url + reviewId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response as needed
+                    console.log(action + ' mark successful:', data);
+
+                    // Update the helpful or unhelpful count in the DOM
+                    const reviewContainer = document.getElementById(reviewId);
+                    if (action === 'helpful') {
+                        reviewContainer.querySelector('.count p:nth-child(1)').innerText = 'Helpful: ' + data.helpfulCount;
+                    } else {
+                        reviewContainer.querySelector('.count p:nth-child(2)').innerText = 'Unhelpful: ' + data.unhelpfulCount;
+                    }
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Error marking review as ' + action + ':', error);
+                });
+        }
+
+
 
 
     </script>
@@ -163,13 +224,16 @@ function markReview(reviewId, action) {
                     <p><span id="recommendation">Thoughts: {{review.recommendation}}</span></p>
                     <div class="review-buttons">
                         {{#if loggedInUser}}
-                            {{#if_eq loggedInUser.username review.username}}
-                                <button class="edit" onclick="editReview(this)">Edit</button>
-                                <button class="delete" onclick="deleteReview(this)">Delete</button>
-                            {{else}}
-                                <button class="mark-helpful" onclick="markHelpful('{{review._id}}')">Mark Helpful</button>
-                                <button class="mark-unhelpful" onclick="markUnhelpful('{{review._id}}')">Mark Unhelpful</button>
-                            {{/if_eq}}
+                        {{#if_eq loggedInUser.username review.username}}
+                        <button class="edit" onclick="editReview(this)">Edit</button>
+                        <button class="delete" onclick="deleteReview(this)">Delete</button>
+                        {{else}}
+                        <button class="mark-helpful" onclick="markHelpful('{{review._id}}', this)">Mark Helpful</button>
+                        <button class="mark-unhelpful" onclick="markUnhelpful('{{review._id}}', this)">Mark
+                            Unhelpful</button>
+
+
+                        {{/if_eq}}
                         {{/if}}
                     </div>
                     <div class="count">
@@ -198,23 +262,23 @@ function markReview(reviewId, action) {
                     </form>
 
                     {{#if loggedInUser}}
-                        <form id="reply-form" action="/submit-reply/{{review._id}}" method="POST">
-                            <textarea id="reply-content" name="content" placeholder="Submit a reply..."></textarea>
-                            <input type="submit" value="Submit Reply" id="btnsubmit">
-                        </form>
+                    <form id="reply-form" action="/submit-reply/{{review._id}}" method="POST">
+                        <textarea id="reply-content" name="content" placeholder="Submit a reply..."></textarea>
+                        <input type="submit" value="Submit Reply" id="btnsubmit">
+                    </form>
                     {{/if}}
 
                     <div id="comments-section">
-                    <!-- Display existing comments here -->
-                    {{#each review.replies}}
+                        <!-- Display existing comments here -->
+                        {{#each review.replies}}
                         <div class="reply">
                             <a href="/user-profile/{{this.userId}}">
-                                <img class = "reply" src="{{this.user.profilePicture}}">
+                                <img class="reply" src="{{this.user.profilePicture}}">
                                 <span id="replyusername">@{{this.user.username}}</span>
                             </a>
                             <p>{{this.content}}</p>
                         </div>
-                    {{/each}}
+                        {{/each}}
                     </div>
 
                 </div>

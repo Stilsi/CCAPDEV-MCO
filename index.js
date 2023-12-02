@@ -161,15 +161,24 @@ app.delete('/delete-review/:id', async (req, res) => {
 });
 
 // Add this route to your server code
-app.post('/mark-helpful/:id',  authenticateUser, async (req, res) => {
+// Modify the existing /mark-helpful/:id route
+app.post('/mark-helpful/:id', authenticateUser, async (req, res) => {
   const reviewId = req.params.id;
 
   try {
-      const review = await Review.findById(reviewId);
+    // Find the review by ID
+    const review = await Review.findById(reviewId);
 
-      if (!review) {
-          return res.status(404).send('Review not found');
-      }
+    if (!review) {
+      return res.status(404).send('Review not found');
+    }
+
+    // Check if the user has already voted on this review
+    const userHasVoted = review.votes.some(vote => vote.user.equals(req.session.user._id));
+
+    if (!userHasVoted) {
+      // If the user hasn't voted, proceed with marking the review as helpful
+      review.votes.push({ user: req.session.user._id, action: 'helpful' });
 
       // Increment the helpfulCount
       review.helpfulCount += 1;
@@ -178,35 +187,52 @@ app.post('/mark-helpful/:id',  authenticateUser, async (req, res) => {
       const updatedReview = await review.save();
 
       // Send the updated review as the response
-      res.status(200).send(updatedReview);
+      return res.status(200).send(updatedReview);
+    } else {
+      // User has already voted on this review
+      return res.status(400).send('User has already voted on this review');
+    }
   } catch (error) {
-      console.error('Error marking review as helpful:', error);
-      res.status(500).send(error.message);
+    console.error('Error marking review as helpful:', error);
+    return res.status(500).send(error.message);
   }
 });
+
 
 // Add this route to your server code
 app.post('/mark-unhelpful/:id',  authenticateUser, async (req, res) => {
   const reviewId = req.params.id;
 
   try {
-      const review = await Review.findById(reviewId);
+    // Find the review by ID
+    const review = await Review.findById(reviewId);
 
-      if (!review) {
-          return res.status(404).send('Review not found');
-      }
+    if (!review) {
+      return res.status(404).send('Review not found');
+    }
 
-      // Increment the unhelpfulCount
+    // Check if the user has already voted on this review
+    const userHasVoted = review.votes.some(vote => vote.user.equals(req.session.user._id));
+
+    if (!userHasVoted) {
+      // If the user hasn't voted, proceed with marking the review as helpful
+      review.votes.push({ user: req.session.user._id, action: 'unhelpful' });
+
+      // Increment the helpfulCount
       review.unhelpfulCount += 1;
 
       // Save the updated review to the database
       const updatedReview = await review.save();
 
       // Send the updated review as the response
-      res.status(200).send(updatedReview);
+      return res.status(200).send(updatedReview);
+    } else {
+      // User has already voted on this review
+      return res.status(400).send('User has already voted on this review');
+    }
   } catch (error) {
-      console.error('Error marking review as unhelpful:', error);
-      res.status(500).send(error.message);
+    console.error('Error marking review as unhelpful:', error);
+    return res.status(500).send(error.message);
   }
 });
 
@@ -237,6 +263,28 @@ app.post('/submit-reply/:id',  authenticateUser, async (req, res) => {
     res.redirect('/restaurant/' + req.session.restaurant._id);
   } catch (error) {
     console.error('Error submitting reply:', error);
+    res.status(500).send(error.message);
+  }
+});
+
+app.get('/check-user-vote/:id', authenticateUser, async (req, res) => {
+  const reviewId = req.params.id;
+
+  try {
+    // Find the review
+    const review = await Review.findById(reviewId);
+
+    if (!review) {
+      return res.status(404).send('Review not found');
+    }
+
+    // Check if the user has already voted on this review
+    const userHasVoted = review.votes.some(vote => vote.user.equals(req.session.user._id));
+
+    // Send the result as the response
+    res.status(200).send({ userHasVoted });
+  } catch (error) {
+    console.error('Error checking user vote:', error);
     res.status(500).send(error.message);
   }
 });
