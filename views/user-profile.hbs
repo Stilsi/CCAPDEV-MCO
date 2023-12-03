@@ -26,19 +26,6 @@
         <img src = {{user.profilePicture}}>
         <h1>@{{user.username}}</h1>
         <h4>{{user.location}}</h4>
-        <p>Member since:</p>
-        <p>{{user.membershipDate}}</p>
-        <p class="experience"></p>
-        <div class="stats">
-            <div id="stats_text">
-                <h1>27</h1>
-                <h4>Photos</h4>
-            </div>
-            <div id="stats_text">
-                <h1>19</h1>
-                <h4>Reviews</h4>
-            </div>
-        </div>
         <form action="/edit-profile" method="get">
             <button type="submit">Edit Profile</button>
         </form>
@@ -69,7 +56,7 @@
      <p>Helpful Count: {{this.helpfulCount}}</p>
      <p>Unhelpful Count: {{this.unhelpfulCount}}</p>
    </li> --}}
-   {{> reviewcard review=this}}
+   {{> user-reviewcard review=this}}
  {{/each}}
 
 
