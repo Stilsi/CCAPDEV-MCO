@@ -1,35 +1,38 @@
+// login.js
 import express from "express";
 import User from "../model/userschema.js";
-
 
 const router = express.Router();
 
 router.get('/', function(req, res) {
-    res.render('login');
- });  
+    const warningMessage = req.query.warning;
+    res.render('login', { warningMessage });
+});
 
 router.post('/', async (req, res) => {
-    const { username, password } = req.body;
- 
-    // Find the user in the database
+    const { username, password, remember } = req.body;
+
     const user = await User.findOne({ username });
- 
-    // If the user is not found, return an error message
+
     if (!user) {
-        return res.status(400).send('Username not found');
+        return res.redirect('/login?warning=Username not found');
     }
- 
-    // Validate the password
-    // This is a simple check, in a real-world application you should hash and compare the passwords
+
     if (user.password !== password) {
-        return res.status(400).send('Invalid password');
+        return res.redirect('/login?warning=Invalid password');
     }
- 
-    // If the password is correct, redirect the user to the homepage
+
     req.session.user = user;
-    console.log('Session ID:', req.sessionID); 
-    console.log('Session User:', req.session.user.username); 
+
+    if (remember) {
+        req.session.cookie.maxAge = 3 * 7 * 24 * 60 * 60 * 1000;
+    } else {
+        req.session.cookie.maxAge = null;
+    }
+
+    console.log('Session ID:', req.sessionID);
+    console.log('Session User:', req.session.user.username);
     res.redirect('/homepage');
- }); 
+});
 
 export default router;

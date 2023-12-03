@@ -8,7 +8,7 @@
 
     <script>
         function editReview(button) {
-            var form = document.getElementById('edit-review-form');
+            var form = document.getElementById('edit-review-form');views/partials/reviewcard.hbs
             form.style.display = 'block';
         }
 
@@ -219,6 +219,7 @@
                     </a>
                 </div>
                 <div>
+                    <h2 style="color:#e86a33">{{review.restaurant}}</h2>
                     <h5>{{review.title}}</h5>
                     <p>{{review.comment}}</p>
                     <p><span id="recommendation">Thoughts: {{review.recommendation}}</span></p>
@@ -263,7 +264,7 @@
 
                     {{#if loggedInUser}}
                     <form id="reply-form" action="/submit-reply/{{review._id}}" method="POST">
-                        <textarea id="reply-content" name="content" placeholder="Submit a reply..." required></textarea>
+                        <textarea id="reply-content" name="content" placeholder="Submit a reply..."></textarea>
                         <input type="submit" value="Submit Reply" id="btnsubmit">
                     </form>
                     {{/if}}

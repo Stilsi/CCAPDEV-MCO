@@ -70,15 +70,24 @@ app.use(
 
  //creates session for users logging in
 app.use(session({
-  secret: 'your secret key',
+  secret: 'ang galing ni sir kerwin',
   resave: false,
   saveUninitialized: true,
+  cookie: {
+    httpOnly: true,
+    maxAge: null
+  }
  }));
 
  app.use((req, res, next) => {
-  res.locals.user = req.session.user;
+  if (req.session && req.session.user) {
+    res.locals.user = req.session.user;
+  } else {
+    res.locals.user = null;
+  }
   next();
 });
+
 
 //restaurant
 app.use("/restaurant", restaurantRoutes);
@@ -247,6 +256,10 @@ app.post('/submit-reply/:id',  authenticateUser, async (req, res) => {
 
   try {
     // Find the review
+    if (!replyContent || replyContent.trim() === '') {
+      return res.status(400).json({ error: 'Reply content cannot be empty.' });
+    }
+    
     const review = await Review.findById(reviewId);
 
     // Create a new reply
