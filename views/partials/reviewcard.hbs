@@ -263,7 +263,7 @@
 
                     {{#if loggedInUser}}
                     <form id="reply-form" action="/submit-reply/{{review._id}}" method="POST">
-                        <textarea id="reply-content" name="content" placeholder="Submit a reply..."></textarea>
+                        <textarea id="reply-content" name="content" placeholder="Submit a reply..." required></textarea>
                         <input type="submit" value="Submit Reply" id="btnsubmit">
                     </form>
                     {{/if}}

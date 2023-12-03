@@ -256,6 +256,10 @@ app.post('/submit-reply/:id',  authenticateUser, async (req, res) => {
 
   try {
     // Find the review
+    if (!replyContent || replyContent.trim() === '') {
+      return res.status(400).json({ error: 'Reply content cannot be empty.' });
+    }
+    
     const review = await Review.findById(reviewId);
 
     // Create a new reply
