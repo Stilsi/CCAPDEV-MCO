@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/register.css">
-  <title>Register Page</title>
 
-  <script>
-      function loginAndRedirect() {
-          var username = document.querySelector('input[name="username"]').value;
-          var password = document.querySelector('input[name="password"]').value;
-          
-          if (username && password) {
-              window.location.href = 'login-page.html';
-          } else {
-              alert("Please fill in both username and password.");
-          }
-      }
-  </script>
-  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <title>Register Page</title>
+
+    <script>
+        function loginAndRedirect() {
+            var username = document.querySelector('input[name="username"]').value;
+            var password = document.querySelector('input[name="password"]').value;
+
+            if (username && password) {
+                window.location.href = 'login-page.html';
+            } else {
+                alert("Please fill in both username and password.");
+            }
+        }
+        window.onload = function () {
+            const errorMessage = new URLSearchParams(window.location.search).get('error');
+            if (errorMessage) {
+                alert(errorMessage);
+            }
+        };
+    </script>
+
 </head>
+
 <body>
-  <div class = "pictures">
-      <div id = "title">
-          <img src = "/assets/dlsu-food.png">
-      </div>
-      <div id = "mascot">
-          <img src = "/assets/mascot.png">
-      </div>
-  </div>
-  <div class="login-container">
-      <h2>register here</h2>
-     <form action="/register" method="post">
-          <input type="file" name="profile_picture" accept="image/*">
-          <p>add profile picture *optional</p>
-          <input type="text" name="username" placeholder="username" required>
-          <input type="password" name="password" placeholder="password" required>
-          <input type="text" name="description" placeholder="short description">
-          <button type="submit">register</button>
-      </form>
-      <p>have an account? <a href="/login">login</a></p>
-      <p>or visit as a <a href="/homepage">guest</a></p>
-  </div>
+    <div class="pictures">
+        <div id="title">
+            <img src="/assets/dlsu-food.png">
+        </div>
+        <div id="mascot">
+            <img src="/assets/mascot.png">
+        </div>
+    </div>
+    <div class="login-container">
+        <h2>register here</h2>
+        <form action="/register" method="post">
+            <input type="file" name="profile_picture" accept="image/*">
+            <p>add profile picture *optional</p>
+            <input type="text" name="username" placeholder="username" required>
+            <input type="password" name="password" placeholder="password" required>
+            <input type="text" name="description" placeholder="short description">
+            <button type="submit">register</button>
+        </form>
+        <p>have an account? <a href="/login">login</a></p>
+        <p>or visit as a <a href="/homepage">guest</a></p>
+    </div>
 </body>
+
 </html>
