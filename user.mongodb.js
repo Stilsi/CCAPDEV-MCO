@@ -1,6 +1,8 @@
 // Select the database to use.
 use('restaurantDB');
 
+const bcrypt = require('bcrypt');
+
 // Insert a few documents into the sales collection.
 db.getCollection('users').insertMany([
     {   username: "jennaissante",
