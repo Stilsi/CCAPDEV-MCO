@@ -88,6 +88,9 @@ app.use(session({
   next();
 });
 
+app.get('/', function(req, res) {
+  res.redirect('/login');
+});
 
 //restaurant
 app.use("/restaurant", restaurantRoutes);
