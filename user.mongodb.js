@@ -3,13 +3,13 @@ use('restaurantDB');
 
 // Insert a few documents into the sales collection.
 db.getCollection('users').insertMany([
-    {   username: "jennierubyjane",
-        password: "1234",
+    {   username: "jennaissante",
+        password: "1234ABCD",
         profilePicture: '/assets/user-icon.jpg',
-        description: "i love food so much u have no idea",
-        fullName: "Jennie Ruby Jane",
-        membershipDate: "February 2020",
-        location: "Manila City, PH",
-        descriptionTitle: "Passionate Food Lover and Critic"
-    }
+        description: "My culinary journey knows no bounds, always seeking new flavors!",
+        fullName: "Jane Jenna Santé",
+        membershipDate: "May 2021",
+        location: "Paris, France",
+        descriptionTitle: "Adventurous Food Explorer and Critic"    
+        }
 ]);
