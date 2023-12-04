@@ -5,7 +5,8 @@
  <title>Search Result</title>
  <link rel = "stylesheet" href = "/css/location-page.css">
  <script src="https://kit.fontawesome.com/62a1ef5fed.js" crossorigin="anonymous"></script>
- <script src="controller\search.js"></script>
+ <script src="/controller/search.js"></script>
+ <script src="/public/js/sortCard.js"></script>
 </head>
 
 <body>
@@ -14,24 +15,20 @@
 
  <!--header part-->
  <section class="location-title">
-    <div>
-        <h1>search result</h1>
-    </div>
-    <div class="sorting-buttons">
-        <button id="sort-alphabetically" class="sort" onclick="sortCards('alphabetically')">Alphabetically</button>
-        <button id="sort-by-rating" class="sort" onclick="sortCards('by-rating')">By Rating</button>
-    </div> 
+   <div>
+       <h1>search result</h1>
+   </div>
  </section>
-    
+   
  <!--establishments cards-->
  <section class="container">
-    {{#if results}}
-    {{#each results as |result|}}
-    {{> establishmentsCard result}}
-    {{/each}}
-    {{else}}
-    <p>No results found.</p>
-    {{/if}}
+   {{#if results}}
+   {{#each results as |result|}}
+   {{> establishmentsCard result}}
+   {{/each}}
+   {{else}}
+   <p>No results found.</p>
+   {{/if}}
  </section> 
 
 </body>
