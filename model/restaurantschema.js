@@ -15,6 +15,10 @@ const restaurantSchema = new Schema({
   reviewCount: { type: Number, default: 0 }, 
 });
 
+restaurantSchema.virtual('ratingDifference').get(function() {
+  return this.recommendedCount - this.notRecommendedCount;
+ });
+
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 restaurantSchema.index({ name: 'text' });
