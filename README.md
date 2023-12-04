@@ -21,6 +21,7 @@ Restaurant review page by S18 Group 7
    ```bash
    node index.js
 
-3. Open your web browser and go to http://localhost:3000 to view the application. 
+3. Open your web browser and go to
+- http://localhost:3000/login to view the login page.
 
 
