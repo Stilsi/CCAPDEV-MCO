@@ -9,7 +9,7 @@ db.getCollection('reviews').insertMany([
         title: "SLAYED",
         comment: "SARAP NG CHICKEN NILA",
         recommendation: "recommended",
-        helpfulCount: 4,
-        unhelpfulCount: 1,
+        helpfulCount: 0,
+        unhelpfulCount: 0,
     }
 ]);
