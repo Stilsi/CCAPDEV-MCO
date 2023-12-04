@@ -9,27 +9,48 @@ router.get('/', function(req, res) {
     res.render('edit-profile', { user: user });
  }); 
  
+ 
+//  router.post('/', async function(req, res) {
+//     const { description } = req.body;
+//     const username = req.session.user.username;
+//     try {
+//         const existingUser = await User.findOne({ username });
 
- router.post('/update', async function(req, res) {
-    const username = req.session.user.username;
-    const { descTitle } = req.body;
-    console.log('description title', descTitle);
-    try {
-        const user = await User.findOne({ username });
-        if (user) {
-            user.descriptionTitle = descTitle;
-            await user.save();
-            res.status(200).json({ message: 'User description updated successfully' });
-        } else {
-            res.status(404).json({ message: 'User not found' });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal Server Error');
-    }
-    console.log('What');
-    console.log('Hello from update');
-});
+//         if (existingUser) {
+//             user.descriptionTitle = descTitle;
+//             await user.save();
+//             res.status(200).json({ message: 'User description updated successfully' });
+//         } else {
+//             res.status(404).json({ message: 'User not found' });
+//         }        
+//         res.redirect('/edit-profile');
+//     } catch (err) {
+//         console.error(error);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
+
+//  router.post('/update', async function(req, res) {
+//     const username = req.session.user.username;
+//     const { descTitle } = req.body;
+//     console.log('description title', descTitle);
+//     try {
+//         const user = await User.findOne({ username });
+//         if (user) {
+//             user.descriptionTitle = descTitle;
+//             await user.save();
+//             res.status(200).json({ message: 'User description updated successfully' });
+//         } else {
+//             res.status(404).json({ message: 'User not found' });
+//         }
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).send('Internal Server Error');
+//     }
+//     console.log('What');
+//     console.log('Hello from update');
+
+// });
  
 
 
