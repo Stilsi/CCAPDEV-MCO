@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
    const user = req.session.user;
+   console.log(user.username);
    const userReviews = await Review.find({ username: user.username });
    res.render('user-profile', { user: user, reviews: userReviews });
 });
