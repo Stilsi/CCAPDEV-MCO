@@ -89,7 +89,7 @@ app.use(session({
 });
 
 app.get('/', function(req, res) {
-  res.redirect('/login');
+  res.redirect('/homepage');
 });
 
 //restaurant
