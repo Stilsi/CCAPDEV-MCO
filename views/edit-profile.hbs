@@ -15,6 +15,8 @@
     <script src="/model/restaurantschema.js"></script>
     <script src="/model/reviewschema.js"></script>
     <script src="/public/js/edit-profile.js"></script>
+    <script src="/controller/edit-profile.js"></script>
+
 </head>
 
 <body>
@@ -22,26 +24,19 @@
     {{> navbar}}
 
     <!-- Body -->
-    {{!-- <div class="profile_text">
+    <div class="profile_text">
         <div class="profile_pic">
             <img src="{{user.profilePicture}}">
             <p>Do you want to replace your icon?</p>
 
-            <form action="/edit-profile" method="post" enctype="multipart/form-data">
+            <form id="statusForm" name="statusForm"> 
                 <!-- Input for uploading a new image -->
                 <label for="image">Select an image to upload:</label>
                 <input type="file" name="image" id="image" accept="image/*">
 
-                <p class="experience"></p>
-                <!-- Input for changing username -->
-                <p>Do you want to replace your username?</p>
-                <input id="input_username" type="text" name="newUsername" placeholder="@{{user.username}}">
-
-                <p class="experience"></p>
-                
-
+                        
                 <!-- Save button for the entire form -->
-                <button type="submit" class="btn" id="submit">Submit</button>
+                <input class="btn" id="updateBtn" type="submit" value="Update"/>
             </form>
         </div>
             <div class="profile_text_text">
@@ -52,25 +47,8 @@
                 <textarea name="newMessage" rows="5" placeholder="{{user.fullName}} (@{{user.username}}) {{user.description}}"></textarea>
             </div>
         </div>
-    </div> --}}
- 
-    {{!-- <div class="container my-4" id="create"> --}}
-        
+    </div>
 
-        {{!-- <form id="statusForm" name="statusForm"> 
-            <p>Change the title?</p>           
-            <input id="input_descTitle" name="descTitle" type="text" placeholder="{{user.descriptionTitle}}" />
-            <input class="btn" id="updateBtn" type="submit" value="Update"/>
-        </form> --}}
-
-    <form id="statusForm" name="statusForm">
-            <input id="input_descTitle" name="descTitle" type="text" placeholder="{{user.descriptionTitle}}" />
-            <input class="submitBtn" id="updateBtn" type="submit" value="Update"/>
-        
-        </form>
-
-    {{!-- </div> --}}
-    
          
     
 </body>
