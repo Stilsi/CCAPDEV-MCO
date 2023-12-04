@@ -92,6 +92,10 @@ app.use(session({
 //restaurant
 app.use("/restaurant", restaurantRoutes);
 
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
 //homepage
 app.use("/homepage", homepageRoutes);
 
