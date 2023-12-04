@@ -325,7 +325,7 @@ app.listen(PORT, async () => {
   try {
     // Connect to MongoDB
     await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: process.env.restaurantDB,
+      dbName: process.env.DB_NAME,
     });
 
     console.log("Connected to MongoDB");
