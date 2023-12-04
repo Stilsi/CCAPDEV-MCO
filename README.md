@@ -30,8 +30,4 @@ npm --version
 
 3. Open your web browser and go to http://localhost:3000 to view the application. 
 
-## Members:
-Andrei David Ancheta
-Angelo Julius Nuque
-Danielle Joy Say
-Layne Ashley Vitan
+
