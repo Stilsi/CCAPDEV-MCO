@@ -7,13 +7,21 @@
     <script src="/js/nav-bar-search.js"></script>
 
     <script>
-        function editReview(button) {
-            var form = document.getElementById('edit-review-form');
-            form.style.display = 'block';
+        function editReview(event, reviewId, button) {
+        event.preventDefault();
+        var form = document.getElementById('edit-review-form-' + reviewId);
+        form.style.display = 'block';
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('edit-review-form').addEventListener('submit', function (event) {
+    // Loop through each review to attach event listeners
+    document.querySelectorAll('.col-md-4').forEach(reviewContainer => {
+        const reviewId = reviewContainer.dataset.reviewId;
+        const editReviewForm = document.getElementById('edit-review-form-' + reviewId);
+
+        // Check if the edit form exists
+        if (editReviewForm) {
+            editReviewForm.addEventListener('submit', function (event) {
                 event.preventDefault();
 
                 var formData = new FormData(event.target);
@@ -53,21 +61,19 @@
                         reviewContainer.querySelector('#recommendation').innerText = 'Thoughts: ' + recommendation;
 
                         // Optionally, you can hide the edit form
-                        this.style.display = 'none';
+                        editReviewForm.style.display = 'none';
                     })
                     .catch(error => {
                         // Handle errors
                         console.error('Error updating review:', error);
                     });
             });
+        }
 
-            // Call disableButtons for each review on page load
-            document.querySelectorAll('.col-md-4').forEach(reviewContainer => {
-                const reviewId = reviewContainer.dataset.reviewId;
-                disableButtons(reviewId);
-            });
-        });
-
+        // Call disableButtons for each review on page load
+        disableButtons(reviewId);
+    });
+});
 
 
         // Function to check if a string is a valid ObjectId
@@ -225,7 +231,7 @@
                     <div class="review-buttons">
                         {{#if loggedInUser}}
                         {{#if_eq loggedInUser.username review.username}}
-                        <button class="edit" onclick="editReview(this)">Edit</button>
+                        <button class="edit" onclick="editReview(event, '{{review._id}}', this)">Edit</button>
                         <button class="delete" onclick="deleteReview(this)">Delete</button>
                         {{else}}
                         <button class="mark-helpful" onclick="markHelpful('{{review._id}}', this)">Mark Helpful</button>
@@ -241,8 +247,8 @@
                         <p>Unhelpful: {{review.unhelpfulCount}}</p>
                     </div>
 
-                    <form id="edit-review-form" style="display: none;" action="/update-review/{{review._id}}"
-                        method="PUT">
+                    <form id="edit-review-form-{{review._id}}" style="display: none;" action="/update-review/{{review._id}}" method="PUT">
+
                         <!-- Add the hidden field for method override -->
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="restaurantId" value="{{review.restaurantId}}">
