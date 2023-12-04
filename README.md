@@ -8,13 +8,6 @@ Restaurant review page by S18 Group 7
 
 - **Node.js:** This project requires Node.js to run. You can download and install Node.js from [nodejs.org](https://nodejs.org/). Ensure that Node.js and npm (Node Package Manager) are properly configured on your system.
 
-To check if Node.js is installed, run the following commands in your terminal:
-
-# Check Node.js version
-node --version
-
-# Check npm version
-npm --version
 
 ## Running the Application
 
