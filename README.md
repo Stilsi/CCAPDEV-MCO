@@ -14,7 +14,7 @@ Restaurant review page by S18 Group 7
 1. Open a terminal and navigate to the project directory:
 
    ```bash
-   cd
+   cd main-ver3-branch
 
 2. Run the index.js file
    
