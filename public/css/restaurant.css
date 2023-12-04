@@ -150,8 +150,8 @@ body{
 }
 
 .card{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  place-items: center;
   margin-top: 15px;
   padding: 10px;
   width: 350px;
