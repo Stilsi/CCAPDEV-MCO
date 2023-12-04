@@ -25,7 +25,6 @@
     <div class="profile_pic">
         <img src = {{user.profilePicture}}>
         <h1>@{{user.username}}</h1>
-        <h4>{{user.location}}</h4>
         <form action="/edit-profile" method="get">
             <button type="submit">Edit Profile</button>
         </form>
@@ -48,14 +47,6 @@
         
 
  {{#each reviews}}
-   {{!-- <li>
-    <h2>{{this.username}}</h2>
-     <h2>{{this.title}}</h2>
-     <p>{{this.comment}}</p>
-     <p>Recommendation: {{this.recommendation}}</p>
-     <p>Helpful Count: {{this.helpfulCount}}</p>
-     <p>Unhelpful Count: {{this.unhelpfulCount}}</p>
-   </li> --}}
    {{> user-reviewcard review=this}}
  {{/each}}
 

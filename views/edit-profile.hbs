@@ -10,8 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="/css/user-profile.css">
+    <link rel="stylesheet" href="/css/restaurant.css">
     <script src="/model/userschema.js"></script>
+    <script src="/model/restaurantschema.js"></script>
     <script src="/model/reviewschema.js"></script>
+    <script src="/public/js/edit-profile.js"></script>
 </head>
 
 <body>
@@ -19,41 +22,57 @@
     {{> navbar}}
 
     <!-- Body -->
-    <div class="profile_text">
-    <div class="profile_pic">
-        <img src="{{user.profilePicture}}">
-        <p>Do you want to replace your icon?</p>
-        <form action="/edit-profile" method="post" enctype="multipart/form-data">
-            <!-- Input for uploading a new image -->
-            <label for="image">Select an image to upload:</label>
-            <input type="file" name="image" id="image" accept="image/*">
+    {{!-- <div class="profile_text">
+        <div class="profile_pic">
+            <img src="{{user.profilePicture}}">
+            <p>Do you want to replace your icon?</p>
 
-            <p class="experience"></p>
-            <!-- Input for changing username -->
-            <p>Do you want to replace your username?</p>
-            <input id="input_username" type="text" name="newUsername" placeholder="@{{user.username}}">
+            <form action="/edit-profile" method="post" enctype="multipart/form-data">
+                <!-- Input for uploading a new image -->
+                <label for="image">Select an image to upload:</label>
+                <input type="file" name="image" id="image" accept="image/*">
 
-            <p class="experience"></p>
-            <!-- Display location and membership date -->
-            <h4>{{user.location}}</h4>
+                <p class="experience"></p>
+                <!-- Input for changing username -->
+                <p>Do you want to replace your username?</p>
+                <input id="input_username" type="text" name="newUsername" placeholder="@{{user.username}}">
 
-            <!-- Save button for the entire form -->
-            <button type="submit">Save</button>
-        </form>
-    </div>
-    <div class="profile_text_text">
-        <form action="#" method="post">
-            <!-- Input for editing profile text header -->
-            <input id="profile_text_header" type="text" name="newDescriptionTitle" placeholder="{{user.descriptionTitle}}">
-        </form>
-        <textarea name="newMessage" rows="20" cols="100" placeholder="{{user.fullName}} (@{{user.username}}) {{user.description}}"></textarea>
-    </div>
-</div>
+                <p class="experience"></p>
+                
+
+                <!-- Save button for the entire form -->
+                <button type="submit" class="btn" id="submit">Submit</button>
+            </form>
+        </div>
+            <div class="profile_text_text">
+                <form action="#" method="post">
+                    <!-- Input for editing profile text header -->
+                    <input id="profile_text_header" type="text" name="newDescriptionTitle" placeholder="{{user.descriptionTitle}}">
+                </form>
+                <textarea name="newMessage" rows="5" placeholder="{{user.fullName}} (@{{user.username}}) {{user.description}}"></textarea>
+            </div>
+        </div>
+    </div> --}}
  
+    {{!-- <div class="container my-4" id="create"> --}}
+        
 
+        {{!-- <form id="statusForm" name="statusForm"> 
+            <p>Change the title?</p>           
+            <input id="input_descTitle" name="descTitle" type="text" placeholder="{{user.descriptionTitle}}" />
+            <input class="btn" id="updateBtn" type="submit" value="Update"/>
+        </form> --}}
 
+    <form id="statusForm" name="statusForm">
+            <input id="input_descTitle" name="descTitle" type="text" placeholder="{{user.descriptionTitle}}" />
+            <input class="submitBtn" id="updateBtn" type="submit" value="Update"/>
+        
+        </form>
 
-
+    {{!-- </div> --}}
+    
+         
+    
 </body>
 
 </html>
