@@ -3,7 +3,8 @@
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Search Result</title>
- <link rel = "stylesheet" href = "/css/location-page.css">
+ <link rel = "stylesheet" href = "../public/css/location-page.css">
+ <link rel="stylesheet" href="../../public/css/userReviewCard.css">
  <script src="https://kit.fontawesome.com/62a1ef5fed.js" crossorigin="anonymous"></script>
  <script src="/controller/search.js"></script>
  <script src="/public/js/sortCard.js"></script>
@@ -19,7 +20,7 @@
        <h1>search result</h1>
    </div>
  </section>
-   
+ <div class="subheader">Restaurants</div>
  <!--establishments cards-->
  <section class="container">
    {{#if results}}
@@ -30,6 +31,18 @@
    <p>No results found.</p>
    {{/if}}
  </section> 
+  <div class="subheader">Review</div>
+  <!--review cards-->
+  <div class="container">
+  {{#if reviews}}
+  {{#each reviews as |review|}}
+  {{> searchReviewCard review}}
+  {{/each}}
+  {{else}}
+  <p>No reviews found.</p>
+  {{/if}}
+  </div>
+  </section>
 
 </body>
 

@@ -349,3 +349,11 @@ background-color: #263a29;
     padding: 10px 20px;
   }
 }
+
+/* Review Card */
+
+.review-resto_name{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}

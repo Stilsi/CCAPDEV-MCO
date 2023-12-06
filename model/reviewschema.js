@@ -33,6 +33,8 @@ const reviewSchema = new mongoose.Schema({
   ]
 });
 
+reviewSchema.index({ comment: 'text' });
+
 reviewSchema.pre('save', async function (next) {
     if (this.isNew) {
       console.log('Saving new review');

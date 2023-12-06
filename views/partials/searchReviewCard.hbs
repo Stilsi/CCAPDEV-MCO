@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../../public/css/userReviewCard.css">
+    <script src="/model/restaurantschema.js"></script>
+    <script src="/model/reviewschema.js"></script>
+</head>
+<body>
+    <div class="card">
+        <div class="review-resto_name">{{restaurant}}</div>
+        <div class="reviewdby">Reviewed by:</div>
+        <div>
+            <img class="review-user-profilepicture" src="{{usericon}}">
+            <div class="review-username">@{{username}}</div>
+        </img>
+        <div class="review-title">{{title}}</div>
+        <div class="review-comment">{{comment}}</div>
+        <div class="review-helpful">Helpful: {{helpfulCount}}</div>
+        <div class="review-unhelpful">Unhelpful: {{unhelpfulCount}}</div>
+        <a class="view" role="button" href="/restaurant/{{_id}}">SEE MORE</a>
+    </div>
+</body>
+
+</html>
