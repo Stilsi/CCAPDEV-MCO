@@ -5,54 +5,49 @@ import Handlebars from 'handlebars';
 
 const router = express.Router();
 router.get('/', function(req, res) {
-    const user = req.session.user;
-    res.render('edit-profile', { user: user });
- }); 
- 
- 
-//  router.post('/', async function(req, res) {
-//     const { description } = req.body;
-//     const username = req.session.user.username;
-//     try {
-//         const existingUser = await User.findOne({ username });
+ const user = req.session.user;
+ res.render('edit-profile', { user: user });
+ console.log(user);
+});
 
-//         if (existingUser) {
-//             user.descriptionTitle = descTitle;
-//             await user.save();
-//             res.status(200).json({ message: 'User description updated successfully' });
-//         } else {
-//             res.status(404).json({ message: 'User not found' });
-//         }        
-//         res.redirect('/edit-profile');
-//     } catch (err) {
-//         console.error(error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
 
-//  router.post('/update', async function(req, res) {
-//     const username = req.session.user.username;
-//     const { descTitle } = req.body;
-//     console.log('description title', descTitle);
-//     try {
-//         const user = await User.findOne({ username });
-//         if (user) {
-//             user.descriptionTitle = descTitle;
-//             await user.save();
-//             res.status(200).json({ message: 'User description updated successfully' });
-//         } else {
-//             res.status(404).json({ message: 'User not found' });
-//         }
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send('Internal Server Error');
-//     }
-//     console.log('What');
-//     console.log('Hello from update');
-
-// });
- 
-
+router.get('/:id', async (req, res) => {
+    const userId = req.params.id;
+    console.log(userId);
+    try {
+      // Use the await keyword to wait for the findById method to resolve
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).send('User not found');
+      }
+  
+      // Adjust the response based on your needs
+      res.status(200).send(user);
+    } catch (error) {
+      console.error('Error retrieving user:', error);
+      res.status(500).send(error.message);
+    }
+  });
+  
+  router.put('/:id', async (req, res) => {
+    const userId = req.params.id;
+    const updatedUser = req.body;
+    console.log(userId);
+    try {
+      const user = await User.findByIdAndUpdate(userId, updatedUser, { new: true });
+  
+      if (!user) {
+        return res.status(404).send('User not found');
+      }
+  
+      // Adjust the response based on your needs
+      res.status(200).send(user);
+    } catch (error) {
+      console.error('Error updating User', error);
+      res.status(500).send(error.message);
+    }
+  });
 
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
  const result = a == b; // Or === depending on your needs
