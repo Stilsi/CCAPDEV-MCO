@@ -435,3 +435,30 @@ font-weight: 700;
   margin: 10px;
   color: #263a29;
 }
+
+/* Styles for the dropdown selection */
+.dropdown-selection {
+  width: 200px; /* Adjust width as needed */
+  margin: 20px auto; /* Adjust margin as needed */
+  text-align: center;
+}
+
+/* Styles for the select element */
+.rating {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #263a29;
+  background-color: #fff;
+  color: #263a29;
+  outline: none;
+
+}
+
+/* Styles for the options */
+.rating option {
+  font-size: 16px;
+  color: #263a29;
+}
+
