@@ -16,6 +16,7 @@
     <script src="/model/reviewschema.js"></script>
     <script src="/public/js/edit-profile.js"></script>
     <script src="/controller/edit-profile.js"></script>
+    
 
 </head>
 
@@ -24,7 +25,7 @@
     {{> navbar}}
 
     <!-- Body -->
-    <div class="profile_text">
+    {{!-- <div class="profile_text">
         <div class="profile_pic">
             <img src="{{user.profilePicture}}">
             <p>Do you want to replace your icon?</p>
@@ -46,6 +47,28 @@
                 </form>
                 <textarea name="newMessage" rows="5" placeholder="{{user.fullName}} (@{{user.username}}) {{user.description}}"></textarea>
             </div>
+        </div>
+    </div> --}}
+    <div class="profile_text">
+        <div class="profile_pic">
+            <img src="{{user.profilePicture}}">
+            <p>Do you want to replace your icon?</p>
+
+            <form id="edit-user-form-{{user.userId}}" action="/edit-profile/{{user.userId}}" method="PUT">
+
+                        <!-- Add the hidden field for method override -->
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="userId" value="{{user.userId}}">
+                <!-- Input for uploading a new image -->
+                <label for="image">Select an image to upload:</label>
+                <input type="file" name="image" id="image" accept="image/*">
+
+                <!-- Input for editing profile text header -->
+                <input id="profile_text_header" type="text" name="newDescriptionTitle" placeholder="{{user.descriptionTitle}}">
+                <textarea name="newMessage" rows="5" placeholder="{{user.fullName}} (@{{user.username}}) {{user.description}}"></textarea>
+                <!-- Save button for the entire form -->
+                <input type="submit" value="Submit">
+                    </form>
         </div>
     </div>
 
