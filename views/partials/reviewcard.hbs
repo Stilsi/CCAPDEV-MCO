@@ -219,7 +219,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="user-info">
-                    <a href="/user-profile">
+                    <a href="/this-profile/{{review.username}}">
                         <img src="{{review.usericon}}">
                         <span class="username">@{{review.username}}</span>
                     </a>
@@ -278,7 +278,7 @@
                         <!-- Display existing comments here -->
                         {{#each review.replies}}
                         <div class="reply">
-                            <a href="/user-profile/{{this.userId}}">
+                            <a href="/this-profile/{{review.username}}">
                                 <img class="reply" src="{{this.user.profilePicture}}">
                                 <span id="replyusername">@{{this.user.username}}</span>
                             </a>

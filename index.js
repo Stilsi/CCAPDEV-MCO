@@ -18,6 +18,7 @@ import logoutRoutes from './controller/logout.js';
 import reviewRoutes from './controller/review.js';
 import userProfileRoutes from './controller/user-profile.js';
 import editProfileRoutes from './controller/edit-profile.js';
+import thisProfileRoutes from './controller/this-profile.js';
 
 import Review from './model/reviewschema.js'
 import Restaurant from "./model/restaurantschema.js";
@@ -115,6 +116,8 @@ app.use("/logout", logoutRoutes);
 app.use("/review", reviewRoutes);
 
 app.use("/user-profile", userProfileRoutes);
+
+app.use("/this-profile", thisProfileRoutes);
 
 const authenticateUser = (req, res, next) => {
   if (!req.session || !req.session.user) {
